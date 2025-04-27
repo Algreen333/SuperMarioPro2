@@ -1,0 +1,24 @@
+Added coin.hh:
+    - Modified utils.hh:
+        - Added typedef Sprite -> Modified paint_sprite
+        - Added paint_rect() and paint_rect_fill()
+    
+    - Modified geometry.hh:
+        - Added struct DoubPt
+        - Added round_dpt()
+        - Added check_collision()
+
+    - Added text.hh:
+        - Created assets for font and colors
+        - Created font tools to create fonts
+
+Modified mario.hh:
+    - Changed physics:
+        - Changed velocity and acceleration to be DoubPt (double values instead of int)
+        - Jumps now add velocity instead of having an acceleration for 'accel_time' frames
+        - Moving right/left adds acceleration that gets countered by drag
+        - Falling is also affected by drag
+
+    - Added coin counter functionality
+
+    - Added get_collision_box()

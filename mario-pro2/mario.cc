@@ -12,6 +12,7 @@ const int h = pro2::black;
 const int g = 0xaaaaaa;
 const int w = 0x8d573c;
 
+
 // clang-format off
 const vector<vector<int>> Mario::mario_sprite_normal_ = {
     {_, _, _, r, r, r, r, r, _, _, _, _},
@@ -31,11 +32,19 @@ const vector<vector<int>> Mario::mario_sprite_normal_ = {
     {_, w, w, w, _, _, _, _, w, w, w, _},
     {w, w, w, w, _, _, _, _, w, w, w, w},
 };
+
+const double Mario::walk_acc = 1.2;
+const double Mario::x_drag_c = 0.2;
+
 // clang-format on
 
 void Mario::paint(pro2::Window& window) const {
     const Pt top_left = {pos_.x - 6, pos_.y - 15};
     paint_sprite(window, top_left, mario_sprite_normal_, looking_left_);
+}
+
+pro2::Rect Mario::collision_box() const {
+    return pro2::Rect{pos_.x - 6, pos_.y - 15, pos_.x + 6, pos_.y};
 }
 
 void Mario::apply_physics_() {
@@ -47,39 +56,39 @@ void Mario::apply_physics_() {
     // Always falling to check if we aren't grounded
     // If we are, we will return to the same spot
 
-    const int gravity = 1;  // gravity = 1 pixel / frame_time^2
-    speed_.y += gravity;
+    DoubPt drag_force = {drag_coef_.x*speed_.x, drag_coef_.y*speed_.y};
 
-    if (accel_time_ > 0) {
-        speed_.y += accel_.y;
-        accel_time_--;
-    }
+    speed_.y += gravity + accel_.y - drag_force.y;
+    speed_.x += accel_.x - drag_force.x;
 
-    pos_.x += speed_.x;
-    pos_.y += speed_.y;
+    Pt rounded_speed = round_dpt(speed_);
+
+    pos_.x += rounded_speed.x;
+    pos_.y += rounded_speed.y;
 }
 
 void Mario::jump() {
     if (grounded_) {
-        accel_.y = -6;
+        speed_.y = -17.5;
         grounded_ = false;
-        accel_time_ = 2;
     }
 }
 
 void Mario::update(pro2::Window& window, const vector<Platform>& platforms) {
     last_pos_ = pos_;
-    if (window.is_key_down(Keys::Space)) {
+    
+    if (window.is_key_down(key_up_)) {
         jump();
     }
-
-    // Velocitat horitzontal
-    speed_.x = 0; 
-    if (window.is_key_down(Keys::Left)) {
-        speed_.x = -4;
-    } else if (window.is_key_down(Keys::Right)) {
-        speed_.x = 4;
+        
+    // Velocitat horitzontal (prev speed_x = 4)
+    if (window.is_key_down(key_left_)) {
+        accel_.x = -walk_acc;
+    } else if (window.is_key_down(key_right_)) {
+        accel_.x = walk_acc;
     }
+    else accel_.x = 0;
+
     if (speed_.x != 0) {
         looking_left_ = speed_.x < 0;
     }

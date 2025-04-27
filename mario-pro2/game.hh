@@ -5,13 +5,19 @@
 #include "mario.hh"
 #include "platform.hh"
 #include "window.hh"
+#include "coin.hh"
+#include "text.hh"
 
 class Game {
     Mario                 mario_;
     std::vector<Platform> platforms_;
+    std::vector<Coin>     coins_;
 
     bool finished_;
+    bool paused_;
 
+    pro2::TextWriter TW_;
+    
     void process_keys(pro2::Window& window);
     void update_objects(pro2::Window& window);
     void update_camera(pro2::Window& window);
@@ -26,8 +32,17 @@ class Game {
         return finished_;
     }
 
+    bool is_paused() const {
+        return paused_;
+    }
+
+    void spawn_coin(pro2::Pt pos, pro2::DoubPt vel);
+
  private:
     static constexpr int sky_blue = 0x5c94fc;
+    static constexpr int col_marc = 0xfcba03;
+
+    static constexpr int anim_len = 10;
 };
 
 #endif
