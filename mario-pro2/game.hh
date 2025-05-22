@@ -7,6 +7,7 @@
 #include "window.hh"
 #include "coin.hh"
 #include "text.hh"
+#include "finder.hh"
 
 class Game {
     Mario                 mario_;

@@ -33,6 +33,10 @@ class Coin {
 
     pro2::Rect collision_box() const;
 
+    inline pro2::Rect get_rect() const {
+        return {pos_.x, pos_.y, pos_.x + sz_w, pos_.y + sz_h};
+    }
+
     inline std::vector<std::vector<int>> get_sprite() const {
         return sprites[animation[curr_anim_frame_]];
     }
@@ -67,6 +71,8 @@ class Coin {
  private:
     static const std::vector<std::vector<std::vector<int>>> sprites;
     static const std::vector<int> animation;
+    static const int sz_h;
+    static const int sz_w;
 };
 
 #endif

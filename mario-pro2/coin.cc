@@ -63,8 +63,8 @@ const vector<vector<vector<int>>> Coin::sprites = {
 };
 // clang-format on
 
-const int sz_h = 14;
-const int sz_w = 10;
+const int Coin::sz_h = 14;
+const int Coin::sz_w = 10;
 
 const vector<int> Coin::animation {
     0,0,0,0,0,0,

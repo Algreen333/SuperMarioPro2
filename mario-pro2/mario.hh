@@ -1,7 +1,6 @@
 #ifndef MARIO_HH
 #define MARIO_HH
 
-#include <iostream>
 #include <vector>
 #include "platform.hh"
 #include "window.hh"
@@ -24,6 +23,8 @@ class Mario {
 
     int coin_count_ = 0;
 
+    double max_y_speed_ = 12;
+
 	void apply_physics_();
 	
  public:
@@ -31,8 +32,8 @@ class Mario {
         int key_up, int key_left, int key_right, 
         pro2::Pt pos, 
         pro2::DoubPt speed = {0,0}, 
-        pro2::DoubPt accel = {0, -1}, 
-        pro2::DoubPt drag_coef = {x_drag_c, 0.065}
+        pro2::DoubPt accel = {0, 0}, 
+        pro2::DoubPt drag_coef = {x_drag_c, 0}
     ):
         key_up_(key_up), key_left_(key_left), key_right_(key_right),
         pos_(pos), last_pos_(pos), speed_(speed), accel_(accel), drag_coef_(drag_coef) 

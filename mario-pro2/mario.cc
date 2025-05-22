@@ -59,6 +59,7 @@ void Mario::apply_physics_() {
     DoubPt drag_force = {drag_coef_.x*speed_.x, drag_coef_.y*speed_.y};
 
     speed_.y += gravity + accel_.y - drag_force.y;
+    speed_.y = clamp(speed_.y, -max_y_speed_, max_y_speed_);
     speed_.x += accel_.x - drag_force.x;
 
     Pt rounded_speed = round_dpt(speed_);
@@ -69,7 +70,7 @@ void Mario::apply_physics_() {
 
 void Mario::jump() {
     if (grounded_) {
-        speed_.y = -17.5;
+        speed_.y = -12;
         grounded_ = false;
     }
 }
