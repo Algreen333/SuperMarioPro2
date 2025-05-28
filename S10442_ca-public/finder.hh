@@ -1,68 +1,75 @@
 #ifndef FINDER_HH
 #define FINDER_HH
 
-#include "geometry.hh"
-#include <algorithm>
-#include <map>
 #include <set>
+#include <map>
 #include <vector>
+#include "geometry.hh"
 
 
-const int NUM_DIVS = 32;
-const int MAX_SZ = 20000;
-const int DIVIDER = MAX_SZ/NUM_DIVS;
+template <class T>
+bool comparelesstop(const T * a, const T * b) {
+    int ra = a->get_rect().top;
+    int rb = b->get_rect().top;
+    
+    return (ra == rb)? a < b : ra < rb;
+}
+template <class T>
+bool comparelessbottom(const T * a, const T * b) {
+    int ra = a->get_rect().bottom;
+    int rb = b->get_rect().bottom;
+    
+    return (ra == rb)? a < b : ra < rb;
+}
+template <class T>
+bool comparelessleft(const T * a, const T * b) {
+    int ra = a->get_rect().left;
+    int rb = b->get_rect().left;
+    
+    return (ra == rb)? a < b : ra < rb;
+}
+template <class T>
+bool comparelessright(const T * a, const T * b) {
+    int ra = a->get_rect().right;
+    int rb = b->get_rect().right;
+    
+    return (ra == rb)? a < b : ra < rb;
+}
 
-template <typename T>
+
+template <class T>
 class Finder {
     private:
-        // Vector de caselles amb els objectes
-        std::vector< std::set<const T *> > _container;
-        
-        // Set d'apuntadors a les caselles on hi ha l'objecte
-        std::map<const T *, std::set<int> > _locator; 
-
+        std::set<const T *, comparelesstop> topwise;
+        std::set<const T *, comparelessbottom> bottomwise;
+        std::set<const T *, comparelessleft> leftwise;
+        std::set<const T *, comparelessright> rightwise;
+    
     public:
-        Finder() {
-            // Inicialitza les {NUM_DIVS*NUM_DIVS} caselles
-            _container = std::vector< std::set<const T *> > (NUM_DIVS*NUM_DIVS);
-        };
+        Finder();
 
         void add(const T *t) {
-            pro2::Rect rect = t->get_rect();
-            for (int i = rect.top/DIVIDER; i <= rect.bottom/DIVIDER; i++) {
-                for (int j = rect.left/DIVIDER; j <= rect.right/DIVIDER; j++) {
-                    _container[i*NUM_DIVS + j].insert(t);
-                    _locator[t].insert(i*NUM_DIVS + j);
-                }
-            }
+            topwise.insert(t);
+            bottomwise.insert(t);
+            leftwise.insert(t);
+            rightwise.insert(t);
         };
-        
+
         void update(const T *t) {
             remove(t);
             add(t);
         };
-        
-        void remove(const T *t) {
-            for (std::set<int>::iterator it = _locator.find(t)->second.begin(); it != _locator.find(t)->second.end(); it++) {
-                _container[*it].erase(t);
-            }
-            _locator.erase(t);
-        };
-        
-        std::set<const T *> query(pro2::Rect rect) const {
-            std::set<const T *> result;
-            for (int i = rect.top/DIVIDER; i <= rect.bottom/DIVIDER; i++) {
-                for (int j = rect.left/DIVIDER; j <= rect.right/DIVIDER; j++) {
-                    for (typename std::set<const T *>::const_iterator it = _container[i*NUM_DIVS + j].begin(); it != _container[i*NUM_DIVS + j].end(); it++) {
-                        pro2::Rect obj_rect = (*it)->get_rect();
-                        if ((rect.left <= obj_rect.left ? rect.right >= obj_rect.left : rect.left <= obj_rect.right) and (rect.top <= obj_rect.top ? rect.bottom >= obj_rect.top : rect.top <= obj_rect.bottom)) result.insert(*it);
-                    } 
-                }
-            }
 
-            return result;
+        void remove(const T *t) {
+            topwise.erase(t);
+            bottomwise.erase(t);
+            leftwise.erase(t);
+            rightwise.erase(t);
+        };
+
+        std::set<const T *> query(pro2::Rect rect) const {
+            std::set<const T *> 
         };
 };
 
-    
 #endif

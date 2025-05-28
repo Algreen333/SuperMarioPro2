@@ -1,0 +1,16 @@
+A banda de la classe coin.hh s'han fet els següents canvis adicionals:
+
+- Creació de text.hh:
+    Aquest mòdul afegeix funcionalitats per a dibuixar text a la pantalla
+    Aquest mòdul depen de la carpeta "assets" on es guarden les fonts
+
+- S'ha modificat mario.hh per tal que pugui tenir un comptador de monedes
+
+- S'han afegit funcions i definicions a geometry.hh:
+    - struct DoubPt: Punts de tipus double
+    - round_dpt(): Passa de DoubPt a Pt
+    - check_collision(): Retorna si s'interseccionen dos Rect
+
+- S'ha afegit a utils.hh la funció random_double() que retorna un valor a l'atzar
+
+- S'ha modificat game.hh i game.cc per afegir la nova classe i la seva funcionalitat
