@@ -1,6 +1,7 @@
 #include <vector>
 #include "game.hh"
 #include "window.hh"
+#include "start_screen.hh"
 
 using namespace std;
 
@@ -10,12 +11,26 @@ const int FPS = 48;
 
 int main() {
     pro2::Window window("Mario Pro 2", WIDTH, HEIGHT, ZOOM);
+    pro2::TextWriter tw("assets/6x10rounded.txt","assets/colors.txt");
+    tw.set_charset("assets/charset.txt");
     window.set_fps(FPS);
 
-    Game game(WIDTH, HEIGHT);
+    StartScreen startscreen(WIDTH, HEIGHT, tw);
+    Game game(WIDTH, HEIGHT, tw);
 
-    while (window.next_frame() && !game.is_finished()) {
-        game.update(window);
-        game.paint(window);
+    while (startscreen.exit_code() != -1) {
+        while (window.next_frame() && !startscreen.is_finished()) {
+            startscreen.update(window);
+            startscreen.paint(window);
+        }
+        if (startscreen.exit_code() == 1) {
+            Game game(WIDTH, HEIGHT, tw);
+            while (window.next_frame() && !game.is_finished()) {
+                game.update(window);
+                game.paint(window);
+            }
+            startscreen.restart(window);
+        }
     }
+    return 0;
 }

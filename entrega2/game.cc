@@ -1,45 +1,42 @@
 #include "game.hh"
-#include "game.hh"
 #include "utils.hh"
 #include <iostream>
 using namespace pro2;
 
-Game::Game(int width, int height): 
+Game::Game(int width, int height, TextWriter TW, pro2::Rect death_barrier): 
     mario_(Keys::Up, Keys::Left, Keys::Right, {width / 2, 150}),
-    platforms_{
-        Platform(100, 300, 200, 211),
-        Platform(0, 200, 250, 261),
-        Platform(250, 400, 150, 161),
-    },
-    coins_{
-      Coin({width/2, 100}),
-      Coin({width/2 + 50, 100}),
-      Coin({width/2 + 100, 100}),
-      Coin({width/2, 120}, {0,-10}, {0,0}),
-      Coin({width/2, 120}, {15, -10}, {0,0}),
-      Coin({width/2 - 150, 120}, {25, -15}, {0,0})
-    },
+    platforms_(Finder<Platform>({-10000,-10000,100000,100000}, {100,100})),
+    coins_(Finder<Coin>({-10000,-1000,100000,1000}, {100,100})),
+    blocks_(Finder<Block>({-10000,-1000,100000,1000}, {100,100})),
     finished_(false), 
-    TW_("assets/6x10rounded.txt","assets/colors.txt")
+    TW_(TW),
+    paused_(false)
     {
-    for (int i = 1; i < 200000; i++) {
-        platforms_.push_back(Platform(250 + i * 200, 400 + i * 200, 150, 161));
+    /*
+    for (int i = 1; i < 1000; i++) {
+        platforms_list_.emplace_back(i * 200, 150 + i * 200, 150, 161);
+        platforms_.add(&platforms_list_.back());
+        for (int j = 1; j < 10; j++) {
+            coins_list_.emplace_back(pro2::Pt{i * 200 + 15 * j, 150});
+            coins_.add(&coins_list_.back());
+        }
     }
-
-    //Finder<Platform> platform_finder = InitializeFinder(platforms_);
-    platform_finder = Finder<Platform>({-10000,-10000,100000,100000}, {100,100});
-    platform_finder.AddFromVector(platforms_);
-    platform_finder.add(&platforms_[0]);
-    platform_finder.add(&platforms_[1]);
-    platform_finder.add(&platforms_[2]);
-
-    TW_.set_charset("assets/charset.txt");
+    */
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 10; j++) {
+            blocks_list_.emplace_back(0, pro2::Pt{(i*14 + j)*16, 172});
+            blocks_.add(&blocks_list_.back());
+            coins_list_.emplace_back(pro2::Pt{(i*14 + j)*16 + 8, 170});
+            coins_.add(&coins_list_.back());
+        }
+    }
+    blocks_list_.emplace_back(0, pro2::Pt{16, 156});
+    blocks_.add(&blocks_list_.back());
 }
 
 void Game::process_keys(pro2::Window& window) {
     if (window.is_key_down(Keys::Escape)) {
         finished_ = true;
-        return;
     }
 
     if (window.was_key_pressed('P')) {
@@ -53,23 +50,37 @@ void Game::process_keys(pro2::Window& window) {
 }
 
 void Game::update_objects(pro2::Window& window) {
-    mario_.update(window, platforms_);
-    
-    pro2::Rect mario_collision_box = mario_.collision_box();
+    anim_step();
 
-    std::vector<Coin>::iterator coin_it = coins_.begin();
-    while (coin_it != coins_.end()) {
-        if (check_collision(mario_collision_box, (*coin_it).collision_box())) {
-            coin_it = coins_.erase(coin_it);
-            mario_.add_coin();
-        }
-        else {
-            coin_it++;
-        }
+    // Check colision with mario and coins
+    pro2::Rect mario_collision_box = mario_.collision_box();
+    std::set<Coin *> colliding_coins = coins_.query(mario_collision_box);
+
+    for (Coin * c : coins_.query(mario_collision_box)) {
+        coins_.remove(c);
+        coins_list_.remove_if([c](const Coin& coin) {
+            return &coin == c;
+        });
+
+        mario_.add_coin();
     }
 
-    for (int i = 0; i < coins_.size(); i++) {
-        coins_[i].update(window, platforms_);
+    // Process objects within processing box
+    const Pt cam = window.camera_center();
+    pro2::Rect processing_box = {
+        cam.x - window.width() / 2 - 10, 
+        cam.y - window.height() / 2 - 10, 
+        cam.x + window.width() / 2 + 10, 
+        cam.y + window.height() / 2 + 10
+    };
+
+    std::set<Platform *> close_platforms = platforms_.query(processing_box);
+    std::set<Block *> close_blocks = blocks_.query(processing_box);
+
+    mario_.update(window, close_platforms, close_blocks);
+
+    for (Coin * c : coins_.query(processing_box)) {
+        c->update(window, close_platforms);
     }
 }
 
@@ -108,33 +119,41 @@ void Game::update(pro2::Window& window) {
 void Game::paint(pro2::Window& window) {
     window.clear(sky_blue);
 
-    pro2::Rect mario_collision_box = mario_.collision_box();
-
     const Pt cam = window.camera_center();
-
-    const int left = cam.x - window.width() / 2;
-    const int right = cam.x + window.width() / 2;
-    const int top = cam.y - window.height() / 2;
-    const int bottom = cam.y + window.height() / 2;
-
-    pro2::Rect view_box = {left, top, right, bottom};
-
-    std::set<const Platform *> platforms_to_draw = platform_finder.query(view_box);
+    pro2::Rect view_box = {
+        cam.x - window.width() / 2, 
+        cam.y - window.height() / 2, 
+        cam.x + window.width() / 2, 
+        cam.y + window.height() / 2
+    };
         
-    for (std::set<const Platform *>::const_iterator it = platforms_to_draw.begin(); it != platforms_to_draw.end(); it++) {
-        (*it)->paint(window);
+    for (Platform* platform : platforms_.query(view_box)) {
+        platform->paint(window);
     }
 
-    for (const Coin& c : coins_) {
-        c.paint(window);
+    for (Coin* c : coins_.query(view_box)) {
+        c->paint(window, curr_anim_frame_);
+    }
+
+    for (Block* block : blocks_.query(view_box)) {
+        block->paint(window, curr_anim_frame_);
     }
 
     mario_.paint(window);
+    
+    Sprite coin_sprite = Coin::sprites[0];
+    paint_sprite(window, {cam.x - 12 + window.width() / 2, cam.y - window.height() / 2 + 2}, coin_sprite, false);
 
-    TW_.write_text(window, {right - int(12*std::to_string(mario_.get_coin_count()).size()), top + 2}, std::to_string(mario_.get_coin_count()), 2, 2);
+    TW_.write_text(window, {cam.x - 16 + window.width() / 2, cam.y - window.height() / 2 + 2}, std::to_string(mario_.get_coin_count()), 2, 2, {2,0});
+    
+    if (paused_) {
+        //pro2::paint_rect_fill(window, view_box, 0xFF0000);
+        pro2::paint_rect_fill_transparent(window, view_box, 0, 0.2);
+        TW_.write_text(window, {cam.x, cam.y}, "PAUSED", 4,4, {1,1});
+    }
 }
 
 void Game::spawn_coin(pro2::Pt pos, pro2::DoubPt vel) {
-    Coin new_coin(pos, vel, {0,0});
-    coins_.push_back(new_coin);
+    coins_list_.emplace_back(pos, vel, DoubPt{0,0});
+    coins_.add(&coins_list_.back());
 }

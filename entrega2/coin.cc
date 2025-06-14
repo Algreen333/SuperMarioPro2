@@ -76,9 +76,9 @@ pro2::Rect Coin::collision_box() const {
     return pro2::Rect{pos_.x - sz_w/2, pos_.y - sz_h, pos_.x + sz_w/2, pos_.y};
 }
 
-void Coin::paint(pro2::Window& window) const {
+void Coin::paint(pro2::Window& window, int anim_frame) const {
     const Pt top_left = {pos_.x - sz_w/2, pos_.y - sz_h};
-    paint_sprite(window, top_left, Coin::get_sprite(), false);
+    paint_sprite(window, top_left, Coin::get_sprite(anim_frame), false);
 }
 
 void Coin::apply_physics_() {
@@ -101,7 +101,7 @@ void Coin::apply_physics_() {
     pos_.y += rounded_speed.y;
 }
 
-void Coin::update(pro2::Window& window, const vector<Platform>& platforms) {
+void Coin::update(pro2::Window& window, const set<Platform *>& platforms) {
     last_pos_ = pos_;
     
     // Apply acceleration and speed
@@ -110,12 +110,10 @@ void Coin::update(pro2::Window& window, const vector<Platform>& platforms) {
     // Check position
     set_grounded(false);
 
-    for (const Platform& platform : platforms) {
-        if (platform.has_crossed_floor_downwards(last_pos_, pos_)) {
+    for (const Platform* platform : platforms) {
+        if (platform->has_crossed_floor_downwards(last_pos_, pos_)) {
             set_grounded(true);
-            set_y(platform.top());
+            set_y(platform->top());
         }
     }
-    
-    anim_step();
 }

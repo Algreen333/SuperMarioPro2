@@ -1,5 +1,6 @@
 #include "mario.hh"
 #include "utils.hh"
+#include <iostream>
 using namespace std;
 using namespace pro2;
 
@@ -71,7 +72,7 @@ void Mario::jump() {
     }
 }
 
-void Mario::update(pro2::Window& window, const vector<Platform>& platforms) {
+void Mario::update(pro2::Window& window, const set<Platform *>& platforms, const set<Block *>& blocks) {
     last_pos_ = pos_;
     
     if (window.is_key_down(key_up_)) {
@@ -95,10 +96,33 @@ void Mario::update(pro2::Window& window, const vector<Platform>& platforms) {
     // Check position
     set_grounded(false);
 
-    for (const Platform& platform : platforms) {
-        if (platform.has_crossed_floor_downwards(last_pos_, pos_)) {
+    for (const Block* block : blocks) {
+        std::pair<bool, int> vert_collision = resolve_collision_vertical({last_pos_.x - 6, last_pos_.y - 15, last_pos_.x + 6, last_pos_.y}, {pos_.x - 6, pos_.y - 15, pos_.x + 6, pos_.y}, block->get_rect());   
+        std::pair<bool, int> hor_collision = resolve_collision_horizontal({last_pos_.x - 6, last_pos_.y - 15, last_pos_.x + 6, last_pos_.y}, {pos_.x - 6, pos_.y - 15, pos_.x + 6, pos_.y}, block->get_rect());   
+        
+        if (vert_collision.first) {
+            speed_.y = 0; 
+            if (vert_collision.second > 0) {
+                pos_.y = block->get_rect().top;
+                set_grounded(true);
+            }
+            else {
+                pos_.y = block->get_rect().bottom - 15;
+            }
+        }    
+        if (hor_collision.first) {
+            speed_.x = 0;
+            if (hor_collision.second > 0) {
+                pos_.x = block->get_rect().left;
+            }
+            else pos_.x = block->get_rect().right;
+        }    
+    }
+
+    for (const Platform* platform : platforms) {
+        if (platform->has_crossed_floor_downwards(last_pos_, pos_)) {
             set_grounded(true);
-            set_y(platform.top());
+            set_y(platform->top());
         }
     }
 }

@@ -70,6 +70,12 @@ namespace pro2 {
      */
     void paint_char(Window& window, Pt& pos, Sprite sprite, int& size);
 
+    /**
+     * @brief Separa un string multilínia (separades per '\n') en un vector de strings per cada línia
+     * 
+     * @param text Text a dividir
+     */
+    std::vector<std::string> split_lines(std::string text);
 
     /**
      * @class TextWriter
@@ -116,9 +122,11 @@ namespace pro2 {
              * @param text   String amb el text a dibuixar
              * @param space_between_chars Espai que es deixarà entre caràcters
              * @param size   Tamany (gruix) del text
+             * @param alignment Determina com estarà alineat el text: {x_align, y_align}
+             *      x_align i y_align poden tenir valors [0,1,2] que equivalen [left/top, centre, right/bottom]. 
+             *      Per exemple amb align {0,0}, tindrà a orig la cantonada esquerra superior del text
              */
-            void write_text(Window& window, const Pt& orig, const std::string& text, int space_between_chars, int size);
-    };
-
-    #endif
-}
+            void write_text(Window& window, const Pt& orig, const std::string& text, int space_between_chars=1, int size=4, Pt alignment={0,0});
+        };
+    }
+#endif

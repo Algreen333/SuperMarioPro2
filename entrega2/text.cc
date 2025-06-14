@@ -1,5 +1,7 @@
 #include "text.hh"
 #include <iostream>
+#include <string>
+#include <vector>
 #include <fstream>
 #include <sstream> 
 #include <map>
@@ -85,16 +87,29 @@ namespace pro2 {
         }
     }
 
+    std::vector<std::string> split_lines(std::string text) {
+        std::vector<std::string> splitted;
+        size_t pos;
+        while ((pos = text.find('\n')) != std::string::npos) {
+            splitted.push_back(text.substr(0, pos));
+            text.erase(0, pos + 1);
+        }
+        splitted.push_back(text);
+        return splitted;
+    }
+
     TextWriter::TextWriter(Font font, std::string palette_path) {
         font_ = font; 
         std::ifstream strm = read_file(palette_path);
         palette_ = read_colors(strm);
     }
+
     TextWriter::TextWriter(std::string font_path, Palette palette) {
         palette_ = palette;
         std::ifstream strm = read_file(font_path);
         font_ = read_sprites(strm);
     }
+
     TextWriter::TextWriter(std::string font_path, std::string palette_path) {
         std::ifstream strm = read_file(font_path);
         font_ = read_sprites(strm);
@@ -110,7 +125,7 @@ namespace pro2 {
     void TextWriter::set_palette(std::string path) {
         std::ifstream strm = read_file(path);
         palette_ = read_colors(strm);
-    };
+    }
 
     void TextWriter::set_charset(std::string path) {
         std::ifstream strm = read_file(path);
@@ -119,30 +134,27 @@ namespace pro2 {
 
     Sprite TextWriter::get_sprite(char ch) const{
         Charset::const_iterator it = charset_.find(ch);
-        if (it == charset_.end()) {
-            it--; // Null character
-            std::cout << "NULL\n";
+        if (it == charset_.end() or it->second > font_.size()-1) {
+            return color_sprite(font_[font_.size()-1], palette_);
         }
-        Font::const_iterator sp_it = font_.begin();
-        for (int i = 0; i < it->second; i++) sp_it++;
-        
-        return color_sprite(*sp_it, palette_);
+        else return color_sprite(font_[it->second], palette_);
     }
 
-    void TextWriter::write_text(Window& window, const Pt& orig, const std::string& text, int space_between_chars=1, int size=4) {
-        Pt cursor = orig;
-
+    void TextWriter::write_text(Window& window, const Pt& orig, const std::string& text, int space_between_chars, int size, Pt alignment) {
+        Pt cursor;
         int char_h = font_[0].size(), char_w = font_[0][0].size();
-        
-        char ch;
-        std::istringstream strm(text);
-        while (strm >> ch) {
-            if (ch == '\n') {
-                cursor.y += char_h*size + space_between_chars;
-                cursor.x = orig.x;
-            }
-            else {
-                paint_char(window, cursor, get_sprite(ch), size);
+        std::vector<std::string> splitted = split_lines(text);
+
+        int max_x_sz = 0;
+        for (int i = 0; i < splitted.size(); i++) max_x_sz = std::max(max_x_sz, int(splitted[i].size()));
+
+        for (int i = 0; i < splitted.size(); i++) {
+            cursor.y = orig.y + i*(char_h*size + space_between_chars) - 0.5*alignment.y*((char_h*size + space_between_chars)*splitted.size() - 2*space_between_chars);
+
+            cursor.x = orig.x - ((char_w*size + space_between_chars) * splitted[i].size() - space_between_chars)*0.5*alignment.x;
+
+            for (int j = 0; j < splitted[i].size(); j++) {
+                paint_char(window, cursor, get_sprite(splitted[i][j]), size);
                 cursor.x += char_w*size + space_between_chars;
             }
         }

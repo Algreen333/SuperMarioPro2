@@ -2,9 +2,10 @@
 #define MARIO_HH
 
 #include <iostream>
-#include <vector>
+#include <set>
 #include "platform.hh"
 #include "window.hh"
+#include "block.hh"
 
 class Mario {
  private:
@@ -17,7 +18,7 @@ class Mario {
     int key_left_;
     int key_right_;
 
-    bool grounded_ = false;
+    bool grounded_ = true;
 	bool looking_left_ = false;
 
 	void apply_physics_();
@@ -67,8 +68,8 @@ class Mario {
         return coin_count_; 
     }
 
-    void update(pro2::Window& window, const std::vector<Platform>& platforms);
-
+    void update(pro2::Window& window, const std::set<Platform *>& platforms, const std::set<Block *>& blocks);
+    
  private:
     static const std::vector<std::vector<int>> mario_sprite_normal_;
 };

@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <map>
 #include <set>
-#include <vector>
+#include <list>
 #include <iostream>
 
 
@@ -23,10 +23,10 @@ template <typename T>
 class Finder {
     private:
         // Vector de caselles amb els objectes
-        std::vector< std::set<const T *> > _container;
+        std::vector< std::set<T *> > _container;
         
         // Set d'apuntadors a les caselles on hi ha l'objecte
-        std::map<const T *, std::set<int> > _locator; 
+        std::map<T *, std::set<int> > _locator; 
 
         pro2::Pt _divider;
         pro2::Rect _range;
@@ -45,15 +45,15 @@ class Finder {
          */
         Finder (pro2::Rect range = {0,0,MAX_SZ,MAX_SZ}, pro2::Pt divider = {MAX_SZ/NUM_DIVS, MAX_SZ/NUM_DIVS}) : _range(range), _divider(divider), _num_divs({(range.right-range.left)/divider.x, (range.bottom-range.top)/divider.y}) 
         {
-            _container = std::vector< std::set<const T *> > (_num_divs.x*_num_divs.y);
+            _container = std::vector< std::set<T *> > (_num_divs.x*_num_divs.y);
         };
 
         /**
          * @brief Afegeix un element al finder.
          * 
-         * @param t (const T *t) Punter a l'element a afegir.
+         * @param t (T *t) Punter a l'element a afegir.
          */
-        void add(const T *t) {
+        void add(T *t) {
             pro2::Rect rect = t->get_rect();
             for (int i = (rect.top - _range.top)/_divider.y; i <= (rect.bottom - _range.top)/_divider.y; i++) {
                 for (int j = (rect.left - _range.left)/_divider.x; j <= (rect.right - _range.left)/_divider.x; j++) {
@@ -66,11 +66,11 @@ class Finder {
         /**
          * @brief   Actualitza les coordenades de l'objecte.
          * 
-         * @param   const T *t Punter a l'objecte
+         * @param   T *t Punter a l'objecte
          * 
          * @pre     L'objecte apuntat *t ja és present al contenidor (s'ha afegit previament i no s'ha eliminat)
          */
-        void update(const T *t) {
+        void update(T *t) {
             remove(t);
             add(t);
         };
@@ -78,27 +78,39 @@ class Finder {
         /**
          * @brief   Elimina un objecte del contenidor.
          * 
-         * @param   const T *t Punter a l'objecte
+         * @param   T *t Punter a l'objecte
          * 
          * @pre     L'objecte apuntat *t ja és present al contenidor (s'ha afegit previament i no s'ha eliminat)
          */
-        void remove(const T *t) {
+        void remove(T *t) {
             for (std::set<int>::iterator it = _locator.find(t)->second.begin(); it != _locator.find(t)->second.end(); it++) {
                 _container[*it].erase(t);
             }
             _locator.erase(t);
         };
+
+        /**
+         * @brief   Elimina un objecte del contenidor i el borra
+         * 
+         * @param   T *t Punter a l'objecte
+         * 
+         * @pre     L'objecte apuntat *t ja és present al contenidor (s'ha afegit previament i no s'ha eliminat)
+         */
+        void remove_and_delete(T *t) {
+            remove(t);
+            delete t;
+        }
         
         /**
          * @brief   Retorna un set amb els punters que interseccionen amb 'rect'
          * 
          * @param   rect pro2::Rect amb les coordenades a comprovar
          */
-        std::set<const T *> query(pro2::Rect rect) const {
-            std::set<const T *> result;
+        std::set<T *> query(pro2::Rect rect) const {
+            std::set<T *> result;
             for (int i = (rect.top - _range.top)/_divider.y; i <= (rect.bottom - _range.top)/_divider.y; i++) {
                 for (int j = (rect.left - _range.left)/_divider.x; j <= (rect.right - _range.left)/_divider.x; j++) {
-                    for (typename std::set<const T *>::const_iterator it = _container[i*_num_divs.y + j].begin(); it != _container[i*_num_divs.y + j].end(); it++) {
+                    for (typename std::set<T *>::const_iterator it = _container[i*_num_divs.y + j].begin(); it != _container[i*_num_divs.y + j].end(); it++) {
                         pro2::Rect obj_rect = (*it)->get_rect();
                         if (not(rect.left > obj_rect.right or rect.right < obj_rect.left or rect.top > obj_rect.bottom or rect.bottom < obj_rect.top)) result.insert(*it);
                     } 
@@ -110,8 +122,8 @@ class Finder {
         /**
          * @brief   Afegeix tots els elements d'un set al finder.
          */
-        void AddFromVector(std::vector<T> &set) {
-            for (typename std::vector<T>::const_iterator it = set.begin(); it != set.end(); it++) {
+        void AddFromList(std::list<T> &set) {
+            for (typename std::list<T>::const_iterator it = set.begin(); it != set.end(); it++) {
                 add(&(*it));
             }
         }

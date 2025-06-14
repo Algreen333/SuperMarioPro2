@@ -28,7 +28,7 @@ double random_double(int min, int max, int precision);
  * @param y Coordenada y.
  * @param color Color de la línea (opcional, si no se pone se asume `white`).
  */
-void paint_hline(pro2::Window& window, int xini, int xfin, int y, pro2::Color color = pro2::white);
+void paint_hline(Window& window, int xini, int xfin, int y, Color color = white);
 
 /**
  * @brief Dibuja una línea vertical en la ventana.
@@ -39,10 +39,10 @@ void paint_hline(pro2::Window& window, int xini, int xfin, int y, pro2::Color co
  * @param yfin Coordenada y final.
  * @param color Color de la línea (opcional, si no se pone se asume `white`).
  */
-void paint_vline(pro2::Window& window, int x, int yini, int yfin, pro2::Color color = pro2::white);
+void paint_vline(Window& window, int x, int yini, int yfin, Color color = white);
 
 /**
- * @brief Dibuixa un rectangle 'pro2::Rect'.
+ * @brief Dibuixa un rectangle 'Rect'.
  * 
  * @param window    Finestra a la que pintar
  * @param rect      Rectangle a pintar
@@ -50,38 +50,68 @@ void paint_vline(pro2::Window& window, int x, int yini, int yfin, pro2::Color co
  * @param brush_sz  Gruix de les línies
  */
 void paint_rect(
-    pro2::Window& window,
-    pro2::Rect    rect,
-    pro2::Color   color,
-    int           brush_sz
+    Window& window,
+    Rect    rect,
+    Color   color,
+    int     brush_sz
 );
 
 /**
- * @brief Dibuixa i emplena un rectangle 'pro2::Rect'
+ * @brief Dibuixa i emplena un rectangle 'Rect'
  * 
  * @param window    Finestra a la que pintar
  * @param rect      Rectangle a dibuixar
  * @param color     Color del rectangle
  */
 void paint_rect_fill(
-    pro2::Window& window,
-    pro2::Rect    rect,
-    pro2::Color   color
+    Window& window,
+    Rect    rect,
+    Color   color
+);
+
+/**
+ * @brief Dibuixa i emplena un rectangle 'Rect' amb transparència
+ * 
+ * @param window    Finestra a la que pintar
+ * @param rect      Rectangle a dibuixar
+ * @param color     Color del rectangle
+ * @param transp    Transparència (del 0 al 1) 
+ */
+void paint_rect_fill_transparent(
+    Window& window,
+    Rect    rect,
+    Color   color,
+    double  transp
+);
+
+/**
+ * @brief Pinta un pixel amb color i transparència.
+ * 
+ * @param window    Finestra a la que pintar
+ * @param pos       Posició del pixel
+ * @param color     Color
+ * @param transp    Transparència (del 0 al 1)
+ *                  Amb transp=0 el rectangle és totalment opac, amb transp=1 totalment transparent (invisible)
+ */
+void paint_pixel_transparent(
+    Window& window,
+    Pt      pos,
+    Color   color,
+    double  transp
 );
 
 /**
  * @brief Dibuixa una imatge/textura a la finestra a partir d'una posició
  *
- * @param window Finestra a la que pintar
- * @param orig   Origen (cantonada de dalt a l'esquerra) del rectangle que forma el _sprite_
- * @param sprite Matriu de colors que representa la imatge (_sprite_).
- * @param mirror Si cal pintar girar la textura horitzontalment
+ * @param window    Finestra a la que pintar
+ * @param orig      Origen (cantonada de dalt a l'esquerra) del rectangle que forma el _sprite_
+ * @param sprite    Matriu de colors que representa la imatge (_sprite_).
+ * @param mirror    Si cal pintar girar la textura horitzontalment
  */
-void paint_sprite(pro2::Window&     window,
-                  pro2::Pt          orig,
+void paint_sprite(Window&           window,
+                  Pt                orig,
                   const Sprite&     sprite,
                   bool              mirror);
-
 }
 
 // namespace pro2

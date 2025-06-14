@@ -1,6 +1,8 @@
 #ifndef GEOMETRY_HH
 #define GEOMETRY_HH
 
+#include <utility>
+
 namespace pro2 {
 
 struct Pt {
@@ -32,6 +34,8 @@ inline Pt round_dpt(const DoubPt& a) {
 
 struct Rect {
     int left, top, right, bottom;
+    int width() const {return right - left;}
+    int height() const {return bottom - top;}
 };
 
 /**
@@ -40,6 +44,16 @@ struct Rect {
 inline bool check_collision(const Rect& a, const Rect& b) {
     return ((a.left <= b.left ? a.right >= b.left : a.left <= b.right) and (a.top <= b.top ? a.bottom >= b.top : a.top <= b.bottom));
 };
+
+/**
+ * @brief Retorna true si s'ha interseccionat verticalment i un int amb la direcció: 1 si s'ha creuat des de sobre i -1 altrament
+ */
+std::pair<bool, int> resolve_collision_vertical(const Rect& prev, Rect curr, const Rect& block);
+
+/**
+ * @brief Retorna true si s'ha interseccionat verticalment i un int amb la direcció: 1 si s'ha creuat d'esquerra a dreta i -1 altrament
+ */
+std::pair<bool, int> resolve_collision_horizontal(const Rect& prev, Rect curr, const Rect& block);
 
 }
 
