@@ -7,7 +7,7 @@ const int k = 0x000000;
 const int y = 0xD8A22E;
 const int o = 0x8C540E;
 const int d = 0x421D03;
-
+const int w = 0xF5D0C6;
 
 const int Block::sz_w = 16;
 const int Block::sz_h = 16;
@@ -103,6 +103,24 @@ const std::vector<std::vector<std::vector<int>>> Block::sprites = {
         {b,d,k,d,d,d,d,d,k,k,d,d,d,k,d,k},
         {b,d,d,d,d,d,d,d,d,d,d,d,d,d,d,k},
         {k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k}
+    },
+    {
+        {b,w,w,w,w,w,w,w,w,w,w,w,w,w,w,k},
+        {w,b,w,w,w,w,w,w,w,w,w,w,w,w,k,k},
+        {w,w,b,w,w,w,w,w,w,w,w,w,w,k,k,k},
+        {w,w,w,b,w,w,w,w,w,w,w,w,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,w,b,b,b,b,b,b,b,b,k,k,k,k},
+        {w,w,w,k,k,k,k,k,k,k,k,k,b,k,k,k},
+        {w,w,k,k,k,k,k,k,k,k,k,k,k,b,k,k},
+        {w,k,k,k,k,k,k,k,k,k,k,k,k,k,b,k},
+        {k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,b},
     }
 };
 // clang-format on

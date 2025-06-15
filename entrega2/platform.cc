@@ -3,19 +3,29 @@ using namespace std;
 
 using pro2::Color;
 
-const int b = 0xc84d0b;
+const int b = 0x8E500E;
+const int w = 0xF7D0C7;
 const int _ = 0;
 
 // clang-format off
 const vector<vector<int>> Platform::platform_texture_ = {
-    {b, b, b, b, b, b, _}, 
-	{b, b, b, b, b, b, _}, 
-	{b, b, b, b, b, b, _}, 
-	{_, _, _, _, _, _, _},
-    {b, b, b, _, b, b, b}, 
-	{b, b, b, _, b, b, b}, 
-	{b, b, b, _, b, b, b}, 
-	{_, _, _, _, _, _, _},
+
+    {b,w,w,w,w,w,w,w,w,_,b,w,w,w,w,b},
+    {w,b,b,b,b,b,b,b,b,_,w,b,b,b,b,_},
+    {w,b,b,b,b,b,b,b,b,_,w,b,b,b,b,_},
+    {w,b,b,b,b,b,b,b,b,_,w,b,b,b,b,_},
+    {w,b,b,b,b,b,b,b,b,_,w,_,b,b,b,_},
+    {w,b,b,b,b,b,b,b,b,_,b,_,_,_,_,b},
+    {w,b,b,b,b,b,b,b,b,_,w,w,w,w,w,_},
+    {w,b,b,b,b,b,b,b,b,_,w,b,b,b,b,_},
+    {w,b,b,b,b,b,b,b,b,_,w,b,b,b,b,_},
+    {w,b,b,b,b,b,b,b,b,_,w,b,b,b,b,_},
+    {_,_,b,b,b,b,b,b,_,w,b,b,b,b,b,_},
+    {w,w,_,_,b,b,b,b,_,w,b,b,b,b,b,_},
+    {w,b,w,w,_,_,_,_,w,b,b,b,b,b,b,_},
+    {w,b,b,b,w,w,w,_,w,b,b,b,b,b,b,_},
+    {w,b,b,b,b,b,b,_,w,b,b,b,b,b,_,_},
+    {b,_,_,_,_,_,_,b,w,_,_,_,_,_,_,b}
 };
 // clang-format on
 

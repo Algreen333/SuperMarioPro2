@@ -7,6 +7,24 @@ namespace pro2 {
 
 struct Pt {
     int x = 0, y = 0;
+
+    Pt operator+(const Pt& other) const {
+        return {x + other.x, y + other.y};
+    }
+    Pt operator-(const Pt& other) const {
+        return {x - other.x, y - other.y};
+    }
+
+    Pt& operator+=(const Pt& other) {
+        x += other.x;
+        y += other.y;
+        return *this;
+    }
+    Pt& operator-=(const Pt& other) {
+        x -= other.x;
+        y -= other.y;
+        return *this;
+    }
 };
 
 /**
@@ -36,6 +54,22 @@ struct Rect {
     int left, top, right, bottom;
     int width() const {return right - left;}
     int height() const {return bottom - top;}
+
+    Rect& operator+=(const Rect& other) {
+        left += other.left;
+        right += other.right;
+        top += other.top;
+        bottom += other.bottom;
+        return *this;
+    }
+
+    Rect& operator-=(const Rect& other) {
+        left -= other.left;
+        right -= other.right;
+        top -= other.top;
+        bottom -= other.bottom;
+        return *this;
+    }
 };
 
 /**

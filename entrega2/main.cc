@@ -2,6 +2,7 @@
 #include "game.hh"
 #include "window.hh"
 #include "start_screen.hh"
+#include "win_death_screen.hh"
 
 using namespace std;
 
@@ -29,6 +30,8 @@ int main() {
                 game.update(window);
                 game.paint(window);
             }
+            if (game.exit_code() == 1) death_screen(window, tw);
+            else if (game.exit_code() == 2) win_screen(window, tw);
             startscreen.restart(window);
         }
     }

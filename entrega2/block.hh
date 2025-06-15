@@ -2,6 +2,7 @@
 #define BLOCK_HH
 
 #include <vector>
+#include <iostream>
 #include "window.hh"
 #include "geometry.hh"
 #include "utils.hh"
@@ -11,18 +12,16 @@ class Block {
  private:
     pro2::Pt pos_;
 
-    int block_type_;
+    int block_type_; // 0 si és tipus totxo, 1 interrogant, 2 activat
+    int has_object_; // 1 si té una moneda, 2 si té un bolet
 
 	static const std::vector<std::vector<int>> platform_texture_;
 
  public:
-    Block(int type) : pos_({0,0}), block_type_(type) {}
+    Block(pro2::Pt pos = {0,0}, int type = 0, int has_object = 0) : pos_(pos), block_type_(type), has_object_(has_object) {}
 
     Block(const Block& other)
         : pos_(other.pos_), block_type_(other.block_type_) {}
-
-    Block(int type, pro2::Pt pos)
-        : pos_(pos), block_type_(type) {}
     
     void paint(pro2::Window& window, int anim_frame) const;
 
@@ -56,9 +55,44 @@ class Block {
             return sprites[animation[anim_frame]];
         case 2:
             return sprites[1];
+        case 3:
+            return sprites[5];
         default:
             return sprites[0];
         }
+    }
+
+    /**
+     * @brief Retorna:
+     * 
+     * - 0 si no passa res
+     * 
+     * - 1 si s'ha de trencar el bloc
+     * 
+     * - 2 si s'ha de crear una moneda (sense trencar)
+     * 
+     * - 3 si s'ha de crear un bolet (sense trencar)
+     */
+    int check_bumped(int state) {
+        if (block_type_ == 0) {
+            if (has_object_ == 1) {
+                block_type_ = 2;
+                return 2;
+            }
+            else {
+                if (state == 1) return 1;
+                else {
+                    return 0;
+                } 
+            }
+        }
+        else if (block_type_ == 1) {
+            block_type_ = 2;
+            if (has_object_ == 1) return 2;
+            else if (has_object_ == 2) return 3;
+            else return 0;
+        }
+        else return 0;
     }
 
     static const std::vector<std::vector<std::vector<int>>> sprites;

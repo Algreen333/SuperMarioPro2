@@ -2,10 +2,12 @@
 #define MARIO_HH
 
 #include <iostream>
-#include <set>
+#include <list>
 #include "platform.hh"
 #include "window.hh"
 #include "block.hh"
+#include "finder.hh"
+#include "pickup.hh"
 
 class Mario {
  private:
@@ -21,9 +23,10 @@ class Mario {
     bool grounded_ = true;
 	bool looking_left_ = false;
 
-	void apply_physics_();
-
     int coin_count_ = 0;
+
+    int state_ = 0;
+    int anim_frame_counter_;
 	
  public:
     Mario(int key_up, int key_left, int key_right, pro2::Pt pos): 
@@ -68,10 +71,13 @@ class Mario {
         return coin_count_; 
     }
 
-    void update(pro2::Window& window, const std::set<Platform *>& platforms, const std::set<Block *>& blocks);
+    void update(pro2::Window& window, const Finder<Platform>& platforms, Finder<Block>& blocks, std::list<Pickup>& pickups);
+
+    void change_state(int new_state);
     
  private:
     static const std::vector<std::vector<int>> mario_sprite_normal_;
+    static const std::vector<std::vector<int>> mario_sprite_tall_;
 };
 
 #endif
