@@ -1,0 +1,131 @@
+\doxysection{Block Class Reference}
+\hypertarget{class_block}{}\label{class_block}\index{Block@{Block}}
+
+
+{\ttfamily \#include $<$block.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_block_aac8b6427194d713cc59a18c776ae59ae}{Block}} (\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_block_a2abeb31e9df2ffd1662e4c7e69a0ed9e}{pos}}=\{0, 0\}, int type=0, int has\+\_\+object=0)
+\item 
+\mbox{\hyperlink{class_block_ab9157e4f3718be0fbf96fc7688aca03f}{Block}} (const \mbox{\hyperlink{class_block}{Block}} \&other)
+\item 
+void \mbox{\hyperlink{class_block_a784534420c1d1403b59b822c846bf6b3}{paint}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window, int anim\+\_\+frame) const
+\item 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_block_a2abeb31e9df2ffd1662e4c7e69a0ed9e}{pos}} () const
+\item 
+int \mbox{\hyperlink{class_block_ae11c1cbd0c8f1f7ac29dc0cd49d4053b}{block\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Retorna el tipus de bloc que és. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} \mbox{\hyperlink{class_block_ab82d77f961632f2db14f17d38a030b12}{get\+\_\+rect}} () const
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_block_acb0aa7437533a3991d562935f9008148}{get\+\_\+sprite}} (int anim\+\_\+frame) const
+\begin{DoxyCompactList}\small\item\em Retorna la matriu del sprite del frame de l\textquotesingle{}animació corresponent. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_block_a9dc927abe60d529cbda8b70ac7147da4}{check\+\_\+bumped}} (int state)
+\begin{DoxyCompactList}\small\item\em Retorna\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$ $>$ $>$ \mbox{\hyperlink{class_block_af40e094fd995e97bddeea63d4e2e98d5}{sprites}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_block_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_block_aac8b6427194d713cc59a18c776ae59ae}\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Block()}{Block()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_block_aac8b6427194d713cc59a18c776ae59ae} 
+Block\+::\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}}]{pos}{ = {\ttfamily \{0,0\}}, }\item[{int}]{type}{ = {\ttfamily 0}, }\item[{int}]{has\+\_\+object}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_block_ab9157e4f3718be0fbf96fc7688aca03f}\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Block()}{Block()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_block_ab9157e4f3718be0fbf96fc7688aca03f} 
+Block\+::\+Block (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_block}{Block}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_block_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_block_ae11c1cbd0c8f1f7ac29dc0cd49d4053b}\index{Block@{Block}!block\_type@{block\_type}}
+\index{block\_type@{block\_type}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{block\_type()}{block\_type()}}
+{\footnotesize\ttfamily \label{class_block_ae11c1cbd0c8f1f7ac29dc0cd49d4053b} 
+int Block\+::block\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna el tipus de bloc que és. 
+
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item 0 si és un bloc de \textquotesingle{}totxo\textquotesingle{}
+\item 1 si és un bloc \textquotesingle{}interrogant\textquotesingle{}
+\item 2 si és un bloc \textquotesingle{}activat\textquotesingle{} 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{class_block_a9dc927abe60d529cbda8b70ac7147da4}\index{Block@{Block}!check\_bumped@{check\_bumped}}
+\index{check\_bumped@{check\_bumped}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{check\_bumped()}{check\_bumped()}}
+{\footnotesize\ttfamily \label{class_block_a9dc927abe60d529cbda8b70ac7147da4} 
+int Block\+::check\+\_\+bumped (\begin{DoxyParamCaption}\item[{int}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna\+: 
+
+
+\begin{DoxyItemize}
+\item 0 si no passa res
+\item 1 si s\textquotesingle{}ha de trencar el bloc
+\item 2 si s\textquotesingle{}ha de crear una moneda (sense trencar)
+\item 3 si s\textquotesingle{}ha de crear un bolet (sense trencar) 
+\end{DoxyItemize}\Hypertarget{class_block_ab82d77f961632f2db14f17d38a030b12}\index{Block@{Block}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily \label{class_block_ab82d77f961632f2db14f17d38a030b12} 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} Block\+::get\+\_\+rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_block_acb0aa7437533a3991d562935f9008148}\index{Block@{Block}!get\_sprite@{get\_sprite}}
+\index{get\_sprite@{get\_sprite}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{get\_sprite()}{get\_sprite()}}
+{\footnotesize\ttfamily \label{class_block_acb0aa7437533a3991d562935f9008148} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ Block\+::get\+\_\+sprite (\begin{DoxyParamCaption}\item[{int}]{anim\+\_\+frame}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna la matriu del sprite del frame de l\textquotesingle{}animació corresponent. 
+
+\Hypertarget{class_block_a784534420c1d1403b59b822c846bf6b3}\index{Block@{Block}!paint@{paint}}
+\index{paint@{paint}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{class_block_a784534420c1d1403b59b822c846bf6b3} 
+void Block\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{, }\item[{int}]{anim\+\_\+frame}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_block_a2abeb31e9df2ffd1662e4c7e69a0ed9e}\index{Block@{Block}!pos@{pos}}
+\index{pos@{pos}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{pos()}{pos()}}
+{\footnotesize\ttfamily \label{class_block_a2abeb31e9df2ffd1662e4c7e69a0ed9e} 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} Block\+::pos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_block_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_block_af40e094fd995e97bddeea63d4e2e98d5}\index{Block@{Block}!sprites@{sprites}}
+\index{sprites@{sprites}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{sprites}{sprites}}
+{\footnotesize\ttfamily \label{class_block_af40e094fd995e97bddeea63d4e2e98d5} 
+const std\+::vector$<$std\+::vector$<$std\+::vector$<$int$>$ $>$ $>$ Block\+::sprites\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{block_8hh}{block.\+hh}}\item 
+\mbox{\hyperlink{block_8cc}{block.\+cc}}\end{DoxyCompactItemize}

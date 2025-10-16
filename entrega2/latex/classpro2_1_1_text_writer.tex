@@ -1,0 +1,176 @@
+\doxysection{pro2\+::Text\+Writer Class Reference}
+\hypertarget{classpro2_1_1_text_writer}{}\label{classpro2_1_1_text_writer}\index{pro2::TextWriter@{pro2::TextWriter}}
+
+
+{\ttfamily \#include $<$text.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be}{Text\+Writer}} (\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}} font, \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}} palette)
+\item 
+\mbox{\hyperlink{classpro2_1_1_text_writer_ad1d62f79549690407d6c545d53861e6f}{Text\+Writer}} (\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}} font, std\+::string palette\+\_\+path)
+\item 
+\mbox{\hyperlink{classpro2_1_1_text_writer_a9553f918fcf0e7fca1ce204d35d79f45}{Text\+Writer}} (std\+::string font\+\_\+path, \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}} palette)
+\item 
+\mbox{\hyperlink{classpro2_1_1_text_writer_afe00e2a24c087a6404077c5122026704}{Text\+Writer}} (std\+::string font\+\_\+path, std\+::string palette\+\_\+path)
+\item 
+\mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}} \mbox{\hyperlink{classpro2_1_1_text_writer_a1cf025ef7c804f9da7f6f1f8d1d98001}{get\+\_\+sprite}} (char ch) const
+\begin{DoxyCompactList}\small\item\em Retorna el sprite del caràcter pintat amb la paleta. Si el caràcter no existeix a la font retorna un sprite amb el caràcter NULL (últim caràcter de la font) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpro2_1_1_text_writer_a3f12d36b13653ea51edd373922bdbb9c}{set\+\_\+font}} (\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}} font)
+\item 
+void \mbox{\hyperlink{classpro2_1_1_text_writer_ab9e3c36e33529b3aa5d3414c034d92d8}{set\+\_\+font}} (std\+::string path)
+\item 
+const \mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}} \mbox{\hyperlink{classpro2_1_1_text_writer_ab67a6d0dedf438a494deffaaf2cc9236}{get\+\_\+font}} ()
+\item 
+void \mbox{\hyperlink{classpro2_1_1_text_writer_abebd420e182439e5f9ad2a9d220d06aa}{set\+\_\+palette}} (\mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}} palette)
+\item 
+void \mbox{\hyperlink{classpro2_1_1_text_writer_ae52aa0496d93f20840d01960c67ad54e}{set\+\_\+palette}} (std\+::string path)
+\item 
+const \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}} \mbox{\hyperlink{classpro2_1_1_text_writer_a9f10e876fe45fddb2094556b83af14ae}{get\+\_\+palette}} ()
+\item 
+void \mbox{\hyperlink{classpro2_1_1_text_writer_a08d432e0e8edb07d816a7b6176c5cda6}{set\+\_\+charset}} (\mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}} charset)
+\item 
+void \mbox{\hyperlink{classpro2_1_1_text_writer_ae9e18d919c019b8b35360d4844cd3caf}{set\+\_\+charset}} (std\+::string path)
+\item 
+const \mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}} \mbox{\hyperlink{classpro2_1_1_text_writer_a135db4d339bf88b6246d559491ee1f9a}{get\+\_\+charset}} ()
+\item 
+void \mbox{\hyperlink{classpro2_1_1_text_writer_a8ad63443d1bc83750b890dbba7c9fbb9}{write\+\_\+text}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, const \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} \&orig, const std\+::string \&text, int space\+\_\+between\+\_\+chars=1, int size=4, \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} alignment=\{0, 0\})
+\begin{DoxyCompactList}\small\item\em Dibuixa un string com a text a la pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+S\textquotesingle{}encarrega d\textquotesingle{}emmagatzemar la font, paleta i charset carregats i dibuixar text a la pantalla 
+
+\label{doc-constructors}
+\Hypertarget{classpro2_1_1_text_writer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be}\index{pro2::TextWriter@{pro2::TextWriter}!TextWriter@{TextWriter}}
+\index{TextWriter@{TextWriter}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{TextWriter()}{TextWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be} 
+pro2\+::\+Text\+Writer\+::\+Text\+Writer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}}]{font}{, }\item[{\mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}}]{palette}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classpro2_1_1_text_writer_ad1d62f79549690407d6c545d53861e6f}\index{pro2::TextWriter@{pro2::TextWriter}!TextWriter@{TextWriter}}
+\index{TextWriter@{TextWriter}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{TextWriter()}{TextWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_ad1d62f79549690407d6c545d53861e6f} 
+pro2\+::\+Text\+Writer\+::\+Text\+Writer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}}]{font}{, }\item[{std\+::string}]{palette\+\_\+path}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpro2_1_1_text_writer_a9553f918fcf0e7fca1ce204d35d79f45}\index{pro2::TextWriter@{pro2::TextWriter}!TextWriter@{TextWriter}}
+\index{TextWriter@{TextWriter}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{TextWriter()}{TextWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_a9553f918fcf0e7fca1ce204d35d79f45} 
+pro2\+::\+Text\+Writer\+::\+Text\+Writer (\begin{DoxyParamCaption}\item[{std\+::string}]{font\+\_\+path}{, }\item[{\mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}}]{palette}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpro2_1_1_text_writer_afe00e2a24c087a6404077c5122026704}\index{pro2::TextWriter@{pro2::TextWriter}!TextWriter@{TextWriter}}
+\index{TextWriter@{TextWriter}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{TextWriter()}{TextWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_afe00e2a24c087a6404077c5122026704} 
+pro2\+::\+Text\+Writer\+::\+Text\+Writer (\begin{DoxyParamCaption}\item[{std\+::string}]{font\+\_\+path}{, }\item[{std\+::string}]{palette\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classpro2_1_1_text_writer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpro2_1_1_text_writer_a135db4d339bf88b6246d559491ee1f9a}\index{pro2::TextWriter@{pro2::TextWriter}!get\_charset@{get\_charset}}
+\index{get\_charset@{get\_charset}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{get\_charset()}{get\_charset()}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_a135db4d339bf88b6246d559491ee1f9a} 
+const \mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}} pro2\+::\+Text\+Writer\+::get\+\_\+charset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classpro2_1_1_text_writer_ab67a6d0dedf438a494deffaaf2cc9236}\index{pro2::TextWriter@{pro2::TextWriter}!get\_font@{get\_font}}
+\index{get\_font@{get\_font}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{get\_font()}{get\_font()}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_ab67a6d0dedf438a494deffaaf2cc9236} 
+const \mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}} pro2\+::\+Text\+Writer\+::get\+\_\+font (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classpro2_1_1_text_writer_a9f10e876fe45fddb2094556b83af14ae}\index{pro2::TextWriter@{pro2::TextWriter}!get\_palette@{get\_palette}}
+\index{get\_palette@{get\_palette}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{get\_palette()}{get\_palette()}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_a9f10e876fe45fddb2094556b83af14ae} 
+const \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}} pro2\+::\+Text\+Writer\+::get\+\_\+palette (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classpro2_1_1_text_writer_a1cf025ef7c804f9da7f6f1f8d1d98001}\index{pro2::TextWriter@{pro2::TextWriter}!get\_sprite@{get\_sprite}}
+\index{get\_sprite@{get\_sprite}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{get\_sprite()}{get\_sprite()}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_a1cf025ef7c804f9da7f6f1f8d1d98001} 
+\mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}} pro2\+::\+Text\+Writer\+::get\+\_\+sprite (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption}) const}
+
+
+
+Retorna el sprite del caràcter pintat amb la paleta. Si el caràcter no existeix a la font retorna un sprite amb el caràcter NULL (últim caràcter de la font) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & Caràcter \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpro2_1_1_text_writer_a08d432e0e8edb07d816a7b6176c5cda6}\index{pro2::TextWriter@{pro2::TextWriter}!set\_charset@{set\_charset}}
+\index{set\_charset@{set\_charset}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{set\_charset()}{set\_charset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_a08d432e0e8edb07d816a7b6176c5cda6} 
+void pro2\+::\+Text\+Writer\+::set\+\_\+charset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}}}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classpro2_1_1_text_writer_ae9e18d919c019b8b35360d4844cd3caf}\index{pro2::TextWriter@{pro2::TextWriter}!set\_charset@{set\_charset}}
+\index{set\_charset@{set\_charset}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{set\_charset()}{set\_charset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_ae9e18d919c019b8b35360d4844cd3caf} 
+void pro2\+::\+Text\+Writer\+::set\+\_\+charset (\begin{DoxyParamCaption}\item[{std\+::string}]{path}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpro2_1_1_text_writer_a3f12d36b13653ea51edd373922bdbb9c}\index{pro2::TextWriter@{pro2::TextWriter}!set\_font@{set\_font}}
+\index{set\_font@{set\_font}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{set\_font()}{set\_font()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_a3f12d36b13653ea51edd373922bdbb9c} 
+void pro2\+::\+Text\+Writer\+::set\+\_\+font (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}}]{font}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classpro2_1_1_text_writer_ab9e3c36e33529b3aa5d3414c034d92d8}\index{pro2::TextWriter@{pro2::TextWriter}!set\_font@{set\_font}}
+\index{set\_font@{set\_font}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{set\_font()}{set\_font()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_ab9e3c36e33529b3aa5d3414c034d92d8} 
+void pro2\+::\+Text\+Writer\+::set\+\_\+font (\begin{DoxyParamCaption}\item[{std\+::string}]{path}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpro2_1_1_text_writer_abebd420e182439e5f9ad2a9d220d06aa}\index{pro2::TextWriter@{pro2::TextWriter}!set\_palette@{set\_palette}}
+\index{set\_palette@{set\_palette}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{set\_palette()}{set\_palette()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_abebd420e182439e5f9ad2a9d220d06aa} 
+void pro2\+::\+Text\+Writer\+::set\+\_\+palette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}}]{palette}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classpro2_1_1_text_writer_ae52aa0496d93f20840d01960c67ad54e}\index{pro2::TextWriter@{pro2::TextWriter}!set\_palette@{set\_palette}}
+\index{set\_palette@{set\_palette}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{set\_palette()}{set\_palette()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_ae52aa0496d93f20840d01960c67ad54e} 
+void pro2\+::\+Text\+Writer\+::set\+\_\+palette (\begin{DoxyParamCaption}\item[{std\+::string}]{path}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classpro2_1_1_text_writer_a8ad63443d1bc83750b890dbba7c9fbb9}\index{pro2::TextWriter@{pro2::TextWriter}!write\_text@{write\_text}}
+\index{write\_text@{write\_text}!pro2::TextWriter@{pro2::TextWriter}}
+\doxysubsubsection{\texorpdfstring{write\_text()}{write\_text()}}
+{\footnotesize\ttfamily \label{classpro2_1_1_text_writer_a8ad63443d1bc83750b890dbba7c9fbb9} 
+void pro2\+::\+Text\+Writer\+::write\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&}]{window}{, }\item[{const \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} \&}]{orig}{, }\item[{const std\+::string \&}]{text}{, }\item[{int}]{space\+\_\+between\+\_\+chars}{ = {\ttfamily 1}, }\item[{int}]{size}{ = {\ttfamily 4}, }\item[{\mbox{\hyperlink{structpro2_1_1_pt}{Pt}}}]{alignment}{ = {\ttfamily \{0,0\}}}\end{DoxyParamCaption})}
+
+
+
+Dibuixa un string com a text a la pantalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Finestra a on dibuixar \\
+\hline
+{\em orig} & Coordenades d\textquotesingle{}origen del text (coordenada esquerre superior) \\
+\hline
+{\em text} & String amb el text a dibuixar \\
+\hline
+{\em space\+\_\+between\+\_\+chars} & Espai que es deixarà entre caràcters \\
+\hline
+{\em size} & Tamany (gruix) del text \\
+\hline
+{\em alignment} & Determina com estarà alineat el text\+: \{x\+\_\+align, y\+\_\+align\} x\+\_\+align i y\+\_\+align poden tenir valors \mbox{[}0,1,2\mbox{]} que equivalen \mbox{[}left/top, centre, right/bottom\mbox{]}. Per exemple amb align \{0,0\}, tindrà a orig la cantonada esquerra superior del text \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{text_8hh}{text.\+hh}}\item 
+\mbox{\hyperlink{text_8cc}{text.\+cc}}\end{DoxyCompactItemize}

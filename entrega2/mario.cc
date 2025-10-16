@@ -3,6 +3,8 @@
 using namespace std;
 using namespace pro2;
 
+/// @cond
+
 const int _ = -1;
 const int r = 0xA33E26;
 const int s = 0xDBA42F;
@@ -66,9 +68,10 @@ const vector<vector<int>> Mario::mario_sprite_tall_ = {
     {h,h,h,h,h,h,_,_,_,_,h,h,h,h,h,h},
 };
 // clang-format on
+/// @endcond
 
 void Mario::paint(pro2::Window& window) const {
-    if (state_ == 0 or (state_ == 2 and anim_frame_counter_%2 == 0)) {
+    if (state_ == 0 or ((state_ == 2 or state_ == 3) and anim_frame_counter_%3 == 0)) {
         const Pt top_left = {pos_.x - 6, pos_.y - 15};
         paint_sprite(window, top_left, mario_sprite_normal_, looking_left_);
     }
@@ -91,31 +94,31 @@ void Mario::jump() {
     }
 }
 
-void Mario::change_state(int new_state) {
+void Mario::set_state(int new_state) {
     if (state_ != new_state) {
         if (new_state == 1) {
             anim_frame_counter_ = 0;
             state_ = 2;
         }
         else {
-            anim_frame_counter_ = 20;
+            anim_frame_counter_ = 0;
             state_ = 3;
         }
     }
 }
 
-void Mario::update(pro2::Window& window, const Finder<Platform>& platforms, Finder<Block>& blocks, list<Pickup>& pickups) {
+void Mario::update(pro2::Window& window, const Finder<Platform>& platforms, Finder<Block>& blocks, list<Interactable>& interactables) {
     // Powerup
     if (state_ == 2) {
         anim_frame_counter_++;
-        if (anim_frame_counter_ > 20) {
+        if (anim_frame_counter_ > 30) {
             state_ = 1;
         }
     }
     // Powerdown (damage)
-    else if (state_==3) {
-        anim_frame_counter_--;
-        if (anim_frame_counter_ < 0) {
+    else if (state_ == 3) {
+        anim_frame_counter_++;
+        if (anim_frame_counter_ > 90) {
             state_ = 0;
         }
     }
@@ -139,12 +142,13 @@ void Mario::update(pro2::Window& window, const Finder<Platform>& platforms, Find
         looking_left_ = speed_.x < 0;
     }
     
-    // Jumps
+    // Si està saltant
     if (accel_time_ > 0) {
         speed_.y += accel_.y;
         accel_time_--;
     }
- 
+
+    // Comprovació de col·lisió tant amb blocs com amb plataformes
     std::set<Platform *> vert_platforms = platforms.query(collision_box()+={1, speed_.y, -1, speed_.y});
     std::set<Block *> vert_blocks = blocks.query(collision_box()+={1, speed_.y, -1, speed_.y});
 
@@ -177,10 +181,10 @@ void Mario::update(pro2::Window& window, const Finder<Platform>& platforms, Find
                 int result = block->check_bumped(state_);
                 if (result == 1) blocks.remove_and_delete(block);
                 else if (result == 2) {
-                    pickups.emplace_back(block->pos() + Pt{4, 0}, 0);
+                    interactables.emplace_back(block->pos() + Pt{4, 0}, 0);
                     add_coin();
                 }
-                else if (result == 3) pickups.emplace_back(block->pos() + Pt{0, -17}, 1);
+                else if (result == 3) interactables.emplace_back(block->pos() + Pt{0, -17}, 1);
             }
             pos_.y = min_y + ((state_==0 or (state_==2 and anim_frame_counter_%2 == 0))? 15 : 30);
         }

@@ -7,7 +7,7 @@
 #include "window.hh"
 #include "block.hh"
 #include "finder.hh"
-#include "pickup.hh"
+#include "interactables.hh"
 
 class Mario {
  private:
@@ -63,17 +63,36 @@ class Mario {
 
     void jump();
 
+    /**
+     * @brief Afegeix monedes al comptador de monedes
+     * 
+     * @param ammount Quantitat de monedes (per defecte: 1)
+     */
     void add_coin(int ammount = 1) {
         coin_count_ += ammount;
     }
 
+    /**
+     * @brief Retorna el valor del comptador de monedes
+     */
     int get_coin_count() {
         return coin_count_; 
     }
 
-    void update(pro2::Window& window, const Finder<Platform>& platforms, Finder<Block>& blocks, std::list<Pickup>& pickups);
+    void update(pro2::Window& window, const Finder<Platform>& platforms, Finder<Block>& blocks, std::list<Interactable>& interactables);
 
-    void change_state(int new_state);
+    /**
+     * @brief Canvia el estat del jugador a mario petit (0) o a mario gran (1). 
+     *      També hi ha els estats 2 i 3 per passar de petit a gran i viceversa (s'usen per a les animacions)
+     * 
+     * @param new_state Nou estat al que passa el jugador
+     */
+    void set_state(int new_state);
+
+    /**
+     * @brief Retorna l'estat del mario: mario petit (0) o mario gran (1)
+     */
+    int get_state() const {return state_;}
     
  private:
     static const std::vector<std::vector<int>> mario_sprite_normal_;

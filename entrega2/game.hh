@@ -9,7 +9,7 @@
 #include "text.hh"
 #include "finder.hh"
 #include "block.hh"
-#include "pickup.hh"
+#include "interactables.hh"
 
 
 class Game {
@@ -18,7 +18,7 @@ class Game {
     Finder<Coin>        coins_;
     Finder<Block>       blocks_;
     
-    std::list<Pickup>    pickups_;
+    std::list<Interactable>    interactables_;
     
     pro2::Rect          death_barrier_;
 
@@ -53,6 +53,9 @@ class Game {
      */
     int exit_code() const {return exit_code_;}
 
+    /**
+     * @brief Crea una nova moneda i l'afegeix al finder
+     */
     void spawn_coin(pro2::Pt pos, pro2::DoubPt vel);
 
     /**

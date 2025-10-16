@@ -59,14 +59,34 @@ def save_colors(colors):
 
 
 if __name__ == "__main__":
-    im = cv2.imread("6x10rounded.png")
+    file = input("Fitxer Bitmap? ")
+    im = cv2.imread(file)
 
     h, w, _ = im.shape
 
     names = string.ascii_uppercase + string.ascii_lowercase + string.digits + f"+-=()[]{'{'}{'}'}<>/*:#%!?.,'{'"'}@&$ "
     print(names, '\n')
 
+
+    offset_x = input("Offset en x dels caràcters? ")
+    offset_y = input("Offset en y dels caràcters? ")
+
+    num_total = input("\nNombre total de caràcters? ")
+    num_cols = input("Nombre de columnes? ")
+
+    w_char = input("Amplada dels caràcters? ")
+    h_char = input("Alçada dels caràcters? ")
+
+    sep_x = input("Espai en x entre caràcters? ")
+    sep_y = input("Espai en y entre caràcters? ")
+    
     chars = []
+    
+    for x in range(num_total):
+        chars.append(
+            im[offset_y+(offset_y*int(x/num_cols)) : offset_y + h_char +((h_char + sep_y)*int(x/num_cols)), 
+               offset_x +(w_char*x%num_cols) : offset_x + w_char +((w_char + sep_x)*int(x/num_cols))])
+        
 
     for j in range(6):
         for i in range(13):

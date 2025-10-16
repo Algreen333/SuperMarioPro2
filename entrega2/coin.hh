@@ -44,11 +44,9 @@ class Coin {
     pro2::Pt pos() const {
         return pos_;
     }
-
-    pro2::Rect collision_box() const;
-
+    
     inline pro2::Rect get_rect() const {
-        return {pos_.x, pos_.y, pos_.x + sz_w, pos_.y + sz_h};
+        return {pos_.x - sz_w/2, pos_.y - sz_h, pos_.x + sz_w/2, pos_.y};
     }
 
     /**

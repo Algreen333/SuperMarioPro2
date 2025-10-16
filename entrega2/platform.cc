@@ -3,6 +3,8 @@ using namespace std;
 
 using pro2::Color;
 
+/// @cond
+
 const int b = 0x8E500E;
 const int w = 0xF7D0C7;
 const int _ = 0;
@@ -28,6 +30,8 @@ const vector<vector<int>> Platform::platform_texture_ = {
     {b,_,_,_,_,_,_,b,w,_,_,_,_,_,_,b}
 };
 // clang-format on
+/// @endcond
+
 
 void Platform::paint(pro2::Window& window) const {
     const int xsz = platform_texture_.size();

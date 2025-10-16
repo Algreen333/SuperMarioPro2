@@ -1,0 +1,67 @@
+\doxysection{text.\+hh}
+\hypertarget{text_8hh_source}{}\label{text_8hh_source}\mbox{\hyperlink{text_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TEXT\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TEXT\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8hh}{utils.hh}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{window_8hh}{window.hh}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{geometry_8hh}{geometry.hh}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacepro2}{pro2}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<std::vector<std::vector<std::string>>>\ \mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ int>\ \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{typedef}\ std::map<char,\ int>\ \mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::ifstream\ \mbox{\hyperlink{namespacepro2_aa8c0657123bc927e8de09421c6b14b21}{read\_file}}(std::string\ fname);}
+\DoxyCodeLine{00035\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}\ \mbox{\hyperlink{namespacepro2_a2b050128a07a91478637f95f68399cd7}{read\_colors}}(std::ifstream\ \&stream);}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}\ \mbox{\hyperlink{namespacepro2_aa57822083cf68e85ec5da6759d2bac4a}{read\_sprites}}(std::ifstream\ \&stream);}
+\DoxyCodeLine{00052\ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}}\ \mbox{\hyperlink{namespacepro2_ac195c494749b34afdeb51cfa09ef4edc}{read\_charset}}(std::ifstream\ \&stream);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}}\ \mbox{\hyperlink{namespacepro2_aae37cb369b0c1eddd32709d194767e71}{color\_sprite}}(\textcolor{keyword}{const}\ std::vector<std::vector<std::string>>\ \&sprite,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}\ \&colors);}
+\DoxyCodeLine{00067\ \ \ \ \ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacepro2_ac7ba9598fc6a2273b32d0eeba7fde792}{paint\_char}}(\mbox{\hyperlink{classpro2_1_1_window}{Window}}\&\ window,\ \mbox{\hyperlink{structpro2_1_1_pt}{Pt}}\&\ pos,\ \mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}}\ sprite,\ \textcolor{keywordtype}{int}\&\ size);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{namespacepro2_a79fc2e04b482184be79f4d205c29fdb1}{split\_lines}}(std::string\ text);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be}{TextWriter}}\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}\ font\_;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}\ palette\_;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}}\ charset\_;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be}{TextWriter}}(\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}\ font,\ \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}\ palette)\ :\ font\_(font),\ palette\_(palette)\ \{\};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be}{TextWriter}}(\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}\ font,\ std::string\ palette\_path);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be}{TextWriter}}(std::string\ font\_path,\ \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}\ palette);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classpro2_1_1_text_writer_ae0ebd1b5112e545cb94689eb8ca334be}{TextWriter}}(std::string\ font\_path,\ std::string\ palette\_path);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a1cf025ef7c804f9da7f6f1f8d1d98001}{get\_sprite}}(\textcolor{keywordtype}{char}\ ch)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a3f12d36b13653ea51edd373922bdbb9c}{set\_font}}(\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}\ font)\ \{font\_\ =\ font;\}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a3f12d36b13653ea51edd373922bdbb9c}{set\_font}}(std::string\ path);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}}\ \mbox{\hyperlink{classpro2_1_1_text_writer_ab67a6d0dedf438a494deffaaf2cc9236}{get\_font}}()\ \{\textcolor{keywordflow}{return}\ font\_;\};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1_text_writer_abebd420e182439e5f9ad2a9d220d06aa}{set\_palette}}(\mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}\ palette)\ \{palette\_\ =\ palette;\}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1_text_writer_abebd420e182439e5f9ad2a9d220d06aa}{set\_palette}}(std::string\ path);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a9f10e876fe45fddb2094556b83af14ae}{get\_palette}}()\ \{\textcolor{keywordflow}{return}\ palette\_;\};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a08d432e0e8edb07d816a7b6176c5cda6}{set\_charset}}(\mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}}\ charset)\ \{charset\_\ =\ charset;\}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a08d432e0e8edb07d816a7b6176c5cda6}{set\_charset}}(std::string\ path);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a135db4d339bf88b6246d559491ee1f9a}{get\_charset}}()\ \{\textcolor{keywordflow}{return}\ charset\_;\};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1_text_writer_a8ad63443d1bc83750b890dbba7c9fbb9}{write\_text}}(\mbox{\hyperlink{classpro2_1_1_window}{Window}}\&\ window,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structpro2_1_1_pt}{Pt}}\&\ orig,\ \textcolor{keyword}{const}\ std::string\&\ text,\ \textcolor{keywordtype}{int}\ space\_between\_chars=1,\ \textcolor{keywordtype}{int}\ size=4,\ \mbox{\hyperlink{structpro2_1_1_pt}{Pt}}\ alignment=\{0,0\});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

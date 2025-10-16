@@ -13,19 +13,52 @@ Game::Game(int width, int height, TextWriter TW, pro2::Rect death_barrier):
     death_barrier_(death_barrier)
     {
     
-    platforms_.add(new Platform{0, 2000, 170, 500});
+    platforms_.add(new Platform{-12, 691, 170, 500});
+
+    blocks_.add(new Block{pro2::Pt{200, 107}, 1, 1});
+
+    blocks_.add(new Block{pro2::Pt{264, 107}, 0});
+    blocks_.add(new Block{pro2::Pt{280, 107}, 1, 1});
+    blocks_.add(new Block{pro2::Pt{296, 107}, 0, 1});
+    blocks_.add(new Block{pro2::Pt{312, 107}, 1, 1});
+    blocks_.add(new Block{pro2::Pt{328, 107}, 0});
+    
+    blocks_.add(new Block{pro2::Pt{296, 43}, 1, 2});
+    
+    blocks_.add(new Block{pro2::Pt{388, 139}, 3});
+    blocks_.add(new Block{pro2::Pt{404, 139}, 3});
+    blocks_.add(new Block{pro2::Pt{388, 155}, 3});
+    blocks_.add(new Block{pro2::Pt{404, 155}, 3});
+
+    interactables_.emplace_back(pro2::Pt{430, 155}, 3);
+    for (int i = 0; i < 8; i++) {
+        coins_.add(new Coin{pro2::Pt{427 + 16*i, 170}});
+    }
+
+    blocks_.add(new Block{pro2::Pt{548, 123}, 3});
+    blocks_.add(new Block{pro2::Pt{564, 123}, 3});
+    blocks_.add(new Block{pro2::Pt{548, 139}, 3});
+    blocks_.add(new Block{pro2::Pt{564, 139}, 3});
+    blocks_.add(new Block{pro2::Pt{548, 155}, 3});
+    blocks_.add(new Block{pro2::Pt{564, 155}, 3});
+    
+    platforms_.add(new Platform{740, 2000, 170, 500});
+
+    blocks_.add(new Block{pro2::Pt{820, 155}, 3});
+    interactables_.emplace_back(pro2::Pt{840, 155}, 3);
+    for (int i = 0; i < 11; i++) {
+        coins_.add(new Coin{pro2::Pt{843 + 16*i, -16}, {0,0}, {0,0}});
+    }
+    blocks_.add(new Block{pro2::Pt{1012, 155}, 3});
+
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j <= i; j++) {
-            blocks_.add(new Block{pro2::Pt{300 + 16*i, 155 - 16*j}, 3});
+            blocks_.add(new Block{pro2::Pt{1200 + 16*i, 155 - 16*j}, 3});
+            if (j == i) coins_.add(new Coin {pro2::Pt{1207 + 16*i, 123 - 16*j}});
         }
     }
 
-    blocks_.add(new Block{pro2::Pt{500, 107}, 0});
-    blocks_.add(new Block{pro2::Pt{516, 107}, 0, 1});
-    blocks_.add(new Block{pro2::Pt{548, 107}, 1, 1});
-    blocks_.add(new Block{pro2::Pt{564, 107}, 1, 2});
-
-    pickups_.emplace_back(pro2::Pt{700, 3}, 2);
+    interactables_.emplace_back(pro2::Pt{1444, 3}, 2);
 }
 
 void Game::process_keys(pro2::Window& window) {
@@ -35,14 +68,6 @@ void Game::process_keys(pro2::Window& window) {
 
     if (window.was_key_pressed('P')) {
         paused_ = not paused_;
-    }
-
-    if (window.was_key_pressed('I')) {
-        DoubPt vel = {random_double(-10, 10, 100), random_double(-20, -10, 100)};
-        spawn_coin({mario_.pos().x, mario_.pos().y - 40}, vel);
-    }
-    if (window.was_key_pressed('J')) {
-        pickups_.emplace_back(mario_.pos() + Pt{0, -100}, 1);
     }
 }
 
@@ -70,32 +95,55 @@ void Game::update_objects(pro2::Window& window) {
     std::set<Platform *> close_platforms = platforms_.query(processing_box);
     std::set<Block *> close_blocks = blocks_.query(processing_box);
 
-    mario_.update(window, platforms_, blocks_, pickups_);
+    mario_.update(window, platforms_, blocks_, interactables_);
     
     // Mira que el mario no s'hagi sortit dels límits
     pro2::Pt pos = mario_.pos();
     if (pos.x < death_barrier_.left or pos.x > death_barrier_.right or pos.y < death_barrier_.top or pos.y > death_barrier_.bottom) {
         finished_ = true;
         exit_code_ = 1;
-        std::cout << pos.x << ", " << pos.y << std::endl;
-        std::cout << death_barrier_.left << ", " << death_barrier_.top << ", " << death_barrier_.right << ", " << death_barrier_.bottom << std::endl;
     }
 
 
     for (Coin * c : coins_.query(processing_box)) {
         c->update(window, close_platforms);
+        if (!c->is_grounded()) {
+            coins_.update(c);
+        }
     }
 
-    std::list<Pickup>::iterator p = pickups_.begin();
-    while (p != pickups_.end()) {
+    std::list<Interactable>::iterator p = interactables_.begin();
+    while (p != interactables_.end()) {
         bool res = p->update(window, platforms_, blocks_);
+        // Comprova si ha agafat un bolet
         if (p->type() == 1 and check_collision(mario_.collision_box(), p->collision_box())) {
-            p = pickups_.erase(p);
-            mario_.change_state(1);
+            p = interactables_.erase(p);
+            mario_.set_state(1);
         }
+        // Comprova si ha tocat un goomba i com l'ha tocat;
+        else if (p->type() == 3 and check_collision(mario_.collision_box(), p->collision_box())) {
+            if (mario_.collision_box().bottom <= p->collision_box().top + 8) {
+                spawn_coin(p->pos(), {0,-10});
+                p = interactables_.erase(p);
+                mario_.set_grounded(true);
+                mario_.jump();
+            }
+            else {
+                if (mario_.get_state() == 1) {
+                    mario_.set_state(0);
+                }
+                else if (mario_.get_state() == 0) {
+                    finished_ = true;
+                    exit_code_ = 1;
+                }
+                p++;
+            }
+        }
+        // Comprova si ha trencat un bloc
         else if (res) {
-            p = pickups_.erase(p);
+            p = interactables_.erase(p);
         }
+        // Comprova si ha tocat la bandera
         if (p->type() == 2 and check_collision(mario_.collision_box(), p->collision_box())) {
             finished_ = true;
             exit_code_ = 2;
@@ -160,7 +208,7 @@ void Game::paint(pro2::Window& window) {
         block->paint(window, curr_anim_frame_);
     }
 
-    for (std::list<Pickup>::iterator p = pickups_.begin(); p != pickups_.end(); p++) {
+    for (std::list<Interactable>::iterator p = interactables_.begin(); p != interactables_.end(); p++) {
         p->paint(window);
     }
 

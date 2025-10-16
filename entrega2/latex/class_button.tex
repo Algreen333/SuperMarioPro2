@@ -1,0 +1,73 @@
+\doxysection{Button Class Reference}
+\hypertarget{class_button}{}\label{class_button}\index{Button@{Button}}
+
+
+Classe que implementa botons i la seva funcionalitat.  
+
+
+
+
+{\ttfamily \#include $<$start\+\_\+screen.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button_a97a639c12c1607ca47d41f2276b45b6d}{Button}} (\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} rect, std\+::string text, int bg\+\_\+normal=0x\+CD612E, int bg\+\_\+selected=0x\+C97\+A55)
+\item 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} \mbox{\hyperlink{class_button_afedbe806a3fb7631c8bf21e536d8cffa}{get\+\_\+rect}} () const
+\item 
+bool \mbox{\hyperlink{class_button_a95275a51af24d817c05f6023cd90b866}{selected}} (\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} pos) const
+\begin{DoxyCompactList}\small\item\em Retorna si el punter del ratolí és a sobre del botó \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_button_a0f32fddbecd537a0584d80bd2d801ce9}{paint}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window, \mbox{\hyperlink{classpro2_1_1_text_writer}{pro2\+::\+Text\+Writer}} \&writer) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que implementa botons i la seva funcionalitat. 
+
+\begin{DoxyVerb} Els botons poden ser clicats i quan el ratolí passa per sobre d'ells, poden canviar de color de fons (bg_normal/bg_selected)
+\end{DoxyVerb}
+ 
+
+\label{doc-constructors}
+\Hypertarget{class_button_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_button_a97a639c12c1607ca47d41f2276b45b6d}\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily \label{class_button_a97a639c12c1607ca47d41f2276b45b6d} 
+Button\+::\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}}}]{rect}{, }\item[{std\+::string}]{text}{, }\item[{int}]{bg\+\_\+normal}{ = {\ttfamily 0xCD612E}, }\item[{int}]{bg\+\_\+selected}{ = {\ttfamily 0xC97A55}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_button_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_button_afedbe806a3fb7631c8bf21e536d8cffa}\index{Button@{Button}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily \label{class_button_afedbe806a3fb7631c8bf21e536d8cffa} 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} Button\+::get\+\_\+rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_button_a0f32fddbecd537a0584d80bd2d801ce9}\index{Button@{Button}!paint@{paint}}
+\index{paint@{paint}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{class_button_a0f32fddbecd537a0584d80bd2d801ce9} 
+void Button\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{, }\item[{\mbox{\hyperlink{classpro2_1_1_text_writer}{pro2\+::\+Text\+Writer}} \&}]{writer}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_button_a95275a51af24d817c05f6023cd90b866}\index{Button@{Button}!selected@{selected}}
+\index{selected@{selected}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{selected()}{selected()}}
+{\footnotesize\ttfamily \label{class_button_a95275a51af24d817c05f6023cd90b866} 
+bool Button\+::selected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}}]{pos}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna si el punter del ratolí és a sobre del botó 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{start__screen_8hh}{start\+\_\+screen.\+hh}}\item 
+\mbox{\hyperlink{start__screen_8cc}{start\+\_\+screen.\+cc}}\end{DoxyCompactItemize}

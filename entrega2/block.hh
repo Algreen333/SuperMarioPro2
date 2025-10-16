@@ -75,7 +75,7 @@ class Block {
      */
     int check_bumped(int state) {
         if (block_type_ == 0) {
-            if (has_object_ == 1) {
+            if (has_object_ == 1 and state == 1) {
                 block_type_ = 2;
                 return 2;
             }

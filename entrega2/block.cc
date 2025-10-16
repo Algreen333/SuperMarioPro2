@@ -1,6 +1,6 @@
 #include "block.hh"
 
-
+/// @cond
 const int _ = -1;
 const int b = 0x8E500E;
 const int k = 0x000000;
@@ -130,6 +130,8 @@ const std::vector<int> Block::animation {
     3,3,3,3,3,3,
     4,4,4,4,4,4
 };
+
+/// @endcond
 
 void Block::paint(pro2::Window& window, int anim_frame) const {
     pro2::paint_sprite(window, pos_, get_sprite(anim_frame), false);

@@ -11,13 +11,19 @@
 
 namespace pro2 {
     /**
-     * La font es guarda com a vector de matriu de 'strings'.
-     * El fet que siguin strings permet que amb un 'Palette' es pugui assignar a posteriori 
-     * el color corresponent a cada pixel del sprite, però mantenint iguals els pixels que 
-     * siguin el mateix string.
+     * @brief Vector de caràcters. Els caràcters són matrius de strings. 
+     *  Cada element de la matriu representa un pixel a pintar, i cada string 
+     *  diferent està mapejada a la paleta amb el color que li correspon.
      */
     typedef std::vector<std::vector<std::vector<std::string>>> Font;
+
+    /**
+     * @brief Mapa de strings a colors
+     */
     typedef std::map<std::string, int> Palette;
+    /**
+     * @brief Mapa de caràcters a l'índex de l'sprite de la font que li correspon
+     */
     typedef std::map<char, int> Charset;
 
     /**

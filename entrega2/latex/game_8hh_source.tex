@@ -1,0 +1,71 @@
+\doxysection{game.\+hh}
+\hypertarget{game_8hh_source}{}\label{game_8hh_source}\mbox{\hyperlink{game_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAME\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mario_8hh}{mario.hh}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{platform_8hh}{platform.hh}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{window_8hh}{window.hh}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{coin_8hh}{coin.hh}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{text_8hh}{text.hh}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{finder_8hh}{finder.hh}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{block_8hh}{block.hh}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interactables_8hh}{interactables.hh}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_a85a8df6fbfb7b46d2f003238fc7da652}{Game}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_mario}{Mario}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mario\_;}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_finder}{Finder<Platform>}}\ \ \ \ platforms\_;}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_finder}{Finder<Coin>}}\ \ \ \ \ \ \ \ coins\_;}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_finder}{Finder<Block>}}\ \ \ \ \ \ \ blocks\_;}
+\DoxyCodeLine{00020\ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ std::list<Interactable>\ \ \ \ interactables\_;}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ \ \ \ \ \ \ \ \ \ death\_barrier\_;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ curr\_anim\_frame\_\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ finished\_;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ exit\_code\_\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ paused\_;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classpro2_1_1_text_writer}{pro2::TextWriter}}\ TW\_;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ process\_keys(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ update\_objects(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ update\_camera(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_game_a85a8df6fbfb7b46d2f003238fc7da652}{Game}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \mbox{\hyperlink{classpro2_1_1_text_writer}{pro2::TextWriter}}\ TW,\ \mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ death\_barrier=\mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\{-\/1000,\ -\/2000,\ 100000,\ 400\});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a3661c777f12e357cdc0b3727b2f73412}{update}}(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_af3e3428a12b9944fefb663f2fe560529}{paint}}(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_a48d38b110cb6558e69b1920bb31406db}{is\_finished}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ finished\_;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_a3fef163aab28f7a4de1abb8d08794e7f}{is\_paused}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ paused\_;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_game_a9657a1f726ade6b9e7f2a4a560b6e980}{exit\_code}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ exit\_code\_;\}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_abc1358a772766076a11eb3f1a112f576}{spawn\_coin}}(\mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ pos,\ \mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2::DoubPt}}\ vel);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a99e1f1015640f4a071504878c30e8f52}{anim\_step}}()\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ curr\_anim\_frame\_++;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ curr\_anim\_frame\_\ \%=\ 18;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ sky\_blue\ =\ 0x5c94fc;}
+\DoxyCodeLine{00071\ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ anim\_len\ =\ 10;}
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{utils.\+hh File Reference}
+\hypertarget{utils_8hh}{}\label{utils_8hh}\index{utils.hh@{utils.hh}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include "{}geometry.\+hh"{}}\newline
+{\ttfamily \#include "{}window.\+hh"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacepro2}{pro2}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{pro2\+::\+Sprite}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespacepro2_a26a5e7f50e3b5fb5c326c2bda8438411}{pro2\+::random\+\_\+double}} (int min, int max, int precision)
+\begin{DoxyCompactList}\small\item\em Retorna un double entre (min, max), amb una precisó de n digits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_a55607cd5641b12885ed806ee280ba980}{pro2\+::paint\+\_\+hline}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, int xini, int xfin, int y, \mbox{\hyperlink{namespacepro2_a1cf275c5d221949062bba6a49b3daa13}{Color}} color=\mbox{\hyperlink{namespacepro2_a776e9498a2ffad905d1116b37ac41345}{white}})
+\begin{DoxyCompactList}\small\item\em Dibuja una línea horizontal en la ventana. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_a5e245cc82357b693c20747d47664dac6}{pro2\+::paint\+\_\+vline}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, int x, int yini, int yfin, \mbox{\hyperlink{namespacepro2_a1cf275c5d221949062bba6a49b3daa13}{Color}} color=\mbox{\hyperlink{namespacepro2_a776e9498a2ffad905d1116b37ac41345}{white}})
+\begin{DoxyCompactList}\small\item\em Dibuja una línea vertical en la ventana. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_aac6dbc509d589864cebc81580cf4c395}{pro2\+::paint\+\_\+rect}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} rect, \mbox{\hyperlink{namespacepro2_a1cf275c5d221949062bba6a49b3daa13}{Color}} color, int brush\+\_\+sz)
+\begin{DoxyCompactList}\small\item\em Dibuixa un rectangle \textquotesingle{}\doxylink{structpro2_1_1_rect}{Rect}\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_a568d7a23428ecf5ab91719148b87b7f2}{pro2\+::paint\+\_\+rect\+\_\+fill}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} rect, \mbox{\hyperlink{namespacepro2_a1cf275c5d221949062bba6a49b3daa13}{Color}} color)
+\begin{DoxyCompactList}\small\item\em Dibuixa i emplena un rectangle \textquotesingle{}\doxylink{structpro2_1_1_rect}{Rect}\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_aba1345d890bb1ffb65673e060b6a922c}{pro2\+::paint\+\_\+rect\+\_\+fill\+\_\+transparent}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} rect, \mbox{\hyperlink{namespacepro2_a1cf275c5d221949062bba6a49b3daa13}{Color}} color, double transp)
+\begin{DoxyCompactList}\small\item\em Dibuixa i emplena un rectangle \textquotesingle{}\doxylink{structpro2_1_1_rect}{Rect}\textquotesingle{} amb transparència. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_af8c8508ca062405e341e18557c41da08}{pro2\+::paint\+\_\+pixel\+\_\+transparent}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} pos, \mbox{\hyperlink{namespacepro2_a1cf275c5d221949062bba6a49b3daa13}{Color}} color, double transp)
+\begin{DoxyCompactList}\small\item\em Pinta un pixel amb color i transparència. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_a766b62c89fab225ced2800959828f0ea}{pro2\+::paint\+\_\+sprite}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} orig, const \mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}} \&sprite, bool mirror)
+\begin{DoxyCompactList}\small\item\em Dibuixa una imatge/textura a la finestra a partir d\textquotesingle{}una posició \end{DoxyCompactList}\end{DoxyCompactItemize}
