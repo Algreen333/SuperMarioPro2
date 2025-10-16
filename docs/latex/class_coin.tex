@@ -1,0 +1,149 @@
+\doxysection{Coin Class Reference}
+\hypertarget{class_coin}{}\label{class_coin}\index{Coin@{Coin}}
+
+
+{\ttfamily \#include $<$coin.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_coin_aabf4e01aab72e266969ca530152b6eba}{Coin}} (\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_coin_aa479070d1138d691c0a6dc0e84f97c8c}{pos}}, \mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}} speed=\{0, 0\}, \mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}} accel=\{0, -\/1\}, \mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}} drag=\{0.\+075, 0.\+075\})
+\begin{DoxyCompactList}\small\item\em Coins are initilised with an initial position and, optionally, speed, acceleration and drag. Leaing speed, acceleration and drag on default, the coin will be spawned floating and static. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_coin_a118afcf276d1de43e2b75b2f9924d019}{paint}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window, int anim\+\_\+frame) const
+\begin{DoxyCompactList}\small\item\em Paints the sprite of the coin of the current animation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_coin_aa479070d1138d691c0a6dc0e84f97c8c}{pos}} () const
+\item 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} \mbox{\hyperlink{class_coin_ab5b4e07196af6095587bebf8a3a3484a}{get\+\_\+rect}} () const
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_coin_a926a2398e01906ca5988b0a0bf91a8e1}{get\+\_\+sprite}} (int anim\+\_\+frame) const
+\begin{DoxyCompactList}\small\item\em Returns the array of the current sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_coin_a89f04704af14ec39bd63e4edf1bf1a88}{set\+\_\+y}} (int y)
+\item 
+bool \mbox{\hyperlink{class_coin_a5cd5c827fb09b6cf90881372532779ec}{is\+\_\+grounded}} () const
+\item 
+void \mbox{\hyperlink{class_coin_ae90c749c34514f083fe37a17e2574512}{set\+\_\+grounded}} (bool grounded)
+\item 
+void \mbox{\hyperlink{class_coin_a3da2735ab72f82938ed0823b9fa96f16}{toggle\+\_\+grounded}} ()
+\item 
+void \mbox{\hyperlink{class_coin_a7128ef87d383772f857d2b26936ce304}{update}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window, const std\+::set$<$ \mbox{\hyperlink{class_platform}{Platform}} \texorpdfstring{$\ast$}{*} $>$ \&platforms)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$ $>$ $>$ \mbox{\hyperlink{class_coin_a631f020741fba9fc28544326fa4ca1c9}{sprites}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_coin_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_coin_aabf4e01aab72e266969ca530152b6eba}\index{Coin@{Coin}!Coin@{Coin}}
+\index{Coin@{Coin}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{Coin()}{Coin()}}
+{\footnotesize\ttfamily \label{class_coin_aabf4e01aab72e266969ca530152b6eba} 
+Coin\+::\+Coin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}}]{pos}{, }\item[{\mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}}}]{speed}{ = {\ttfamily \{0,~0\}}, }\item[{\mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}}}]{accel}{ = {\ttfamily \{0,~-\/1\}}, }\item[{\mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}}}]{drag}{ = {\ttfamily \{0.075,~0.075\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Coins are initilised with an initial position and, optionally, speed, acceleration and drag. Leaing speed, acceleration and drag on default, the coin will be spawned floating and static. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+{\em speed} & \\
+\hline
+{\em accel} & \\
+\hline
+{\em drag} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_coin_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_coin_ab5b4e07196af6095587bebf8a3a3484a}\index{Coin@{Coin}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily \label{class_coin_ab5b4e07196af6095587bebf8a3a3484a} 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} Coin\+::get\+\_\+rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_coin_a926a2398e01906ca5988b0a0bf91a8e1}\index{Coin@{Coin}!get\_sprite@{get\_sprite}}
+\index{get\_sprite@{get\_sprite}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{get\_sprite()}{get\_sprite()}}
+{\footnotesize\ttfamily \label{class_coin_a926a2398e01906ca5988b0a0bf91a8e1} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ Coin\+::get\+\_\+sprite (\begin{DoxyParamCaption}\item[{int}]{anim\+\_\+frame}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the array of the current sprite. 
+
+\Hypertarget{class_coin_a5cd5c827fb09b6cf90881372532779ec}\index{Coin@{Coin}!is\_grounded@{is\_grounded}}
+\index{is\_grounded@{is\_grounded}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{is\_grounded()}{is\_grounded()}}
+{\footnotesize\ttfamily \label{class_coin_a5cd5c827fb09b6cf90881372532779ec} 
+bool Coin\+::is\+\_\+grounded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_coin_a118afcf276d1de43e2b75b2f9924d019}\index{Coin@{Coin}!paint@{paint}}
+\index{paint@{paint}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{class_coin_a118afcf276d1de43e2b75b2f9924d019} 
+void Coin\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{, }\item[{int}]{anim\+\_\+frame}{}\end{DoxyParamCaption}) const}
+
+
+
+Paints the sprite of the coin of the current animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Window where it will be drawn \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_coin_aa479070d1138d691c0a6dc0e84f97c8c}\index{Coin@{Coin}!pos@{pos}}
+\index{pos@{pos}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{pos()}{pos()}}
+{\footnotesize\ttfamily \label{class_coin_aa479070d1138d691c0a6dc0e84f97c8c} 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} Coin\+::pos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_coin_ae90c749c34514f083fe37a17e2574512}\index{Coin@{Coin}!set\_grounded@{set\_grounded}}
+\index{set\_grounded@{set\_grounded}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{set\_grounded()}{set\_grounded()}}
+{\footnotesize\ttfamily \label{class_coin_ae90c749c34514f083fe37a17e2574512} 
+void Coin\+::set\+\_\+grounded (\begin{DoxyParamCaption}\item[{bool}]{grounded}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_coin_a89f04704af14ec39bd63e4edf1bf1a88}\index{Coin@{Coin}!set\_y@{set\_y}}
+\index{set\_y@{set\_y}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{set\_y()}{set\_y()}}
+{\footnotesize\ttfamily \label{class_coin_a89f04704af14ec39bd63e4edf1bf1a88} 
+void Coin\+::set\+\_\+y (\begin{DoxyParamCaption}\item[{int}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_coin_a3da2735ab72f82938ed0823b9fa96f16}\index{Coin@{Coin}!toggle\_grounded@{toggle\_grounded}}
+\index{toggle\_grounded@{toggle\_grounded}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{toggle\_grounded()}{toggle\_grounded()}}
+{\footnotesize\ttfamily \label{class_coin_a3da2735ab72f82938ed0823b9fa96f16} 
+void Coin\+::toggle\+\_\+grounded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_coin_a7128ef87d383772f857d2b26936ce304}\index{Coin@{Coin}!update@{update}}
+\index{update@{update}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_coin_a7128ef87d383772f857d2b26936ce304} 
+void Coin\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{, }\item[{const std\+::set$<$ \mbox{\hyperlink{class_platform}{Platform}} \texorpdfstring{$\ast$}{*} $>$ \&}]{platforms}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_coin_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_coin_a631f020741fba9fc28544326fa4ca1c9}\index{Coin@{Coin}!sprites@{sprites}}
+\index{sprites@{sprites}!Coin@{Coin}}
+\doxysubsubsection{\texorpdfstring{sprites}{sprites}}
+{\footnotesize\ttfamily \label{class_coin_a631f020741fba9fc28544326fa4ca1c9} 
+const std\+::vector$<$std\+::vector$<$std\+::vector$<$int$>$ $>$ $>$ Coin\+::sprites\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{coin_8hh}{coin.\+hh}}\item 
+\mbox{\hyperlink{coin_8cc}{coin.\+cc}}\end{DoxyCompactItemize}

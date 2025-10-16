@@ -1,0 +1,30 @@
+\doxysection{geometry.\+hh File Reference}
+\hypertarget{geometry_8hh}{}\label{geometry_8hh}\index{geometry.hh@{geometry.hh}}
+{\ttfamily \#include $<$utility$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}
+\item 
+struct \mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}}
+\item 
+struct \mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacepro2}{pro2}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacepro2_a78c0f647b95541bca2ac64c50c32fe07}{pro2\+::operator$<$}} (const \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} \&a, const \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} \&b)
+\begin{DoxyCompactList}\small\item\em Compares two points. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpro2_1_1_pt}{Pt}} \mbox{\hyperlink{namespacepro2_a6cb32bb2886604d3d343dcf971445a3e}{pro2\+::round\+\_\+dpt}} (const \mbox{\hyperlink{structpro2_1_1_doub_pt}{Doub\+Pt}} \&a)
+\begin{DoxyCompactList}\small\item\em Returns a {\ttfamily \doxylink{structpro2_1_1_pt}{pro2\+::\+Pt}} with the truncated values of a {\ttfamily \doxylink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacepro2_a2b7d9d31e5732e86e2dc8f4692a2b1fd}{pro2\+::check\+\_\+collision}} (const \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} \&a, const \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} \&b)
+\begin{DoxyCompactList}\small\item\em Returns true if the two {\ttfamily \doxylink{structpro2_1_1_rect}{pro2\+::\+Rect}} are intersecting. \end{DoxyCompactList}\item 
+std\+::pair$<$ bool, int $>$ \mbox{\hyperlink{namespacepro2_a3641b4bc7409f0d8cd33edf645b0cc4b}{pro2\+::resolve\+\_\+collision\+\_\+vertical}} (const \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} \&prev, \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} curr, const \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} \&block)
+\begin{DoxyCompactList}\small\item\em Returns true if it has crossed the rect vertically and an integer with the direction in which it has coressed\+: \end{DoxyCompactList}\item 
+std\+::pair$<$ bool, int $>$ \mbox{\hyperlink{namespacepro2_acf9c401c12dab1212fe554bc75f40151}{pro2\+::resolve\+\_\+collision\+\_\+horizontal}} (const \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} \&prev, \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} curr, const \mbox{\hyperlink{structpro2_1_1_rect}{Rect}} \&block)
+\begin{DoxyCompactList}\small\item\em Returns true if it has crossed the rect horizontally and an integer with the direction in which it has coressed\+: \end{DoxyCompactList}\end{DoxyCompactItemize}

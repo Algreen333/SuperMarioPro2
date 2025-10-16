@@ -1,0 +1,89 @@
+\doxysection{Interactable Class Reference}
+\hypertarget{class_interactable}{}\label{class_interactable}\index{Interactable@{Interactable}}
+
+
+The classs {\ttfamily \doxylink{class_interactable}{Interactable}} is used for every type of object which interacti with \doxylink{class_mario}{Mario}.  
+
+
+
+
+{\ttfamily \#include $<$interactables.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_interactable_a6c095977b3fdd4e9cf50b25605495539}{Interactable}} (\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_interactable_a0ab140a0051bb0a49e24b4cba629bc45}{pos}}, int \mbox{\hyperlink{class_interactable_a58dcf849f8a93d477b9369cc7f567d70}{type}})
+\item 
+bool \mbox{\hyperlink{class_interactable_ac0dc8c17054dbb7bca8495f90dddacb6}{update}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window, const \mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&platforms, const \mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_block}{Block}} $>$ \&blocks)
+\item 
+void \mbox{\hyperlink{class_interactable_ae8e02958ec3d3fc1eeada59270262403}{paint}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window) const
+\item 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} \mbox{\hyperlink{class_interactable_a3a97b84c8818f0b7cd9aa45131c714b1}{collision\+\_\+box}} () const
+\item 
+int \mbox{\hyperlink{class_interactable_a58dcf849f8a93d477b9369cc7f567d70}{type}} () const
+\item 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_interactable_a0ab140a0051bb0a49e24b4cba629bc45}{pos}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The classs {\ttfamily \doxylink{class_interactable}{Interactable}} is used for every type of object which interacti with \doxylink{class_mario}{Mario}. 
+
+There are 4 types\+:
+\begin{DoxyItemize}
+\item 0\+: \doxylink{class_coin}{Coin} which is created by a block when mario jumps into it from below. It acts as an animation, floating upwards and disappearing automatically. The coin is added to the coin counter.
+\item 1\+: Mushroom which makes \doxylink{class_mario}{Mario} change into its \textquotesingle{}big\textquotesingle{} state. Once it is spawned, it moves horizontally and it is also affected by gravity and block collisitions. It disappears once \doxylink{class_mario}{Mario} touches it.
+\item 2\+: The level end flag. It triggers the game win condition once \doxylink{class_mario}{Mario} touches it.
+\item 3\+: An enemy \textquotesingle{}goomba\textquotesingle{}. If \doxylink{class_mario}{Mario} jumps on top of it, it is despawned and a coin is spawned. If the goomba touches \doxylink{class_mario}{Mario} in any other way, it damages \doxylink{class_mario}{Mario}. 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_interactable_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_interactable_a6c095977b3fdd4e9cf50b25605495539}\index{Interactable@{Interactable}!Interactable@{Interactable}}
+\index{Interactable@{Interactable}!Interactable@{Interactable}}
+\doxysubsubsection{\texorpdfstring{Interactable()}{Interactable()}}
+{\footnotesize\ttfamily \label{class_interactable_a6c095977b3fdd4e9cf50b25605495539} 
+Interactable\+::\+Interactable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}}]{pos}{, }\item[{int}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_interactable_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_interactable_a3a97b84c8818f0b7cd9aa45131c714b1}\index{Interactable@{Interactable}!collision\_box@{collision\_box}}
+\index{collision\_box@{collision\_box}!Interactable@{Interactable}}
+\doxysubsubsection{\texorpdfstring{collision\_box()}{collision\_box()}}
+{\footnotesize\ttfamily \label{class_interactable_a3a97b84c8818f0b7cd9aa45131c714b1} 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} Interactable\+::collision\+\_\+box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_interactable_ae8e02958ec3d3fc1eeada59270262403}\index{Interactable@{Interactable}!paint@{paint}}
+\index{paint@{paint}!Interactable@{Interactable}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{class_interactable_ae8e02958ec3d3fc1eeada59270262403} 
+void Interactable\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_interactable_a0ab140a0051bb0a49e24b4cba629bc45}\index{Interactable@{Interactable}!pos@{pos}}
+\index{pos@{pos}!Interactable@{Interactable}}
+\doxysubsubsection{\texorpdfstring{pos()}{pos()}}
+{\footnotesize\ttfamily \label{class_interactable_a0ab140a0051bb0a49e24b4cba629bc45} 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} Interactable\+::pos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_interactable_a58dcf849f8a93d477b9369cc7f567d70}\index{Interactable@{Interactable}!type@{type}}
+\index{type@{type}!Interactable@{Interactable}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \label{class_interactable_a58dcf849f8a93d477b9369cc7f567d70} 
+int Interactable\+::type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_interactable_ac0dc8c17054dbb7bca8495f90dddacb6}\index{Interactable@{Interactable}!update@{update}}
+\index{update@{update}!Interactable@{Interactable}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_interactable_ac0dc8c17054dbb7bca8495f90dddacb6} 
+bool Interactable\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{, }\item[{const \mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&}]{platforms}{, }\item[{const \mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_block}{Block}} $>$ \&}]{blocks}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interactables_8hh}{interactables.\+hh}}\item 
+\mbox{\hyperlink{interactables_8cc}{interactables.\+cc}}\end{DoxyCompactItemize}

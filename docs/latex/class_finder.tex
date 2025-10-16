@@ -1,0 +1,164 @@
+\doxysection{Finder\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_finder}{}\label{class_finder}\index{Finder$<$ T $>$@{Finder$<$ T $>$}}
+
+
+{\ttfamily \#include $<$finder.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_finder_a72665ff446bb7b7c009b3a6eac5aed85}{Finder}} (\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} range=\{0, 0, \mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}}, \mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}}\}, \mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} divider=\{\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}}/\mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\+\_\+\+DIVS}}, \mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}}/\mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\+\_\+\+DIVS}}\})
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{class_finder}{Finder$<$\+T$>$} object and initializes the container with empty cells. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_finder_a60b26c2f502472b2d58823bddea14e7b}{add}} (T \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Adds an element to finder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_finder_a429914516be45896a1049253e768160a}{update}} (T \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Updates an object\textquotesingle{}s coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_finder_a6c6f6492df6b83891eaafe534b6f4051}{remove}} (T \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Removes an object from the container. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_finder_ab5848b230e3b8c14d93b8272cd39c30b}{remove\+\_\+and\+\_\+delete}} (T \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Removes an objet from the conainer and deletes it. \end{DoxyCompactList}\item 
+std\+::set$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_finder_ae85c7ea05e73b6d576684f733a6721fb}{query}} (\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} rect) const
+\begin{DoxyCompactList}\small\item\em Returns a set with the pointers which are within the rect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_finder_a3edb4044c2f1a0ad96409a39e58ff1e8}{Add\+From\+List}} (std\+::list$<$ T $>$ \&set)
+\begin{DoxyCompactList}\small\item\em Adds all of the element from a list to the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Finder$<$ T $>$}
+This class consists in a container divided into cells. Each object will be added to the corresponding cell based on its coordinates. 
+
+\label{doc-constructors}
+\Hypertarget{class_finder_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_finder_a72665ff446bb7b7c009b3a6eac5aed85}\index{Finder$<$ T $>$@{Finder$<$ T $>$}!Finder@{Finder}}
+\index{Finder@{Finder}!Finder$<$ T $>$@{Finder$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Finder()}{Finder()}}
+{\footnotesize\ttfamily \label{class_finder_a72665ff446bb7b7c009b3a6eac5aed85} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_finder}{Finder}}$<$ T $>$\mbox{\hyperlink{class_finder}{\+::\+Finder}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}}}]{range}{ = {\ttfamily \{0,0,\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}},\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}}\}}, }\item[{\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}}]{divider}{ = {\ttfamily \{\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}}/\mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\+\_\+\+DIVS}},~\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\+\_\+\+SZ}}/\mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\+\_\+\+DIVS}}\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a \doxylink{class_finder}{Finder$<$\+T$>$} object and initializes the container with empty cells. 
+
+\begin{DoxyPrecond}{Precondition}
+Thr type \textquotesingle{}T\textquotesingle{} objects must have a get\+\_\+rect method that returns a \doxylink{namespacepro2}{pro2}\+:Rect
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em range} & \doxylink{structpro2_1_1_rect}{pro2\+::\+Rect} with \{xmin, ymin, xmax, ymax\} of the range of coordinates it accepts \\
+\hline
+{\em divider} & \doxylink{structpro2_1_1_pt}{pro2\+::\+Pt} with the size of each cell\\
+\hline
+\end{DoxyParams}
+The default values are \{0, 0, MAX\+\_\+\+SZ, MAX\+\_\+\+SZ\} and \{MAX\+\_\+\+SZ/\+NUM\+\_\+\+DIVS, MAX\+\_\+\+SZ/\+NUM\+\_\+\+DIVS\}, with MAX\+\_\+\+SZ = 20000 and NUM\+\_\+\+DIVS = 32 
+
+\label{doc-func-members}
+\Hypertarget{class_finder_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_finder_a60b26c2f502472b2d58823bddea14e7b}\index{Finder$<$ T $>$@{Finder$<$ T $>$}!add@{add}}
+\index{add@{add}!Finder$<$ T $>$@{Finder$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{class_finder_a60b26c2f502472b2d58823bddea14e7b} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_finder}{Finder}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds an element to finder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & (T \texorpdfstring{$\ast$}{*}t) Pointer to the element to be added. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_finder_a3edb4044c2f1a0ad96409a39e58ff1e8}\index{Finder$<$ T $>$@{Finder$<$ T $>$}!AddFromList@{AddFromList}}
+\index{AddFromList@{AddFromList}!Finder$<$ T $>$@{Finder$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddFromList()}{AddFromList()}}
+{\footnotesize\ttfamily \label{class_finder_a3edb4044c2f1a0ad96409a39e58ff1e8} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_finder}{Finder}}$<$ T $>$\+::\+Add\+From\+List (\begin{DoxyParamCaption}\item[{std\+::list$<$ T $>$ \&}]{set}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds all of the element from a list to the container. 
+
+\Hypertarget{class_finder_ae85c7ea05e73b6d576684f733a6721fb}\index{Finder$<$ T $>$@{Finder$<$ T $>$}!query@{query}}
+\index{query@{query}!Finder$<$ T $>$@{Finder$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily \label{class_finder_ae85c7ea05e73b6d576684f733a6721fb} 
+template$<$typename T$>$ \\
+std\+::set$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_finder}{Finder}}$<$ T $>$\+::query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}}}]{rect}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a set with the pointers which are within the rect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & \doxylink{structpro2_1_1_rect}{pro2\+::\+Rect} with the coordinates to check \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_finder_a6c6f6492df6b83891eaafe534b6f4051}\index{Finder$<$ T $>$@{Finder$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!Finder$<$ T $>$@{Finder$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_finder_a6c6f6492df6b83891eaafe534b6f4051} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_finder}{Finder}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes an object from the container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & \texorpdfstring{$\ast$}{*}t Pointer to the object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The object must already be present in the container. 
+\end{DoxyPrecond}
+\Hypertarget{class_finder_ab5848b230e3b8c14d93b8272cd39c30b}\index{Finder$<$ T $>$@{Finder$<$ T $>$}!remove\_and\_delete@{remove\_and\_delete}}
+\index{remove\_and\_delete@{remove\_and\_delete}!Finder$<$ T $>$@{Finder$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove\_and\_delete()}{remove\_and\_delete()}}
+{\footnotesize\ttfamily \label{class_finder_ab5848b230e3b8c14d93b8272cd39c30b} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_finder}{Finder}}$<$ T $>$\+::remove\+\_\+and\+\_\+delete (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes an objet from the conainer and deletes it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & \texorpdfstring{$\ast$}{*}t Pointer to the object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The object must already be present in the container. 
+\end{DoxyPrecond}
+\Hypertarget{class_finder_a429914516be45896a1049253e768160a}\index{Finder$<$ T $>$@{Finder$<$ T $>$}!update@{update}}
+\index{update@{update}!Finder$<$ T $>$@{Finder$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_finder_a429914516be45896a1049253e768160a} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_finder}{Finder}}$<$ T $>$\+::update (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates an object\textquotesingle{}s coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & \texorpdfstring{$\ast$}{*}t Pointer to the object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The object must already be present in the container. 
+\end{DoxyPrecond}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{finder_8hh}{finder.\+hh}}\end{DoxyCompactItemize}

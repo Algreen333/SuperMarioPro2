@@ -1,0 +1,395 @@
+\doxysection{fenster.\+h}
+\hypertarget{fenster_8h_source}{}\label{fenster_8h_source}\mbox{\hyperlink{fenster_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FENSTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FENSTER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#if\ defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <CoreGraphics/CoreGraphics.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <objc/NSObjCRuntime.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <objc/objc-\/runtime.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#elif\ defined(\_WIN32)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_DEFAULT\_SOURCE\ 1}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <X11/XKBlib.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <X11/Xlib.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <X11/keysym.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfenster}{fenster}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}};}
+\DoxyCodeLine{00026\ \ \ \ \ uint32\_t\ \ \ *\mbox{\hyperlink{structfenster_a6069d54aa755de25bd4685905ab16ce4}{buf}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structfenster_ab784be7cc8e3d6743399286514401205}{keys}}[256];\ \textcolor{comment}{/*\ keys\ are\ mostly\ ASCII,\ but\ arrows\ are\ 17..20\ */}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ mod\ is\ 4\ bits\ mask,\ ctrl=1,\ shift=2,\ alt=4,\ meta=8\ */}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structfenster_a4fb28f9bb76d2b6db9e497ccf26e995c}{x}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structfenster_a1361ccfcc7ec8d1a00685b370a81dcf6}{y}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structfenster_a4980816e33fa9df67f26d59569e4f1bf}{mouse}};}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#if\ defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{id}\ wnd;}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#elif\ defined(\_WIN32)}}
+\DoxyCodeLine{00035\ \ \ \ \ HWND\ hwnd;}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00037\ \ \ \ \ Display\ *\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}};}
+\DoxyCodeLine{00038\ \ \ \ \ Window\ \ \ \mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}};}
+\DoxyCodeLine{00039\ \ \ \ \ GC\ \ \ \ \ \ \ \mbox{\hyperlink{structfenster_a86bffa496a6e352529630fb18df13c83}{gc}};}
+\DoxyCodeLine{00040\ \ \ \ \ XImage\ \ *\mbox{\hyperlink{structfenster_ac25dd2e12e1dc8e8b021d1d9034c8784}{img}};}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#ifndef\ FENSTER\_API}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ FENSTER\_API\ extern}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{fenster_8h_a77492a4d2e3e0168e55c2538d82c9317}{fenster\_open}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f);}
+\DoxyCodeLine{00048\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{fenster_8h_a409cfb66c65724949592f8a3c2d0b113}{fenster\_loop}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f);}
+\DoxyCodeLine{00049\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{fenster_8h_a6a404d56c6ae8aa2f333cb598a517bec}{fenster\_close}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f);}
+\DoxyCodeLine{00050\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{fenster_8h_aadd67368344b4c84fd4760d0b08a5ff3}{fenster\_sleep}}(int64\_t\ ms);}
+\DoxyCodeLine{00051\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ int64\_t\ \mbox{\hyperlink{fenster_8h_a98c0d11f3a94484327c846fb745a2c6b}{fenster\_time}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ fenster\_pixel(f,\ x,\ y)\ ((f)-\/>buf[((y)\ *\ (f)-\/>width)\ +\ (x)])}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifndef\ FENSTER\_HEADER}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#if\ defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ msg(r,\ o,\ s)\ ((r(*)(id,\ SEL))objc\_msgSend)(o,\ sel\_getUid(s))}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ msg1(r,\ o,\ s,\ A,\ a)\ ((r(*)(id,\ SEL,\ A))objc\_msgSend)(o,\ sel\_getUid(s),\ a)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ msg2(r,\ o,\ s,\ A,\ a,\ B,\ b)\ ((r(*)(id,\ SEL,\ A,\ B))objc\_msgSend)(o,\ sel\_getUid(s),\ a,\ b)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ msg3(r,\ o,\ s,\ A,\ a,\ B,\ b,\ C,\ c)\ \(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ ((r(*)(id,\ SEL,\ A,\ B,\ C))objc\_msgSend)(o,\ sel\_getUid(s),\ a,\ b,\ c)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ msg4(r,\ o,\ s,\ A,\ a,\ B,\ b,\ C,\ c,\ D,\ d)\ \(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ ((r(*)(id,\ SEL,\ A,\ B,\ C,\ D))objc\_msgSend)(o,\ sel\_getUid(s),\ a,\ b,\ c,\ d)}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ cls(x)\ ((id)objc\_getClass(x))}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{id}\ \textcolor{keyword}{const}\ NSDefaultRunLoopMode;}
+\DoxyCodeLine{00067\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{id}\ \textcolor{keyword}{const}\ NSApp;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ fenster\_draw\_rect(\textcolor{keywordtype}{id}\ v,\ \textcolor{keywordtype}{SEL}\ s,\ CGRect\ r)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ (void)r,\ (\textcolor{keywordtype}{void})s;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfenster}{fenster}}\ *f\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structfenster}{fenster}}\ *)objc\_getAssociatedObject(v,\ \textcolor{stringliteral}{"{}fenster"{}});}
+\DoxyCodeLine{00072\ \ \ \ \ CGContextRef\ \ \ \ context\ =}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ msg(CGContextRef,\ msg(\textcolor{keywordtype}{id},\ cls(\textcolor{stringliteral}{"{}NSGraphicsContext"{}}),\ \textcolor{stringliteral}{"{}currentContext"{}}),\ \textcolor{stringliteral}{"{}graphicsPort"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ CGColorSpaceRef\ \ \ space\ =\ CGColorSpaceCreateDeviceRGB();}
+\DoxyCodeLine{00075\ \ \ \ \ CGDataProviderRef\ provider\ =}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ CGDataProviderCreateWithData(NULL,\ f-\/>\mbox{\hyperlink{structfenster_a6069d54aa755de25bd4685905ab16ce4}{buf}},\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}}\ *\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}}\ *\ 4,\ NULL);}
+\DoxyCodeLine{00077\ \ \ \ \ CGImageRef\ \mbox{\hyperlink{structfenster_ac25dd2e12e1dc8e8b021d1d9034c8784}{img}}\ =\ CGImageCreate(f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ 8,\ 32,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}}\ *\ 4,\ space,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kCGImageAlphaNoneSkipFirst\ |\ kCGBitmapByteOrder32Little,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ provider,\ NULL,\ \textcolor{keyword}{false},\ kCGRenderingIntentDefault);}
+\DoxyCodeLine{00080\ \ \ \ \ CGColorSpaceRelease(space);}
+\DoxyCodeLine{00081\ \ \ \ \ CGDataProviderRelease(provider);}
+\DoxyCodeLine{00082\ \ \ \ \ CGContextDrawImage(context,\ CGRectMake(0,\ 0,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}}),\ \mbox{\hyperlink{structfenster_ac25dd2e12e1dc8e8b021d1d9034c8784}{img}});}
+\DoxyCodeLine{00083\ \ \ \ \ CGImageRelease(\mbox{\hyperlink{structfenster_ac25dd2e12e1dc8e8b021d1d9034c8784}{img}});}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{static}\ BOOL\ fenster\_should\_close(\textcolor{keywordtype}{id}\ v,\ \textcolor{keywordtype}{SEL}\ s,\ \textcolor{keywordtype}{id}\ \mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}})\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ (void)v,\ (\textcolor{keywordtype}{void})s,\ (void)\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}};}
+\DoxyCodeLine{00088\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ NSApp,\ \textcolor{stringliteral}{"{}terminate:"{}},\ \textcolor{keywordtype}{id},\ NSApp);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ YES;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fenster_8h_a77492a4d2e3e0168e55c2538d82c9317}{fenster\_open}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ msg(\textcolor{keywordtype}{id},\ cls(\textcolor{stringliteral}{"{}NSApplication"{}}),\ \textcolor{stringliteral}{"{}sharedApplication"{}});}
+\DoxyCodeLine{00094\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ NSApp,\ \textcolor{stringliteral}{"{}setActivationPolicy:"{}},\ NSInteger,\ 0);}
+\DoxyCodeLine{00095\ \ \ \ \ f-\/>wnd\ =\ msg4(\textcolor{keywordtype}{id},\ msg(\textcolor{keywordtype}{id},\ cls(\textcolor{stringliteral}{"{}NSWindow"{}}),\ \textcolor{stringliteral}{"{}alloc"{}}),}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}initWithContentRect:styleMask:backing:defer:"{}},\ CGRect,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CGRectMake(0,\ 0,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}}),\ NSUInteger,\ 3,\ NSUInteger,\ 2,\ BOOL,\ NO);}
+\DoxyCodeLine{00098\ \ \ \ \ Class\ windelegate\ =\ objc\_allocateClassPair((Class)cls(\textcolor{stringliteral}{"{}NSObject"{}}),\ \textcolor{stringliteral}{"{}FensterDelegate"{}},\ 0);}
+\DoxyCodeLine{00099\ \ \ \ \ class\_addMethod(windelegate,\ sel\_getUid(\textcolor{stringliteral}{"{}windowShouldClose:"{}}),\ (IMP)fenster\_should\_close,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}c@:@"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ objc\_registerClassPair(windelegate);}
+\DoxyCodeLine{00102\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ f-\/>wnd,\ \textcolor{stringliteral}{"{}setDelegate:"{}},\ \textcolor{keywordtype}{id},\ msg(\textcolor{keywordtype}{id},\ msg(\textcolor{keywordtype}{id},\ (\textcolor{keywordtype}{id})windelegate,\ \textcolor{stringliteral}{"{}alloc"{}}),\ \textcolor{stringliteral}{"{}init"{}}));}
+\DoxyCodeLine{00103\ \ \ \ \ Class\ c\ =\ objc\_allocateClassPair((Class)cls(\textcolor{stringliteral}{"{}NSView"{}}),\ \textcolor{stringliteral}{"{}FensterView"{}},\ 0);}
+\DoxyCodeLine{00104\ \ \ \ \ class\_addMethod(c,\ sel\_getUid(\textcolor{stringliteral}{"{}drawRect:"{}}),\ (IMP)fenster\_draw\_rect,\ \textcolor{stringliteral}{"{}i@:@@"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ objc\_registerClassPair(c);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{id}\ v\ =\ msg(\textcolor{keywordtype}{id},\ msg(\textcolor{keywordtype}{id},\ (\textcolor{keywordtype}{id})c,\ \textcolor{stringliteral}{"{}alloc"{}}),\ \textcolor{stringliteral}{"{}init"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ f-\/>wnd,\ \textcolor{stringliteral}{"{}setContentView:"{}},\ \textcolor{keywordtype}{id},\ v);}
+\DoxyCodeLine{00109\ \ \ \ \ objc\_setAssociatedObject(v,\ \textcolor{stringliteral}{"{}fenster"{}},\ (\textcolor{keywordtype}{id})f,\ OBJC\_ASSOCIATION\_ASSIGN);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{id}\ \mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}}\ =\ msg1(\textcolor{keywordtype}{id},\ cls(\textcolor{stringliteral}{"{}NSString"{}}),\ \textcolor{stringliteral}{"{}stringWithUTF8String:"{}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ f-\/>\mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}});}
+\DoxyCodeLine{00112\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ f-\/>wnd,\ \textcolor{stringliteral}{"{}setTitle:"{}},\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}});}
+\DoxyCodeLine{00113\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ f-\/>wnd,\ \textcolor{stringliteral}{"{}makeKeyAndOrderFront:"{}},\ \textcolor{keywordtype}{id},\ nil);}
+\DoxyCodeLine{00114\ \ \ \ \ msg(\textcolor{keywordtype}{void},\ f-\/>wnd,\ \textcolor{stringliteral}{"{}center"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ NSApp,\ \textcolor{stringliteral}{"{}activateIgnoringOtherApps:"{}},\ BOOL,\ YES);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fenster_8h_a6a404d56c6ae8aa2f333cb598a517bec}{fenster\_close}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ msg(\textcolor{keywordtype}{void},\ f-\/>wnd,\ \textcolor{stringliteral}{"{}close"{}});}
+\DoxyCodeLine{00121\ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00124\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ FENSTER\_KEYCODES[128]\ =\ \{65,83,68,70,72,71,90,88,67,86,0,66,81,87,69,82,89,84,49,50,51,52,54,53,61,57,55,45,56,48,93,79,85,91,73,80,10,76,74,39,75,59,92,44,47,78,77,46,9,32,96,8,0,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,2,3,127,0,5,0,4,0,20,19,18,17,0\};}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fenster_8h_a409cfb66c65724949592f8a3c2d0b113}{fenster\_loop}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ msg(\textcolor{keywordtype}{id},\ f-\/>wnd,\ \textcolor{stringliteral}{"{}contentView"{}}),\ \textcolor{stringliteral}{"{}setNeedsDisplay:"{}},\ BOOL,\ YES);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{id}\ ev\ =\ msg4(\textcolor{keywordtype}{id},\ NSApp,\ \textcolor{stringliteral}{"{}nextEventMatchingMask:untilDate:inMode:dequeue:"{}},\ NSUInteger,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NSUIntegerMax,\ \textcolor{keywordtype}{id},\ NULL,\ \textcolor{keywordtype}{id},\ NSDefaultRunLoopMode,\ BOOL,\ YES);}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ev)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ NSUInteger\ evtype\ =\ msg(NSUInteger,\ ev,\ \textcolor{stringliteral}{"{}type"{}});}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{switch}\ (evtype)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \textcolor{comment}{/*\ NSEventTypeMouseDown\ */}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a4980816e33fa9df67f26d59569e4f1bf}{mouse}}\ |=\ 1;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ \textcolor{comment}{/*\ NSEventTypeMouseUp*/}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a4980816e33fa9df67f26d59569e4f1bf}{mouse}}\ \&=\ \string~1;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:\ \{\ \textcolor{comment}{/*\ NSEventTypeMouseMoved\ */}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ CGPoint\ xy\ =\ msg(CGPoint,\ ev,\ \textcolor{stringliteral}{"{}locationInWindow"{}});}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a4fb28f9bb76d2b6db9e497ccf26e995c}{x}}\ =\ (int)xy.x;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a1361ccfcc7ec8d1a00685b370a81dcf6}{y}}\ =\ (int)(f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}}\ -\/\ xy.y);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 10:\ \textcolor{comment}{/*NSEventTypeKeyDown*/}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 11:\ \textcolor{comment}{/*NSEventTypeKeyUp:*/}\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ NSUInteger\ k\ =\ msg(NSUInteger,\ ev,\ \textcolor{stringliteral}{"{}keyCode"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_ab784be7cc8e3d6743399286514401205}{keys}}[k\ <\ 127\ ?\ FENSTER\_KEYCODES[k]\ :\ 0]\ =\ evtype\ ==\ 10;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ NSUInteger\ \mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}}\ =\ msg(NSUInteger,\ ev,\ \textcolor{stringliteral}{"{}modifierFlags"{}})\ >>\ 17;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}}\ =\ (\mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}}\ \&\ 0xc)\ |\ ((\mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}}\ \&\ 1)\ <<\ 1)\ |\ ((\mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}}\ >>\ 1)\ \&\ 1);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ msg1(\textcolor{keywordtype}{void},\ NSApp,\ \textcolor{stringliteral}{"{}sendEvent:"{}},\ \textcolor{keywordtype}{id},\ ev);}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00160\ \}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#elif\ defined(\_WIN32)}}
+\DoxyCodeLine{00162\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00163\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ FENSTER\_KEYCODES[]\ =\ \{0,27,49,50,51,52,53,54,55,56,57,48,45,61,8,9,81,87,69,82,84,89,85,73,79,80,91,93,10,0,65,83,68,70,71,72,74,75,76,59,39,96,0,92,90,88,67,86,66,78,77,44,46,47,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,17,3,0,20,0,19,0,5,18,4,26,127\};}
+\DoxyCodeLine{00164\ \textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }BINFO\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ BITMAPINFOHEADER\ bmiHeader;}
+\DoxyCodeLine{00168\ \ \ \ \ RGBQUAD\ \ \ \ \ \ \ \ \ \ bmiColors[3];}
+\DoxyCodeLine{00169\ \}\ BINFO;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{keyword}{static}\ LRESULT\ CALLBACK\ fenster\_wndproc(HWND\ hwnd,\ UINT\ msg,\ WPARAM\ wParam,\ LPARAM\ lParam)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfenster}{fenster}}\ *f\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structfenster}{fenster}}\ *)GetWindowLongPtr(hwnd,\ GWLP\_USERDATA);}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{switch}\ (msg)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_PAINT:\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ PAINTSTRUCT\ ps;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ HDC\ \ \ \ \ \ \ \ \ hdc\ =\ BeginPaint(hwnd,\ \&ps);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ HDC\ \ \ \ \ \ \ \ \ memdc\ =\ CreateCompatibleDC(hdc);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ HBITMAP\ \ \ \ \ hbmp\ =\ CreateCompatibleBitmap(hdc,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ HBITMAP\ \ \ \ \ oldbmp\ =\ (HBITMAP)SelectObject(memdc,\ hbmp);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ BINFO\ \ \ \ \ \ \ bi\ =\ \{\{\textcolor{keyword}{sizeof}(bi),\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ -\/f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ 1,\ 32,\ BI\_BITFIELDS\}\};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ bi.bmiColors[0].rgbRed\ =\ 0xff;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ bi.bmiColors[1].rgbGreen\ =\ 0xff;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ bi.bmiColors[2].rgbBlue\ =\ 0xff;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ SetDIBitsToDevice(memdc,\ 0,\ 0,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ 0,\ 0,\ 0,\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ f-\/>\mbox{\hyperlink{structfenster_a6069d54aa755de25bd4685905ab16ce4}{buf}},}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (BITMAPINFO\ *)\&bi,\ DIB\_RGB\_COLORS);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ BitBlt(hdc,\ 0,\ 0,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ memdc,\ 0,\ 0,\ SRCCOPY);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ SelectObject(memdc,\ oldbmp);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ DeleteObject(hbmp);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ DeleteDC(memdc);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ EndPaint(hwnd,\ \&ps);}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_CLOSE:}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ DestroyWindow(hwnd);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_LBUTTONDOWN:}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_LBUTTONUP:}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a4980816e33fa9df67f26d59569e4f1bf}{mouse}}\ =\ (msg\ ==\ WM\_LBUTTONDOWN);}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_MOUSEMOVE:}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a1361ccfcc7ec8d1a00685b370a81dcf6}{y}}\ =\ HIWORD(lParam),\ f-\/>\mbox{\hyperlink{structfenster_a4fb28f9bb76d2b6db9e497ccf26e995c}{x}}\ =\ LOWORD(lParam);}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_KEYDOWN:}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_KEYUP:\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}}\ =\ ((GetKeyState(VK\_CONTROL)\ \&\ 0x8000)\ >>\ 15)\ |}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((GetKeyState(VK\_SHIFT)\ \&\ 0x8000)\ >>\ 14)\ |}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((GetKeyState(VK\_MENU)\ \&\ 0x8000)\ >>\ 13)\ |}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((GetKeyState(VK\_LWIN)\ |\ GetKeyState(VK\_RWIN))\ \&\ 0x8000)\ >>\ 12);}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_ab784be7cc8e3d6743399286514401205}{keys}}[FENSTER\_KEYCODES[HIWORD(lParam)\ \&\ 0x1ff]]\ =\ !((lParam\ >>\ 31)\ \&\ 1);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WM\_DESTROY:}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ PostQuitMessage(0);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ DefWindowProc(hwnd,\ msg,\ wParam,\ lParam);}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00217\ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fenster_8h_a77492a4d2e3e0168e55c2538d82c9317}{fenster\_open}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ HINSTANCE\ \ hInstance\ =\ GetModuleHandle(NULL);}
+\DoxyCodeLine{00221\ \ \ \ \ WNDCLASSEX\ wc\ =\ \{0\};}
+\DoxyCodeLine{00222\ \ \ \ \ wc.cbSize\ =\ \textcolor{keyword}{sizeof}(WNDCLASSEX);}
+\DoxyCodeLine{00223\ \ \ \ \ wc.style\ =\ CS\_VREDRAW\ |\ CS\_HREDRAW;}
+\DoxyCodeLine{00224\ \ \ \ \ wc.lpfnWndProc\ =\ fenster\_wndproc;}
+\DoxyCodeLine{00225\ \ \ \ \ wc.hInstance\ =\ hInstance;}
+\DoxyCodeLine{00226\ \ \ \ \ wc.lpszClassName\ =\ f-\/>\mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}};}
+\DoxyCodeLine{00227\ \ \ \ \ RegisterClassEx(\&wc);}
+\DoxyCodeLine{00228\ \ \ \ \ f-\/>hwnd\ =}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ CreateWindowEx(WS\_EX\_CLIENTEDGE,\ f-\/>\mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}},\ f-\/>\mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}},\ WS\_OVERLAPPEDWINDOW,\ CW\_USEDEFAULT,}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CW\_USEDEFAULT,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ NULL,\ NULL,\ hInstance,\ NULL);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{if}\ (f-\/>hwnd\ ==\ NULL)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00234\ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ SetWindowLongPtr(f-\/>hwnd,\ GWLP\_USERDATA,\ (LONG\_PTR)f);}
+\DoxyCodeLine{00236\ \ \ \ \ ShowWindow(f-\/>hwnd,\ SW\_NORMAL);}
+\DoxyCodeLine{00237\ \ \ \ \ UpdateWindow(f-\/>hwnd);}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00239\ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fenster_8h_a6a404d56c6ae8aa2f333cb598a517bec}{fenster\_close}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ (void)f;}
+\DoxyCodeLine{00243\ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fenster_8h_a409cfb66c65724949592f8a3c2d0b113}{fenster\_loop}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ MSG\ msg;}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordflow}{while}\ (PeekMessage(\&msg,\ NULL,\ 0,\ 0,\ PM\_REMOVE))\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.message\ ==\ WM\_QUIT)\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ TranslateMessage(\&msg);}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ DispatchMessage(\&msg);}
+\DoxyCodeLine{00253\ \ \ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \ \ InvalidateRect(f-\/>hwnd,\ NULL,\ TRUE);}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00256\ \}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00258\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00259\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ FENSTER\_KEYCODES[124]\ =\ \{XK\_BackSpace,8,XK\_Delete,127,XK\_Down,18,XK\_End,5,XK\_Escape,27,XK\_Home,2,XK\_Insert,26,XK\_Left,20,XK\_Page\_Down,4,XK\_Page\_Up,3,XK\_Return,10,XK\_Right,19,XK\_Tab,9,XK\_Up,17,XK\_apostrophe,39,XK\_backslash,92,XK\_bracketleft,91,XK\_bracketright,93,XK\_comma,44,XK\_equal,61,XK\_grave,96,XK\_minus,45,XK\_period,46,XK\_semicolon,59,XK\_slash,47,XK\_space,32,XK\_a,65,XK\_b,66,XK\_c,67,XK\_d,68,XK\_e,69,XK\_f,70,XK\_g,71,XK\_h,72,XK\_i,73,XK\_j,74,XK\_k,75,XK\_l,76,XK\_m,77,XK\_n,78,XK\_o,79,XK\_p,80,XK\_q,81,XK\_r,82,XK\_s,83,XK\_t,84,XK\_u,85,XK\_v,86,XK\_w,87,XK\_x,88,XK\_y,89,XK\_z,90,XK\_0,48,XK\_1,49,XK\_2,50,XK\_3,51,XK\_4,52,XK\_5,53,XK\_6,54,XK\_7,55,XK\_8,56,XK\_9,57\};}
+\DoxyCodeLine{00260\ \textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fenster_8h_a77492a4d2e3e0168e55c2538d82c9317}{fenster\_open}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}}\ =\ XOpenDisplay(NULL);}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{int}\ screen\ =\ DefaultScreen(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}});}
+\DoxyCodeLine{00265\ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}}\ =\ XCreateSimpleWindow(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ RootWindow(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ screen),\ 0,\ 0,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ 0,}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BlackPixel(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ screen),\ WhitePixel(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ screen));}
+\DoxyCodeLine{00267\ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a86bffa496a6e352529630fb18df13c83}{gc}}\ =\ XCreateGC(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}},\ 0,\ 0);}
+\DoxyCodeLine{00268\ \ \ \ \ XSelectInput(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}},}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ExposureMask\ |\ KeyPressMask\ |\ KeyReleaseMask\ |\ ButtonPressMask\ |}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ButtonReleaseMask\ |\ PointerMotionMask);}
+\DoxyCodeLine{00271\ \ \ \ \ XStoreName(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}},\ f-\/>\mbox{\hyperlink{structfenster_adbbba0eb05ce92f2a946109307adc99c}{title}});}
+\DoxyCodeLine{00272\ \ \ \ \ XMapWindow(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}});}
+\DoxyCodeLine{00273\ \ \ \ \ XSync(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}});}
+\DoxyCodeLine{00274\ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_ac25dd2e12e1dc8e8b021d1d9034c8784}{img}}\ =\ XCreateImage(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ DefaultVisual(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ 0),\ 24,\ ZPixmap,\ 0,\ (\textcolor{keywordtype}{char}\ *)f-\/>\mbox{\hyperlink{structfenster_a6069d54aa755de25bd4685905ab16ce4}{buf}},}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}},\ 32,\ 0);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ Atom\ wmDelete\ =\ XInternAtom(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ \textcolor{stringliteral}{"{}WM\_DELETE\_WINDOW"{}},\ True);}
+\DoxyCodeLine{00278\ \ \ \ \ XSetWMProtocols(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}},\ \&wmDelete,\ 1);}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00280\ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fenster_8h_a6a404d56c6ae8aa2f333cb598a517bec}{fenster\_close}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ XCloseDisplay(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}});}
+\DoxyCodeLine{00284\ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fenster_8h_a409cfb66c65724949592f8a3c2d0b113}{fenster\_loop}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structfenster}{fenster}}\ *f)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ XEvent\ ev;}
+\DoxyCodeLine{00288\ \ \ \ \ XPutImage(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ f-\/>\mbox{\hyperlink{structfenster_a8b8d3c2ad174ea2143af6acf1f1bbb5d}{w}},\ f-\/>\mbox{\hyperlink{structfenster_a86bffa496a6e352529630fb18df13c83}{gc}},\ f-\/>\mbox{\hyperlink{structfenster_ac25dd2e12e1dc8e8b021d1d9034c8784}{img}},\ 0,\ 0,\ 0,\ 0,\ f-\/>\mbox{\hyperlink{structfenster_aa9c6f0103129575eba753debfcf30a06}{width}},\ f-\/>\mbox{\hyperlink{structfenster_ae83aaced8a793a86353607ff581dc0e6}{height}});}
+\DoxyCodeLine{00289\ \ \ \ \ XFlush(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}});}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordflow}{while}\ (XPending(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}}))\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ XNextEvent(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ \&ev);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (ev.type)\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ButtonPress:}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ButtonRelease:}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a4980816e33fa9df67f26d59569e4f1bf}{mouse}}\ =\ (ev.type\ ==\ ButtonPress);}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MotionNotify:}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a4fb28f9bb76d2b6db9e497ccf26e995c}{x}}\ =\ ev.xmotion.x,\ f-\/>\mbox{\hyperlink{structfenster_a1361ccfcc7ec8d1a00685b370a81dcf6}{y}}\ =\ ev.xmotion.y;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ KeyPress:}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ KeyRelease:\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ ev.xkey.state;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k\ =\ XkbKeycodeToKeysym(f-\/>\mbox{\hyperlink{structfenster_a7b95f047a70db1a6f3d5125420301ebe}{dpy}},\ ev.xkey.keycode,\ 0,\ 0);}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 124;\ i\ +=\ 2)\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (FENSTER\_KEYCODES[i]\ ==\ k)\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_ab784be7cc8e3d6743399286514401205}{keys}}[FENSTER\_KEYCODES[i\ +\ 1]]\ =\ (ev.type\ ==\ KeyPress);}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f-\/>\mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}}\ =\ (!!(m\ \&\ ControlMask))\ |\ (!!(m\ \&\ ShiftMask)\ <<\ 1)\ |}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (!!(m\ \&\ Mod1Mask)\ <<\ 2)\ |\ (!!(m\ \&\ Mod4Mask)\ <<\ 3);}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ClientMessage:}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00319\ \}}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00323\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fenster_8h_aadd67368344b4c84fd4760d0b08a5ff3}{fenster\_sleep}}(int64\_t\ ms)\ \{}
+\DoxyCodeLine{00324\ \ \ \ \ Sleep(ms);}
+\DoxyCodeLine{00325\ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ int64\_t\ \mbox{\hyperlink{fenster_8h_a98c0d11f3a94484327c846fb745a2c6b}{fenster\_time}}()\ \{}
+\DoxyCodeLine{00328\ \ \ \ \ LARGE\_INTEGER\ freq,\ count;}
+\DoxyCodeLine{00329\ \ \ \ \ QueryPerformanceFrequency(\&freq);}
+\DoxyCodeLine{00330\ \ \ \ \ QueryPerformanceCounter(\&count);}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordflow}{return}\ (int64\_t)(count.QuadPart\ *\ 1000.0\ /\ freq.QuadPart);}
+\DoxyCodeLine{00332\ \}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00334\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fenster_8h_aadd67368344b4c84fd4760d0b08a5ff3}{fenster\_sleep}}(int64\_t\ ms)\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ ts;}
+\DoxyCodeLine{00336\ \ \ \ \ ts.tv\_sec\ =\ ms\ /\ 1000;}
+\DoxyCodeLine{00337\ \ \ \ \ ts.tv\_nsec\ =\ (ms\ \%\ 1000)\ *\ 1000000;}
+\DoxyCodeLine{00338\ \ \ \ \ nanosleep(\&ts,\ NULL);}
+\DoxyCodeLine{00339\ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \mbox{\hyperlink{fenster_8h_a77850f4258d1c54e446a7b3393e698b7}{FENSTER\_API}}\ int64\_t\ \mbox{\hyperlink{fenster_8h_a98c0d11f3a94484327c846fb745a2c6b}{fenster\_time}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ time;}
+\DoxyCodeLine{00343\ \ \ \ \ clock\_gettime(CLOCK\_REALTIME,\ \&time);}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordflow}{return}\ time.tv\_sec\ *\ 1000\ +\ (time.tv\_nsec\ /\ 1000000);}
+\DoxyCodeLine{00345\ \}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00349\ \textcolor{keyword}{class\ }Fenster\ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keyword}{struct\ }fenster\ f;}
+\DoxyCodeLine{00351\ \ \ \ \ int64\_t\ \ \ \ \ \ \ \ now;}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00354\ \ \ \ \ Fenster(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *title)}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ :\ f\{.title\ =\ title,\ .width\ =\ w,\ .height\ =\ h\}\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ this-\/>f.\mbox{\hyperlink{structfenster_a6069d54aa755de25bd4685905ab16ce4}{buf}}\ =\ \textcolor{keyword}{new}\ uint32\_t[w\ *\ h];}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ this-\/>now\ =\ \mbox{\hyperlink{fenster_8h_a98c0d11f3a94484327c846fb745a2c6b}{fenster\_time}}();}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fenster_8h_a77492a4d2e3e0168e55c2538d82c9317}{fenster\_open}}(\&this-\/>f);}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \string~Fenster()\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fenster_8h_a6a404d56c6ae8aa2f333cb598a517bec}{fenster\_close}}(\&this-\/>f);}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ this-\/>f.\mbox{\hyperlink{structfenster_a6069d54aa755de25bd4685905ab16ce4}{buf}};}
+\DoxyCodeLine{00364\ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{bool}\ loop(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ fps)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ int64\_t\ t\ =\ \mbox{\hyperlink{fenster_8h_a98c0d11f3a94484327c846fb745a2c6b}{fenster\_time}}();}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ -\/\ this-\/>now\ <\ 1000\ /\ fps)\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fenster_8h_aadd67368344b4c84fd4760d0b08a5ff3}{fenster\_sleep}}(t\ -\/\ now);}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ this-\/>now\ =\ t;}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fenster_8h_a409cfb66c65724949592f8a3c2d0b113}{fenster\_loop}}(\&this-\/>f)\ ==\ 0;}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\_t\&\ px(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ y)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fenster_8h_a22c4e72d11d5aac37a5cd2e13bddfc8b}{fenster\_pixel}}(\&this-\/>f,\ x,\ y);\ \}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordtype}{bool}\ key(\textcolor{keywordtype}{int}\ c)\ \{\ \textcolor{keywordflow}{return}\ c\ >=\ 0\ \&\&\ c\ <\ 128\ ?\ this-\/>f.\mbox{\hyperlink{structfenster_ab784be7cc8e3d6743399286514401205}{keys}}[c]\ :\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{int}\ x()\ \{\ \textcolor{keywordflow}{return}\ this-\/>f.\mbox{\hyperlink{structfenster_a4fb28f9bb76d2b6db9e497ccf26e995c}{x}};\ \}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keywordtype}{int}\ y()\ \{\ \textcolor{keywordflow}{return}\ this-\/>f.\mbox{\hyperlink{structfenster_a1361ccfcc7ec8d1a00685b370a81dcf6}{y}};\ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{int}\ mouse()\ \{\ \textcolor{keywordflow}{return}\ this-\/>f.\mbox{\hyperlink{structfenster_a4980816e33fa9df67f26d59569e4f1bf}{mouse}};\ \}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordtype}{int}\ mod()\ \{\ \textcolor{keywordflow}{return}\ this-\/>f.\mbox{\hyperlink{structfenster_a1877697d1b50dc88787182694532eeb3}{mod}};\ \}}
+\DoxyCodeLine{00386\ \};}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FENSTER\_HEADER\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FENSTER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

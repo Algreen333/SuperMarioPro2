@@ -1,0 +1,32 @@
+\doxysection{text.\+cc File Reference}
+\hypertarget{text_8cc}{}\label{text_8cc}\index{text.cc@{text.cc}}
+{\ttfamily \#include "{}text.\+hh"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacepro2}{pro2}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ifstream \mbox{\hyperlink{namespacepro2_aa8c0657123bc927e8de09421c6b14b21}{pro2\+::read\+\_\+file}} (std\+::string fname)
+\begin{DoxyCompactList}\small\item\em Loads a text file as a {\ttfamily stream}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}} \mbox{\hyperlink{namespacepro2_a2b050128a07a91478637f95f68399cd7}{pro2\+::read\+\_\+colors}} (std\+::ifstream \&stream)
+\begin{DoxyCompactList}\small\item\em Generates a palette of colors from a text file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacepro2_a61b9a9f5f5a5c091482b9f33245e15d2}{Font}} \mbox{\hyperlink{namespacepro2_aa57822083cf68e85ec5da6759d2bac4a}{pro2\+::read\+\_\+sprites}} (std\+::ifstream \&stream)
+\begin{DoxyCompactList}\small\item\em Generates a {\ttfamily font} (vector of sprites of every character) from a text file. The font text files have the following structure\+: \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacepro2_aa14b608be3d9b3e24855e37270e49d1f}{Charset}} \mbox{\hyperlink{namespacepro2_ac195c494749b34afdeb51cfa09ef4edc}{pro2\+::read\+\_\+charset}} (std\+::ifstream \&stream)
+\begin{DoxyCompactList}\small\item\em Loads the charset (available characters and how they are ordered) of the font from a text file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}} \mbox{\hyperlink{namespacepro2_aae37cb369b0c1eddd32709d194767e71}{pro2\+::color\+\_\+sprite}} (const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \&sprite, const \mbox{\hyperlink{namespacepro2_a4e9c992342461c0dd2fedf08fe71b0c1}{Palette}} \&colors)
+\begin{DoxyCompactList}\small\item\em Paints the character of the font with a color palette. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacepro2_ac7ba9598fc6a2273b32d0eeba7fde792}{pro2\+::paint\+\_\+char}} (\mbox{\hyperlink{classpro2_1_1_window}{Window}} \&window, \mbox{\hyperlink{structpro2_1_1_pt}{Pt}} \&pos, \mbox{\hyperlink{namespacepro2_a6cfb60183d87061c9920694eb014b7a7}{Sprite}} sprite, int \&size)
+\begin{DoxyCompactList}\small\item\em Draws onto the screen a character with a position and size. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespacepro2_a79fc2e04b482184be79f4d205c29fdb1}{pro2\+::split\+\_\+lines}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Divides a multiline text (separated by \textquotesingle{}~\newline
+\textquotesingle{}) into a vector of each line\textquotesingle{}s string. \end{DoxyCompactList}\end{DoxyCompactItemize}

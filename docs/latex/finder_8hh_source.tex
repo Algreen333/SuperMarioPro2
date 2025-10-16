@@ -1,0 +1,89 @@
+\doxysection{finder.\+hh}
+\hypertarget{finder_8hh_source}{}\label{finder_8hh_source}\mbox{\hyperlink{finder_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FINDER\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FINDER\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{geometry_8hh}{geometry.hh}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\_DIVS}}\ =\ 32;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\_SZ}}\ =\ 20000;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{finder_8hh_ab42eb4a23547a17b9bcc536f56db9bd5}{DIVIDER}}\ =\ \mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\_SZ}}/\mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\_DIVS}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_finder_a72665ff446bb7b7c009b3a6eac5aed85}{Finder}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vector\ of\ cells\ with\ the\ objects}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<\ std::set<T\ *>\ >\ \_container;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Map\ with\ the\ pointers\ to\ the\ cells}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ std::map<T\ *,\ std::set<int>\ >\ \_locator;\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ \_divider;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ \_range;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ \ \ \_num\_divs;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_finder_a72665ff446bb7b7c009b3a6eac5aed85}{Finder}}\ (\mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ range\ =\ \{0,0,\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\_SZ}},\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\_SZ}}\},\ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ divider\ =\ \{\mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\_SZ}}/\mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\_DIVS}},\ \mbox{\hyperlink{finder_8hh_ac36f043d25b5d14823ada926183fdc92}{MAX\_SZ}}/\mbox{\hyperlink{finder_8hh_abc6d814edfd70057a72abca971816065}{NUM\_DIVS}}\})\ :\ \_range(range),\ \_divider(divider),\ \_num\_divs(\{(range.right-\/range.left)/divider.\mbox{\hyperlink{structpro2_1_1_pt_ac3bf243622bd81d35086e7adb53c9b74}{x}},\ (range.bottom-\/range.top)/divider.\mbox{\hyperlink{structpro2_1_1_pt_a66aed2131ecee1ac8d9b7a114beead56}{y}}\})\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \_container\ =\ std::vector<\ std::set<T\ *>\ >\ (\_num\_divs.x*\_num\_divs.y);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_finder_a60b26c2f502472b2d58823bddea14e7b}{add}}(T\ *t)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ rect\ =\ t-\/>get\_rect();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_abea25fc7da9516fc9e1e88fb54e49737}{top}}\ -\/\ \_range.top)/\_divider.y;\ i\ <=\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_a5240a907c581979ec7981419286a8637}{bottom}}\ -\/\ \_range.top)/\_divider.y;\ i++)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_a68877597032a2bb4630f37e44b885e81}{left}}\ -\/\ \_range.left)/\_divider.x;\ j\ <=\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_aae04a074de42a64bff8e9781b8e2af2b}{right}}\ -\/\ \_range.left)/\_divider.x;\ j++)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_container[i*\_num\_divs.y\ +\ j].insert(t);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_locator[t].insert(i*\_num\_divs.y\ +\ j);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_finder_a429914516be45896a1049253e768160a}{update}}(T\ *t)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_finder_a6c6f6492df6b83891eaafe534b6f4051}{remove}}(t);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_finder_a60b26c2f502472b2d58823bddea14e7b}{add}}(t);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_finder_a6c6f6492df6b83891eaafe534b6f4051}{remove}}(T\ *t)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::set<int>::iterator\ it\ =\ \_locator.find(t)-\/>second.begin();\ it\ !=\ \_locator.find(t)-\/>second.end();\ it++)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_container[*it].erase(t);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \_locator.erase(t);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_finder_ab5848b230e3b8c14d93b8272cd39c30b}{remove\_and\_delete}}(T\ *t)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_finder_a6c6f6492df6b83891eaafe534b6f4051}{remove}}(t);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ t;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ std::set<T\ *>\ \mbox{\hyperlink{class_finder_ae85c7ea05e73b6d576684f733a6721fb}{query}}(\mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ rect)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ std::set<T\ *>\ result;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_abea25fc7da9516fc9e1e88fb54e49737}{top}}\ -\/\ \_range.top)/\_divider.y;\ i\ <=\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_a5240a907c581979ec7981419286a8637}{bottom}}\ -\/\ \_range.top)/\_divider.y;\ i++)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_a68877597032a2bb4630f37e44b885e81}{left}}\ -\/\ \_range.left)/\_divider.x;\ j\ <=\ (rect.\mbox{\hyperlink{structpro2_1_1_rect_aae04a074de42a64bff8e9781b8e2af2b}{right}}\ -\/\ \_range.left)/\_divider.x;\ j++)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ std::set<T\ *>::const\_iterator\ it\ =\ \_container[i*\_num\_divs.y\ +\ j].begin();\ it\ !=\ \_container[i*\_num\_divs.y\ +\ j].end();\ it++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ obj\_rect\ =\ (*it)-\/>get\_rect();}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (not(rect.\mbox{\hyperlink{structpro2_1_1_rect_a68877597032a2bb4630f37e44b885e81}{left}}\ >\ obj\_rect.\mbox{\hyperlink{structpro2_1_1_rect_aae04a074de42a64bff8e9781b8e2af2b}{right}}\ or\ rect.\mbox{\hyperlink{structpro2_1_1_rect_aae04a074de42a64bff8e9781b8e2af2b}{right}}\ <\ obj\_rect.\mbox{\hyperlink{structpro2_1_1_rect_a68877597032a2bb4630f37e44b885e81}{left}}\ or\ rect.\mbox{\hyperlink{structpro2_1_1_rect_abea25fc7da9516fc9e1e88fb54e49737}{top}}\ >\ obj\_rect.\mbox{\hyperlink{structpro2_1_1_rect_a5240a907c581979ec7981419286a8637}{bottom}}\ or\ rect.\mbox{\hyperlink{structpro2_1_1_rect_a5240a907c581979ec7981419286a8637}{bottom}}\ <\ obj\_rect.\mbox{\hyperlink{structpro2_1_1_rect_abea25fc7da9516fc9e1e88fb54e49737}{top}}))\ result.insert(*it);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_finder_a3edb4044c2f1a0ad96409a39e58ff1e8}{AddFromList}}(std::list<T>\ \&set)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ std::list<T>::const\_iterator\ it\ =\ set.begin();\ it\ !=\ set.end();\ it++)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_finder_a60b26c2f502472b2d58823bddea14e7b}{add}}(\&(*it));}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ \ \ \ \ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,101 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+{\ttfamily \#include $<$game.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_a85a8df6fbfb7b46d2f003238fc7da652}{Game}} (int width, int height, \mbox{\hyperlink{classpro2_1_1_text_writer}{pro2\+::\+Text\+Writer}} TW, \mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} death\+\_\+barrier=\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}}\{-\/1000, -\/2000, 100000, 400\})
+\item 
+void \mbox{\hyperlink{class_game_a3661c777f12e357cdc0b3727b2f73412}{update}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window)
+\item 
+void \mbox{\hyperlink{class_game_af3e3428a12b9944fefb663f2fe560529}{paint}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window)
+\item 
+bool \mbox{\hyperlink{class_game_a48d38b110cb6558e69b1920bb31406db}{is\+\_\+finished}} () const
+\item 
+bool \mbox{\hyperlink{class_game_a3fef163aab28f7a4de1abb8d08794e7f}{is\+\_\+paused}} () const
+\item 
+int \mbox{\hyperlink{class_game_a9657a1f726ade6b9e7f2a4a560b6e980}{exit\+\_\+code}} () const
+\begin{DoxyCompactList}\small\item\em Returns 1 if the player has died, 2 if it has won or otherwise 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_abc1358a772766076a11eb3f1a112f576}{spawn\+\_\+coin}} (\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} pos, \mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}} vel)
+\begin{DoxyCompactList}\small\item\em Creates a new coin and adds it to the finder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a99e1f1015640f4a071504878c30e8f52}{anim\+\_\+step}} ()
+\begin{DoxyCompactList}\small\item\em Updates the animation counter to go to the next sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_game_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_a85a8df6fbfb7b46d2f003238fc7da652}\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily \label{class_game_a85a8df6fbfb7b46d2f003238fc7da652} 
+Game\+::\+Game (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{\mbox{\hyperlink{classpro2_1_1_text_writer}{pro2\+::\+Text\+Writer}}}]{TW}{, }\item[{\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}}}]{death\+\_\+barrier}{ = {\ttfamily \mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}}\{-\/1000,~-\/2000,~100000,~400\}}}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_game_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_a99e1f1015640f4a071504878c30e8f52}\index{Game@{Game}!anim\_step@{anim\_step}}
+\index{anim\_step@{anim\_step}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{anim\_step()}{anim\_step()}}
+{\footnotesize\ttfamily \label{class_game_a99e1f1015640f4a071504878c30e8f52} 
+void Game\+::anim\+\_\+step (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the animation counter to go to the next sprite. 
+
+\Hypertarget{class_game_a9657a1f726ade6b9e7f2a4a560b6e980}\index{Game@{Game}!exit\_code@{exit\_code}}
+\index{exit\_code@{exit\_code}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{exit\_code()}{exit\_code()}}
+{\footnotesize\ttfamily \label{class_game_a9657a1f726ade6b9e7f2a4a560b6e980} 
+int Game\+::exit\+\_\+code (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns 1 if the player has died, 2 if it has won or otherwise 0. 
+
+\Hypertarget{class_game_a48d38b110cb6558e69b1920bb31406db}\index{Game@{Game}!is\_finished@{is\_finished}}
+\index{is\_finished@{is\_finished}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{is\_finished()}{is\_finished()}}
+{\footnotesize\ttfamily \label{class_game_a48d38b110cb6558e69b1920bb31406db} 
+bool Game\+::is\+\_\+finished (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_game_a3fef163aab28f7a4de1abb8d08794e7f}\index{Game@{Game}!is\_paused@{is\_paused}}
+\index{is\_paused@{is\_paused}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{is\_paused()}{is\_paused()}}
+{\footnotesize\ttfamily \label{class_game_a3fef163aab28f7a4de1abb8d08794e7f} 
+bool Game\+::is\+\_\+paused (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_game_af3e3428a12b9944fefb663f2fe560529}\index{Game@{Game}!paint@{paint}}
+\index{paint@{paint}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{class_game_af3e3428a12b9944fefb663f2fe560529} 
+void Game\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_game_abc1358a772766076a11eb3f1a112f576}\index{Game@{Game}!spawn\_coin@{spawn\_coin}}
+\index{spawn\_coin@{spawn\_coin}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{spawn\_coin()}{spawn\_coin()}}
+{\footnotesize\ttfamily \label{class_game_abc1358a772766076a11eb3f1a112f576} 
+void Game\+::spawn\+\_\+coin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}}]{pos}{, }\item[{\mbox{\hyperlink{structpro2_1_1_doub_pt}{pro2\+::\+Doub\+Pt}}}]{vel}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new coin and adds it to the finder. 
+
+\Hypertarget{class_game_a3661c777f12e357cdc0b3727b2f73412}\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_game_a3661c777f12e357cdc0b3727b2f73412} 
+void Game\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{game_8hh}{game.\+hh}}\item 
+\mbox{\hyperlink{game_8cc}{game.\+cc}}\end{DoxyCompactItemize}

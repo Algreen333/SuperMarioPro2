@@ -1,0 +1,307 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Namespace List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Namespace Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}pro2 Namespace Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Typedef Documentation}{9}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.1}Charset}{9}{subsubsection.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.2}Color}{9}{subsubsection.4.1.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.1.3}Font}{9}{subsubsection.4.1.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.1.4}Palette}{9}{subsubsection.4.1.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.1.5}Sprite}{9}{subsubsection.4.1.1.5}%
+\contentsline {subsection}{\numberline {4.1.2}Enumeration Type Documentation}{9}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Keys}{9}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}ModKey}{10}{subsubsection.4.1.2.2}%
+\contentsline {subsection}{\numberline {4.1.3}Function Documentation}{10}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}check\_collision()}{10}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}color\_sprite()}{10}{subsubsection.4.1.3.2}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}operator$<$()}{10}{subsubsection.4.1.3.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.4}paint\_char()}{10}{subsubsection.4.1.3.4}%
+\contentsline {subsubsection}{\numberline {4.1.3.5}paint\_hline()}{11}{subsubsection.4.1.3.5}%
+\contentsline {subsubsection}{\numberline {4.1.3.6}paint\_pixel\_transparent()}{11}{subsubsection.4.1.3.6}%
+\contentsline {subsubsection}{\numberline {4.1.3.7}paint\_rect()}{11}{subsubsection.4.1.3.7}%
+\contentsline {subsubsection}{\numberline {4.1.3.8}paint\_rect\_fill()}{12}{subsubsection.4.1.3.8}%
+\contentsline {subsubsection}{\numberline {4.1.3.9}paint\_rect\_fill\_transparent()}{12}{subsubsection.4.1.3.9}%
+\contentsline {subsubsection}{\numberline {4.1.3.10}paint\_sprite()}{12}{subsubsection.4.1.3.10}%
+\contentsline {subsubsection}{\numberline {4.1.3.11}paint\_vline()}{13}{subsubsection.4.1.3.11}%
+\contentsline {subsubsection}{\numberline {4.1.3.12}random\_double()}{13}{subsubsection.4.1.3.12}%
+\contentsline {subsubsection}{\numberline {4.1.3.13}read\_charset()}{13}{subsubsection.4.1.3.13}%
+\contentsline {subsubsection}{\numberline {4.1.3.14}read\_colors()}{14}{subsubsection.4.1.3.14}%
+\contentsline {subsubsection}{\numberline {4.1.3.15}read\_file()}{14}{subsubsection.4.1.3.15}%
+\contentsline {subsubsection}{\numberline {4.1.3.16}read\_sprites()}{14}{subsubsection.4.1.3.16}%
+\contentsline {subsubsection}{\numberline {4.1.3.17}resolve\_collision\_horizontal()}{15}{subsubsection.4.1.3.17}%
+\contentsline {subsubsection}{\numberline {4.1.3.18}resolve\_collision\_vertical()}{15}{subsubsection.4.1.3.18}%
+\contentsline {subsubsection}{\numberline {4.1.3.19}round\_dpt()}{15}{subsubsection.4.1.3.19}%
+\contentsline {subsubsection}{\numberline {4.1.3.20}split\_lines()}{15}{subsubsection.4.1.3.20}%
+\contentsline {subsection}{\numberline {4.1.4}Variable Documentation}{16}{subsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.4.1}black}{16}{subsubsection.4.1.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.4.2}blue}{16}{subsubsection.4.1.4.2}%
+\contentsline {subsubsection}{\numberline {4.1.4.3}cyan}{16}{subsubsection.4.1.4.3}%
+\contentsline {subsubsection}{\numberline {4.1.4.4}green}{16}{subsubsection.4.1.4.4}%
+\contentsline {subsubsection}{\numberline {4.1.4.5}magenta}{16}{subsubsection.4.1.4.5}%
+\contentsline {subsubsection}{\numberline {4.1.4.6}red}{16}{subsubsection.4.1.4.6}%
+\contentsline {subsubsection}{\numberline {4.1.4.7}white}{16}{subsubsection.4.1.4.7}%
+\contentsline {subsubsection}{\numberline {4.1.4.8}yellow}{16}{subsubsection.4.1.4.8}%
+\contentsline {chapter}{\numberline {5}Class Documentation}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Block Class Reference}{17}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Constructor \& Destructor Documentation}{17}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}Block()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{17}{subsubsection.5.1.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.2}Block()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{18}{subsubsection.5.1.1.2}%
+\contentsline {subsection}{\numberline {5.1.2}Member Function Documentation}{18}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}block\_type()}{18}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}check\_bumped()}{18}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}get\_rect()}{18}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}get\_sprite()}{18}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}paint()}{19}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}pos()}{19}{subsubsection.5.1.2.6}%
+\contentsline {subsection}{\numberline {5.1.3}Member Data Documentation}{19}{subsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.3.1}sprites}{19}{subsubsection.5.1.3.1}%
+\contentsline {section}{\numberline {5.2}Button Class Reference}{19}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{19}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Constructor \& Destructor Documentation}{20}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}Button()}{20}{subsubsection.5.2.2.1}%
+\contentsline {subsection}{\numberline {5.2.3}Member Function Documentation}{20}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}get\_rect()}{20}{subsubsection.5.2.3.1}%
+\contentsline {subsubsection}{\numberline {5.2.3.2}paint()}{20}{subsubsection.5.2.3.2}%
+\contentsline {subsubsection}{\numberline {5.2.3.3}selected()}{20}{subsubsection.5.2.3.3}%
+\contentsline {section}{\numberline {5.3}Coin Class Reference}{20}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Constructor \& Destructor Documentation}{21}{subsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.1}Coin()}{21}{subsubsection.5.3.1.1}%
+\contentsline {subsection}{\numberline {5.3.2}Member Function Documentation}{21}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}get\_rect()}{21}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}get\_sprite()}{22}{subsubsection.5.3.2.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.3}is\_grounded()}{22}{subsubsection.5.3.2.3}%
+\contentsline {subsubsection}{\numberline {5.3.2.4}paint()}{22}{subsubsection.5.3.2.4}%
+\contentsline {subsubsection}{\numberline {5.3.2.5}pos()}{22}{subsubsection.5.3.2.5}%
+\contentsline {subsubsection}{\numberline {5.3.2.6}set\_grounded()}{22}{subsubsection.5.3.2.6}%
+\contentsline {subsubsection}{\numberline {5.3.2.7}set\_y()}{22}{subsubsection.5.3.2.7}%
+\contentsline {subsubsection}{\numberline {5.3.2.8}toggle\_grounded()}{22}{subsubsection.5.3.2.8}%
+\contentsline {subsubsection}{\numberline {5.3.2.9}update()}{22}{subsubsection.5.3.2.9}%
+\contentsline {subsection}{\numberline {5.3.3}Member Data Documentation}{23}{subsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.3.1}sprites}{23}{subsubsection.5.3.3.1}%
+\contentsline {section}{\numberline {5.4}pro2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Doub\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pt Struct Reference}{23}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Member Data Documentation}{23}{subsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.1}x}{23}{subsubsection.5.4.1.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.2}y}{23}{subsubsection.5.4.1.2}%
+\contentsline {section}{\numberline {5.5}fenster Struct Reference}{23}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Member Data Documentation}{24}{subsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.1.1}buf}{24}{subsubsection.5.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.5.1.2}dpy}{24}{subsubsection.5.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.5.1.3}gc}{24}{subsubsection.5.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.5.1.4}height}{24}{subsubsection.5.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.5.1.5}img}{24}{subsubsection.5.5.1.5}%
+\contentsline {subsubsection}{\numberline {5.5.1.6}keys}{24}{subsubsection.5.5.1.6}%
+\contentsline {subsubsection}{\numberline {5.5.1.7}mod}{24}{subsubsection.5.5.1.7}%
+\contentsline {subsubsection}{\numberline {5.5.1.8}mouse}{25}{subsubsection.5.5.1.8}%
+\contentsline {subsubsection}{\numberline {5.5.1.9}title}{25}{subsubsection.5.5.1.9}%
+\contentsline {subsubsection}{\numberline {5.5.1.10}w}{25}{subsubsection.5.5.1.10}%
+\contentsline {subsubsection}{\numberline {5.5.1.11}width}{25}{subsubsection.5.5.1.11}%
+\contentsline {subsubsection}{\numberline {5.5.1.12}x}{25}{subsubsection.5.5.1.12}%
+\contentsline {subsubsection}{\numberline {5.5.1.13}y}{25}{subsubsection.5.5.1.13}%
+\contentsline {section}{\numberline {5.6}Finder$<$ T $>$ Class Template Reference}{25}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{26}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Constructor \& Destructor Documentation}{26}{subsection.5.6.2}%
+\contentsline {subsubsection}{\numberline {5.6.2.1}Finder()}{26}{subsubsection.5.6.2.1}%
+\contentsline {subsection}{\numberline {5.6.3}Member Function Documentation}{26}{subsection.5.6.3}%
+\contentsline {subsubsection}{\numberline {5.6.3.1}add()}{26}{subsubsection.5.6.3.1}%
+\contentsline {subsubsection}{\numberline {5.6.3.2}AddFromList()}{27}{subsubsection.5.6.3.2}%
+\contentsline {subsubsection}{\numberline {5.6.3.3}query()}{27}{subsubsection.5.6.3.3}%
+\contentsline {subsubsection}{\numberline {5.6.3.4}remove()}{27}{subsubsection.5.6.3.4}%
+\contentsline {subsubsection}{\numberline {5.6.3.5}remove\_and\_delete()}{27}{subsubsection.5.6.3.5}%
+\contentsline {subsubsection}{\numberline {5.6.3.6}update()}{28}{subsubsection.5.6.3.6}%
+\contentsline {section}{\numberline {5.7}Game Class Reference}{29}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Constructor \& Destructor Documentation}{29}{subsection.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.7.1.1}Game()}{29}{subsubsection.5.7.1.1}%
+\contentsline {subsection}{\numberline {5.7.2}Member Function Documentation}{29}{subsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.1}anim\_step()}{29}{subsubsection.5.7.2.1}%
+\contentsline {subsubsection}{\numberline {5.7.2.2}exit\_code()}{30}{subsubsection.5.7.2.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.3}is\_finished()}{30}{subsubsection.5.7.2.3}%
+\contentsline {subsubsection}{\numberline {5.7.2.4}is\_paused()}{30}{subsubsection.5.7.2.4}%
+\contentsline {subsubsection}{\numberline {5.7.2.5}paint()}{30}{subsubsection.5.7.2.5}%
+\contentsline {subsubsection}{\numberline {5.7.2.6}spawn\_coin()}{30}{subsubsection.5.7.2.6}%
+\contentsline {subsubsection}{\numberline {5.7.2.7}update()}{30}{subsubsection.5.7.2.7}%
+\contentsline {section}{\numberline {5.8}Interactable Class Reference}{30}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{31}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Constructor \& Destructor Documentation}{31}{subsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.2.1}Interactable()}{31}{subsubsection.5.8.2.1}%
+\contentsline {subsection}{\numberline {5.8.3}Member Function Documentation}{31}{subsection.5.8.3}%
+\contentsline {subsubsection}{\numberline {5.8.3.1}collision\_box()}{31}{subsubsection.5.8.3.1}%
+\contentsline {subsubsection}{\numberline {5.8.3.2}paint()}{31}{subsubsection.5.8.3.2}%
+\contentsline {subsubsection}{\numberline {5.8.3.3}pos()}{31}{subsubsection.5.8.3.3}%
+\contentsline {subsubsection}{\numberline {5.8.3.4}type()}{32}{subsubsection.5.8.3.4}%
+\contentsline {subsubsection}{\numberline {5.8.3.5}update()}{32}{subsubsection.5.8.3.5}%
+\contentsline {section}{\numberline {5.9}Mario Class Reference}{32}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Constructor \& Destructor Documentation}{33}{subsection.5.9.1}%
+\contentsline {subsubsection}{\numberline {5.9.1.1}Mario()}{33}{subsubsection.5.9.1.1}%
+\contentsline {subsection}{\numberline {5.9.2}Member Function Documentation}{33}{subsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.1}add\_coin()}{33}{subsubsection.5.9.2.1}%
+\contentsline {subsubsection}{\numberline {5.9.2.2}collision\_box()}{33}{subsubsection.5.9.2.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.3}get\_coin\_count()}{33}{subsubsection.5.9.2.3}%
+\contentsline {subsubsection}{\numberline {5.9.2.4}get\_state()}{33}{subsubsection.5.9.2.4}%
+\contentsline {subsubsection}{\numberline {5.9.2.5}is\_grounded()}{33}{subsubsection.5.9.2.5}%
+\contentsline {subsubsection}{\numberline {5.9.2.6}jump()}{33}{subsubsection.5.9.2.6}%
+\contentsline {subsubsection}{\numberline {5.9.2.7}paint()}{34}{subsubsection.5.9.2.7}%
+\contentsline {subsubsection}{\numberline {5.9.2.8}pos()}{34}{subsubsection.5.9.2.8}%
+\contentsline {subsubsection}{\numberline {5.9.2.9}set\_grounded()}{34}{subsubsection.5.9.2.9}%
+\contentsline {subsubsection}{\numberline {5.9.2.10}set\_state()}{34}{subsubsection.5.9.2.10}%
+\contentsline {subsubsection}{\numberline {5.9.2.11}set\_y()}{34}{subsubsection.5.9.2.11}%
+\contentsline {subsubsection}{\numberline {5.9.2.12}toggle\_grounded()}{34}{subsubsection.5.9.2.12}%
+\contentsline {subsubsection}{\numberline {5.9.2.13}update()}{34}{subsubsection.5.9.2.13}%
+\contentsline {section}{\numberline {5.10}Platform Class Reference}{35}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Constructor \& Destructor Documentation}{35}{subsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.1.1}Platform()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{35}{subsubsection.5.10.1.1}%
+\contentsline {subsubsection}{\numberline {5.10.1.2}Platform()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{35}{subsubsection.5.10.1.2}%
+\contentsline {subsubsection}{\numberline {5.10.1.3}Platform()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{35}{subsubsection.5.10.1.3}%
+\contentsline {subsection}{\numberline {5.10.2}Member Function Documentation}{35}{subsection.5.10.2}%
+\contentsline {subsubsection}{\numberline {5.10.2.1}get\_rect()}{35}{subsubsection.5.10.2.1}%
+\contentsline {subsubsection}{\numberline {5.10.2.2}has\_crossed\_floor\_downwards()}{35}{subsubsection.5.10.2.2}%
+\contentsline {subsubsection}{\numberline {5.10.2.3}is\_pt\_inside()}{36}{subsubsection.5.10.2.3}%
+\contentsline {subsubsection}{\numberline {5.10.2.4}paint()}{36}{subsubsection.5.10.2.4}%
+\contentsline {subsubsection}{\numberline {5.10.2.5}top()}{36}{subsubsection.5.10.2.5}%
+\contentsline {section}{\numberline {5.11}pro2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Pt Struct Reference}{36}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Member Function Documentation}{36}{subsection.5.11.1}%
+\contentsline {subsubsection}{\numberline {5.11.1.1}operator+()}{36}{subsubsection.5.11.1.1}%
+\contentsline {subsubsection}{\numberline {5.11.1.2}operator+=()}{37}{subsubsection.5.11.1.2}%
+\contentsline {subsubsection}{\numberline {5.11.1.3}operator-\/()}{37}{subsubsection.5.11.1.3}%
+\contentsline {subsubsection}{\numberline {5.11.1.4}operator-\/=()}{37}{subsubsection.5.11.1.4}%
+\contentsline {subsection}{\numberline {5.11.2}Member Data Documentation}{37}{subsection.5.11.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.1}x}{37}{subsubsection.5.11.2.1}%
+\contentsline {subsubsection}{\numberline {5.11.2.2}y}{37}{subsubsection.5.11.2.2}%
+\contentsline {section}{\numberline {5.12}pro2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Rect Struct Reference}{37}{section.5.12}%
+\contentsline {subsection}{\numberline {5.12.1}Member Function Documentation}{38}{subsection.5.12.1}%
+\contentsline {subsubsection}{\numberline {5.12.1.1}height()}{38}{subsubsection.5.12.1.1}%
+\contentsline {subsubsection}{\numberline {5.12.1.2}operator+=()}{38}{subsubsection.5.12.1.2}%
+\contentsline {subsubsection}{\numberline {5.12.1.3}operator-\/=()}{38}{subsubsection.5.12.1.3}%
+\contentsline {subsubsection}{\numberline {5.12.1.4}width()}{38}{subsubsection.5.12.1.4}%
+\contentsline {subsection}{\numberline {5.12.2}Member Data Documentation}{38}{subsection.5.12.2}%
+\contentsline {subsubsection}{\numberline {5.12.2.1}bottom}{38}{subsubsection.5.12.2.1}%
+\contentsline {subsubsection}{\numberline {5.12.2.2}left}{38}{subsubsection.5.12.2.2}%
+\contentsline {subsubsection}{\numberline {5.12.2.3}right}{38}{subsubsection.5.12.2.3}%
+\contentsline {subsubsection}{\numberline {5.12.2.4}top}{38}{subsubsection.5.12.2.4}%
+\contentsline {section}{\numberline {5.13}Start\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Screen Class Reference}{39}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{39}{subsection.5.13.1}%
+\contentsline {subsection}{\numberline {5.13.2}Constructor \& Destructor Documentation}{39}{subsection.5.13.2}%
+\contentsline {subsubsection}{\numberline {5.13.2.1}StartScreen()}{39}{subsubsection.5.13.2.1}%
+\contentsline {subsection}{\numberline {5.13.3}Member Function Documentation}{39}{subsection.5.13.3}%
+\contentsline {subsubsection}{\numberline {5.13.3.1}exit\_code()}{39}{subsubsection.5.13.3.1}%
+\contentsline {subsubsection}{\numberline {5.13.3.2}is\_finished()}{39}{subsubsection.5.13.3.2}%
+\contentsline {subsubsection}{\numberline {5.13.3.3}paint()}{40}{subsubsection.5.13.3.3}%
+\contentsline {subsubsection}{\numberline {5.13.3.4}process\_keys()}{40}{subsubsection.5.13.3.4}%
+\contentsline {subsubsection}{\numberline {5.13.3.5}restart()}{40}{subsubsection.5.13.3.5}%
+\contentsline {subsubsection}{\numberline {5.13.3.6}update()}{40}{subsubsection.5.13.3.6}%
+\contentsline {section}{\numberline {5.14}pro2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Text\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Writer Class Reference}{40}{section.5.14}%
+\contentsline {subsection}{\numberline {5.14.1}Detailed Description}{41}{subsection.5.14.1}%
+\contentsline {subsection}{\numberline {5.14.2}Constructor \& Destructor Documentation}{41}{subsection.5.14.2}%
+\contentsline {subsubsection}{\numberline {5.14.2.1}TextWriter()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{41}{subsubsection.5.14.2.1}%
+\contentsline {subsubsection}{\numberline {5.14.2.2}TextWriter()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{41}{subsubsection.5.14.2.2}%
+\contentsline {subsubsection}{\numberline {5.14.2.3}TextWriter()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{41}{subsubsection.5.14.2.3}%
+\contentsline {subsubsection}{\numberline {5.14.2.4}TextWriter()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{41}{subsubsection.5.14.2.4}%
+\contentsline {subsection}{\numberline {5.14.3}Member Function Documentation}{41}{subsection.5.14.3}%
+\contentsline {subsubsection}{\numberline {5.14.3.1}get\_charset()}{41}{subsubsection.5.14.3.1}%
+\contentsline {subsubsection}{\numberline {5.14.3.2}get\_font()}{41}{subsubsection.5.14.3.2}%
+\contentsline {subsubsection}{\numberline {5.14.3.3}get\_palette()}{41}{subsubsection.5.14.3.3}%
+\contentsline {subsubsection}{\numberline {5.14.3.4}get\_sprite()}{41}{subsubsection.5.14.3.4}%
+\contentsline {subsubsection}{\numberline {5.14.3.5}set\_charset()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{42}{subsubsection.5.14.3.5}%
+\contentsline {subsubsection}{\numberline {5.14.3.6}set\_charset()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{42}{subsubsection.5.14.3.6}%
+\contentsline {subsubsection}{\numberline {5.14.3.7}set\_font()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{42}{subsubsection.5.14.3.7}%
+\contentsline {subsubsection}{\numberline {5.14.3.8}set\_font()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{42}{subsubsection.5.14.3.8}%
+\contentsline {subsubsection}{\numberline {5.14.3.9}set\_palette()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{42}{subsubsection.5.14.3.9}%
+\contentsline {subsubsection}{\numberline {5.14.3.10}set\_palette()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{42}{subsubsection.5.14.3.10}%
+\contentsline {subsubsection}{\numberline {5.14.3.11}write\_text()}{42}{subsubsection.5.14.3.11}%
+\contentsline {section}{\numberline {5.15}pro2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Window Class Reference}{43}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Detailed Description}{44}{subsection.5.15.1}%
+\contentsline {subsection}{\numberline {5.15.2}Constructor \& Destructor Documentation}{44}{subsection.5.15.2}%
+\contentsline {subsubsection}{\numberline {5.15.2.1}Window()}{44}{subsubsection.5.15.2.1}%
+\contentsline {subsubsection}{\numberline {5.15.2.2}$\sim $Window()}{45}{subsubsection.5.15.2.2}%
+\contentsline {subsection}{\numberline {5.15.3}Member Function Documentation}{45}{subsection.5.15.3}%
+\contentsline {subsubsection}{\numberline {5.15.3.1}camera\_center()}{45}{subsubsection.5.15.3.1}%
+\contentsline {subsubsection}{\numberline {5.15.3.2}camera\_rect()}{45}{subsubsection.5.15.3.2}%
+\contentsline {subsubsection}{\numberline {5.15.3.3}clear()}{45}{subsubsection.5.15.3.3}%
+\contentsline {subsubsection}{\numberline {5.15.3.4}frame\_count()}{45}{subsubsection.5.15.3.4}%
+\contentsline {subsubsection}{\numberline {5.15.3.5}get\_pixel()}{45}{subsubsection.5.15.3.5}%
+\contentsline {subsubsection}{\numberline {5.15.3.6}height()}{46}{subsubsection.5.15.3.6}%
+\contentsline {subsubsection}{\numberline {5.15.3.7}is\_key\_down()}{46}{subsubsection.5.15.3.7}%
+\contentsline {subsubsection}{\numberline {5.15.3.8}is\_modkey\_down()}{46}{subsubsection.5.15.3.8}%
+\contentsline {subsubsection}{\numberline {5.15.3.9}is\_mouse\_down()}{47}{subsubsection.5.15.3.9}%
+\contentsline {subsubsection}{\numberline {5.15.3.10}mouse\_pos()}{47}{subsubsection.5.15.3.10}%
+\contentsline {subsubsection}{\numberline {5.15.3.11}move\_camera()}{47}{subsubsection.5.15.3.11}%
+\contentsline {subsubsection}{\numberline {5.15.3.12}next\_frame()}{48}{subsubsection.5.15.3.12}%
+\contentsline {subsubsection}{\numberline {5.15.3.13}set\_camera\_topleft()}{48}{subsubsection.5.15.3.13}%
+\contentsline {subsubsection}{\numberline {5.15.3.14}set\_fps()}{48}{subsubsection.5.15.3.14}%
+\contentsline {subsubsection}{\numberline {5.15.3.15}set\_pixel()}{49}{subsubsection.5.15.3.15}%
+\contentsline {subsubsection}{\numberline {5.15.3.16}sleep()}{49}{subsubsection.5.15.3.16}%
+\contentsline {subsubsection}{\numberline {5.15.3.17}topleft()}{49}{subsubsection.5.15.3.17}%
+\contentsline {subsubsection}{\numberline {5.15.3.18}was\_key\_pressed()}{50}{subsubsection.5.15.3.18}%
+\contentsline {subsubsection}{\numberline {5.15.3.19}was\_mouse\_pressed()}{50}{subsubsection.5.15.3.19}%
+\contentsline {subsubsection}{\numberline {5.15.3.20}width()}{50}{subsubsection.5.15.3.20}%
+\contentsline {chapter}{\numberline {6}File Documentation}{51}{chapter.6}%
+\contentsline {section}{\numberline {6.1}block.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{51}{section.6.1}%
+\contentsline {section}{\numberline {6.2}block.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{51}{section.6.2}%
+\contentsline {section}{\numberline {6.3}block.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{51}{section.6.3}%
+\contentsline {section}{\numberline {6.4}coin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{52}{section.6.4}%
+\contentsline {section}{\numberline {6.5}coin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{53}{section.6.5}%
+\contentsline {section}{\numberline {6.6}coin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{53}{section.6.6}%
+\contentsline {section}{\numberline {6.7}fenster.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{54}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Macro Definition Documentation}{54}{subsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.1}\_DEFAULT\_SOURCE}{54}{subsubsection.6.7.1.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.2}FENSTER\_API}{55}{subsubsection.6.7.1.2}%
+\contentsline {subsubsection}{\numberline {6.7.1.3}fenster\_pixel}{55}{subsubsection.6.7.1.3}%
+\contentsline {subsection}{\numberline {6.7.2}Function Documentation}{55}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}fenster\_close()}{55}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}fenster\_loop()}{55}{subsubsection.6.7.2.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.3}fenster\_open()}{55}{subsubsection.6.7.2.3}%
+\contentsline {subsubsection}{\numberline {6.7.2.4}fenster\_sleep()}{55}{subsubsection.6.7.2.4}%
+\contentsline {subsubsection}{\numberline {6.7.2.5}fenster\_time()}{55}{subsubsection.6.7.2.5}%
+\contentsline {section}{\numberline {6.8}fenster.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{56}{section.6.8}%
+\contentsline {section}{\numberline {6.9}finder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{60}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Variable Documentation}{61}{subsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.1}DIVIDER}{61}{subsubsection.6.9.1.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.2}MAX\_SZ}{61}{subsubsection.6.9.1.2}%
+\contentsline {subsubsection}{\numberline {6.9.1.3}NUM\_DIVS}{61}{subsubsection.6.9.1.3}%
+\contentsline {section}{\numberline {6.10}finder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{61}{section.6.10}%
+\contentsline {section}{\numberline {6.11}game.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{62}{section.6.11}%
+\contentsline {section}{\numberline {6.12}game.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{62}{section.6.12}%
+\contentsline {section}{\numberline {6.13}game.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{63}{section.6.13}%
+\contentsline {section}{\numberline {6.14}geometry.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{63}{section.6.14}%
+\contentsline {section}{\numberline {6.15}geometry.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{64}{section.6.15}%
+\contentsline {section}{\numberline {6.16}geometry.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{65}{section.6.16}%
+\contentsline {section}{\numberline {6.17}interactables.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{66}{section.6.17}%
+\contentsline {section}{\numberline {6.18}interactables.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{66}{section.6.18}%
+\contentsline {section}{\numberline {6.19}interactables.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{66}{section.6.19}%
+\contentsline {section}{\numberline {6.20}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{67}{section.6.20}%
+\contentsline {subsection}{\numberline {6.20.1}Function Documentation}{67}{subsection.6.20.1}%
+\contentsline {subsubsection}{\numberline {6.20.1.1}death\_screen()}{67}{subsubsection.6.20.1.1}%
+\contentsline {subsubsection}{\numberline {6.20.1.2}main()}{67}{subsubsection.6.20.1.2}%
+\contentsline {subsubsection}{\numberline {6.20.1.3}win\_screen()}{67}{subsubsection.6.20.1.3}%
+\contentsline {subsection}{\numberline {6.20.2}Variable Documentation}{68}{subsection.6.20.2}%
+\contentsline {subsubsection}{\numberline {6.20.2.1}FPS}{68}{subsubsection.6.20.2.1}%
+\contentsline {subsubsection}{\numberline {6.20.2.2}HEIGHT}{68}{subsubsection.6.20.2.2}%
+\contentsline {subsubsection}{\numberline {6.20.2.3}WIDTH}{68}{subsubsection.6.20.2.3}%
+\contentsline {subsubsection}{\numberline {6.20.2.4}ZOOM}{68}{subsubsection.6.20.2.4}%
+\contentsline {section}{\numberline {6.21}mario.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{68}{section.6.21}%
+\contentsline {section}{\numberline {6.22}mario.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{68}{section.6.22}%
+\contentsline {section}{\numberline {6.23}mario.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{69}{section.6.23}%
+\contentsline {section}{\numberline {6.24}platform.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{70}{section.6.24}%
+\contentsline {subsection}{\numberline {6.24.1}Typedef Documentation}{70}{subsection.6.24.1}%
+\contentsline {subsubsection}{\numberline {6.24.1.1}Color}{70}{subsubsection.6.24.1.1}%
+\contentsline {section}{\numberline {6.25}platform.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{70}{section.6.25}%
+\contentsline {section}{\numberline {6.26}platform.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{70}{section.6.26}%
+\contentsline {section}{\numberline {6.27}start\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}screen.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{71}{section.6.27}%
+\contentsline {section}{\numberline {6.28}start\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}screen.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{71}{section.6.28}%
+\contentsline {section}{\numberline {6.29}start\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}screen.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{71}{section.6.29}%
+\contentsline {section}{\numberline {6.30}text.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{72}{section.6.30}%
+\contentsline {section}{\numberline {6.31}text.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{73}{section.6.31}%
+\contentsline {section}{\numberline {6.32}text.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{74}{section.6.32}%
+\contentsline {section}{\numberline {6.33}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{75}{section.6.33}%
+\contentsline {section}{\numberline {6.34}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{75}{section.6.34}%
+\contentsline {section}{\numberline {6.35}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{76}{section.6.35}%
+\contentsline {section}{\numberline {6.36}window.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cc File Reference}{77}{section.6.36}%
+\contentsline {section}{\numberline {6.37}window.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh File Reference}{77}{section.6.37}%
+\contentsline {subsection}{\numberline {6.37.1}Macro Definition Documentation}{78}{subsection.6.37.1}%
+\contentsline {subsubsection}{\numberline {6.37.1.1}FENSTER\_HEADER}{78}{subsubsection.6.37.1.1}%
+\contentsline {section}{\numberline {6.38}window.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hh}{78}{section.6.38}%
+\contentsline {chapter}{Index}{81}{section*.64}%

@@ -1,0 +1,163 @@
+\doxysection{Mario Class Reference}
+\hypertarget{class_mario}{}\label{class_mario}\index{Mario@{Mario}}
+
+
+{\ttfamily \#include $<$mario.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mario_ae8a337835cc5f56f51e8800a554d0496}{Mario}} (int key\+\_\+up, int key\+\_\+left, int key\+\_\+right, \mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9}{pos}})
+\item 
+void \mbox{\hyperlink{class_mario_aee49024d8542a3f425d53b7ca86aefc8}{paint}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window) const
+\item 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} \mbox{\hyperlink{class_mario_ab6e599f7141e09b57b71145a85a53c84}{collision\+\_\+box}} () const
+\item 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} \mbox{\hyperlink{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9}{pos}} () const
+\item 
+void \mbox{\hyperlink{class_mario_a807ce8785091bd609e156292409b376f}{set\+\_\+y}} (int y)
+\item 
+bool \mbox{\hyperlink{class_mario_adb7c1e4fe5678628216c3110a8eb10c0}{is\+\_\+grounded}} () const
+\item 
+void \mbox{\hyperlink{class_mario_a970f238b3538fa175b0f73aa29aa2c48}{set\+\_\+grounded}} (bool grounded)
+\item 
+void \mbox{\hyperlink{class_mario_a4b8785eae84e2d5f0f45bf5290054f92}{toggle\+\_\+grounded}} ()
+\item 
+void \mbox{\hyperlink{class_mario_ac3b75d0650fb2a149d33fd9f1420da99}{jump}} ()
+\item 
+void \mbox{\hyperlink{class_mario_a2abf9931a70719b7024ffef031399fe7}{add\+\_\+coin}} (int ammount=1)
+\begin{DoxyCompactList}\small\item\em Adds coins to the coin counter. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_mario_a63c28ee34e499d33e2e2b5f51967c7c4}{get\+\_\+coin\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the value of the coin counter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mario_a55fb1254a74e20796365a9bb625a8e56}{update}} (\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&window, const \mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&platforms, \mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_block}{Block}} $>$ \&blocks, std\+::list$<$ \mbox{\hyperlink{class_interactable}{Interactable}} $>$ \&interactables)
+\item 
+void \mbox{\hyperlink{class_mario_a6ec1a65f057f09fb140b4c183ca7bad6}{set\+\_\+state}} (int new\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Changes the state of the player to \textquotesingle{}small\textquotesingle{} (0) or \textquotesingle{}big\textquotesingle{} (1). Also the states 2 and 3 are used for the animation of changing from small to big or the other way. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_mario_aa17e4908ccd634c933b1e241df1b5eef}{get\+\_\+state}} () const
+\begin{DoxyCompactList}\small\item\em Returns the state of \doxylink{class_mario}{Mario}\+: \textquotesingle{}small\textquotesingle{} (0) or \textquotesingle{}big\textquotesingle{} (1). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_mario_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_mario_ae8a337835cc5f56f51e8800a554d0496}\index{Mario@{Mario}!Mario@{Mario}}
+\index{Mario@{Mario}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{Mario()}{Mario()}}
+{\footnotesize\ttfamily \label{class_mario_ae8a337835cc5f56f51e8800a554d0496} 
+Mario\+::\+Mario (\begin{DoxyParamCaption}\item[{int}]{key\+\_\+up}{, }\item[{int}]{key\+\_\+left}{, }\item[{int}]{key\+\_\+right}{, }\item[{\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}}}]{pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_mario_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mario_a2abf9931a70719b7024ffef031399fe7}\index{Mario@{Mario}!add\_coin@{add\_coin}}
+\index{add\_coin@{add\_coin}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{add\_coin()}{add\_coin()}}
+{\footnotesize\ttfamily \label{class_mario_a2abf9931a70719b7024ffef031399fe7} 
+void Mario\+::add\+\_\+coin (\begin{DoxyParamCaption}\item[{int}]{ammount}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds coins to the coin counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ammount} & Ammount of coins to add. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mario_ab6e599f7141e09b57b71145a85a53c84}\index{Mario@{Mario}!collision\_box@{collision\_box}}
+\index{collision\_box@{collision\_box}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{collision\_box()}{collision\_box()}}
+{\footnotesize\ttfamily \label{class_mario_ab6e599f7141e09b57b71145a85a53c84} 
+\mbox{\hyperlink{structpro2_1_1_rect}{pro2\+::\+Rect}} Mario\+::collision\+\_\+box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_mario_a63c28ee34e499d33e2e2b5f51967c7c4}\index{Mario@{Mario}!get\_coin\_count@{get\_coin\_count}}
+\index{get\_coin\_count@{get\_coin\_count}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{get\_coin\_count()}{get\_coin\_count()}}
+{\footnotesize\ttfamily \label{class_mario_a63c28ee34e499d33e2e2b5f51967c7c4} 
+int Mario\+::get\+\_\+coin\+\_\+count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the value of the coin counter. 
+
+\Hypertarget{class_mario_aa17e4908ccd634c933b1e241df1b5eef}\index{Mario@{Mario}!get\_state@{get\_state}}
+\index{get\_state@{get\_state}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{get\_state()}{get\_state()}}
+{\footnotesize\ttfamily \label{class_mario_aa17e4908ccd634c933b1e241df1b5eef} 
+int Mario\+::get\+\_\+state (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the state of \doxylink{class_mario}{Mario}\+: \textquotesingle{}small\textquotesingle{} (0) or \textquotesingle{}big\textquotesingle{} (1). 
+
+\Hypertarget{class_mario_adb7c1e4fe5678628216c3110a8eb10c0}\index{Mario@{Mario}!is\_grounded@{is\_grounded}}
+\index{is\_grounded@{is\_grounded}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{is\_grounded()}{is\_grounded()}}
+{\footnotesize\ttfamily \label{class_mario_adb7c1e4fe5678628216c3110a8eb10c0} 
+bool Mario\+::is\+\_\+grounded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mario_ac3b75d0650fb2a149d33fd9f1420da99}\index{Mario@{Mario}!jump@{jump}}
+\index{jump@{jump}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{jump()}{jump()}}
+{\footnotesize\ttfamily \label{class_mario_ac3b75d0650fb2a149d33fd9f1420da99} 
+void Mario\+::jump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_mario_aee49024d8542a3f425d53b7ca86aefc8}\index{Mario@{Mario}!paint@{paint}}
+\index{paint@{paint}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{class_mario_aee49024d8542a3f425d53b7ca86aefc8} 
+void Mario\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9}\index{Mario@{Mario}!pos@{pos}}
+\index{pos@{pos}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{pos()}{pos()}}
+{\footnotesize\ttfamily \label{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9} 
+\mbox{\hyperlink{structpro2_1_1_pt}{pro2\+::\+Pt}} Mario\+::pos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mario_a970f238b3538fa175b0f73aa29aa2c48}\index{Mario@{Mario}!set\_grounded@{set\_grounded}}
+\index{set\_grounded@{set\_grounded}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{set\_grounded()}{set\_grounded()}}
+{\footnotesize\ttfamily \label{class_mario_a970f238b3538fa175b0f73aa29aa2c48} 
+void Mario\+::set\+\_\+grounded (\begin{DoxyParamCaption}\item[{bool}]{grounded}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mario_a6ec1a65f057f09fb140b4c183ca7bad6}\index{Mario@{Mario}!set\_state@{set\_state}}
+\index{set\_state@{set\_state}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{set\_state()}{set\_state()}}
+{\footnotesize\ttfamily \label{class_mario_a6ec1a65f057f09fb140b4c183ca7bad6} 
+void Mario\+::set\+\_\+state (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+state}{}\end{DoxyParamCaption})}
+
+
+
+Changes the state of the player to \textquotesingle{}small\textquotesingle{} (0) or \textquotesingle{}big\textquotesingle{} (1). Also the states 2 and 3 are used for the animation of changing from small to big or the other way. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+state} & New state. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mario_a807ce8785091bd609e156292409b376f}\index{Mario@{Mario}!set\_y@{set\_y}}
+\index{set\_y@{set\_y}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{set\_y()}{set\_y()}}
+{\footnotesize\ttfamily \label{class_mario_a807ce8785091bd609e156292409b376f} 
+void Mario\+::set\+\_\+y (\begin{DoxyParamCaption}\item[{int}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mario_a4b8785eae84e2d5f0f45bf5290054f92}\index{Mario@{Mario}!toggle\_grounded@{toggle\_grounded}}
+\index{toggle\_grounded@{toggle\_grounded}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{toggle\_grounded()}{toggle\_grounded()}}
+{\footnotesize\ttfamily \label{class_mario_a4b8785eae84e2d5f0f45bf5290054f92} 
+void Mario\+::toggle\+\_\+grounded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mario_a55fb1254a74e20796365a9bb625a8e56}\index{Mario@{Mario}!update@{update}}
+\index{update@{update}!Mario@{Mario}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_mario_a55fb1254a74e20796365a9bb625a8e56} 
+void Mario\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1_window}{pro2\+::\+Window}} \&}]{window}{, }\item[{const \mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&}]{platforms}{, }\item[{\mbox{\hyperlink{class_finder}{Finder}}$<$ \mbox{\hyperlink{class_block}{Block}} $>$ \&}]{blocks}{, }\item[{std\+::list$<$ \mbox{\hyperlink{class_interactable}{Interactable}} $>$ \&}]{interactables}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mario_8hh}{mario.\+hh}}\item 
+\mbox{\hyperlink{mario_8cc}{mario.\+cc}}\end{DoxyCompactItemize}

@@ -1,38 +1,55 @@
 # SuperMarioPro2
 
-## Les dues noves classes
-Per a la tercera entrega les dues classes principals que s'han implementat són 'Block' i 'Interactable'. 
+This is a project for a 1st year university subject. We were given a simple recreation of the original Super Mario Bros game. Our task was to add new classes and functionalities to the game.
+
+## Build instructions
+The source files of the game are in the directory `src`. The game can be built with the `Makefile`:
+```bash
+make MODE=release
+```
+To clean the files after the compilation run:
+```bash
+make clean
+```
+
+## Documentation
+The documentation of the code (automatically generated with Doxygen) can be found in ``docs``. It can be viewed as an html or as a pdf generated with latex. There already is a compiled pdf.
+
+## The new classes
+
+Two main classes have been added: 'Block' and 'Interactable'.
 
 ### class Block
-Block afegeix alguns dels blocs originals del SMB, com el bloc de totxto, el bloc interrogant, i altres.
-El jugador pot interactuar amb aquests (si es compleixen les condicions) saltant i xocant-s'hi des de sota.
+The 'Block' class adds new blocks from the original SMB, such as the question mark block. The player can interact with the blocks by jumping into them from below.
 
 ### class Interactable
-La classe 'Interactable' afegeix objectes diversos que interaccionen amb el jugador. Afegeix les monedes que surten dels blocs, els bolets i els 'goombas' del SMB original, i també la bandera que hi ha al final del mapa.
-Alguns d'aquests objectes aparèixen quan s'interactua amb els blocs. Per exemple, del bloc interrogant en poden sortir monedes o bolets. D'altra banda el goomba o la bandera ja es troben al nivell.
+The 'Interactable' class adds a variety of objects which interact with the player. It adds: coins that are created from activating blocks, the mushrooms and 'goombas' from the original SMB, as well as the finish flag.
 
-## Modificacions adicionals
-D'altra banda, també s'ha afegit un menú principal al que es retorna en prèmer 'Escape' des de dins del joc, quan el mario mor o quan s'arriba al final del nivell i es toca la bandera.
+Some of these objects appear when interacting with blocks and others are already spawned with the level.
 
-A banda d'això s'han fet moltes modificacions a les classes ja existents per tal de crear les noves funcionalitats i també s'ha creat un simple nivell per a mostrar-les.
+## Additional modifications
+A main menu has been added, which can be accessed by pressing the ``Escape`` key, when Mario dies or by touching the finish flag.
 
-Dit això, si que vull destacar el mòdul de text 'text.hh' que s'ha creat per al projecte: 
+Many more modifications have been made to the original code given and a new level has been created which recreates the original SMB's 1-1 level.
 
-## Libreria nova: text.hh
+***
 
-Aquesta llibreria permet escriure text a la pantalla a partir de fonts ja creades.
-Les fonts s'obtenen a partir de fitxers de text, amb una llista de matrius de strings, cada matriu representant el 'sprite' d'un caràcter. Després aquest text es pot pintar amb una paleta (un diccionari que diu a quin color es correspon cada string) i finalment ser dibuixat a la pantalla.
+Having explained these new classes and modifications, there is one other new feature I want to highlight.
 
-Hi ha dues fonts ja creades dins de la carpeta assets:
-    'assets/6x6rounded.txt' i 'assets/6x10rounded.txt'. Al joc s'utilitza la 6x10rounded.
+## New module: `text.hh`
 
-També hi ha la paleta de colors utilitzada i el charset (llista dels caràcters en el mateix ordre en el que apareix a la font)
+This module allows for drawing text onto the screen using already made font bitmaps.
+The fonts are loaded from text files, with a list of arrays of strings, which represent each character's 'sprite'. Then, the spritescan be painted with a color palette (a dictionary that maps strings to colors) and finally draw them.
 
-Cal que per a l'execució del mario estigui present la carpeta "assets" al mateix directori que l'executable, ja que el programa llegeix la font un cop s'executa.
+There are two fonts that have already been converted to the correct formats:
+- ``assets/6x6rounded.txt``  
+- ``assets/6x10rounded.txt`` (The one used in the game).
 
-També he inclos un script simple fet amb python que vaig utilitzar per a generar de forma automatitzada la font a partir d'una imatge amb el bitmap dels caràcters.
+There is also an already made color palette and the charset (list of characters in the same order in which they appear in the font file).
 
+For the correct exectuion of the game, the folder `assets` should be in the same directory as the executable, as the files are read each time the game runs.
 
+The tools and python scripts i made to convert the images of the font bitmaps into the text fonts automatically have are also available in `additional_tools`.
 
-## Vídeo de demostració
-Finalment també he inclòs un petit vídeo mostrant el projecte i les noves mecàniques i objectes que he implemenetat.
+## Demonstration video
+Finally, I have also included a demonstration video, ``video_demo.mov``, showing the how the game works and showcasing all of the new features I have added.

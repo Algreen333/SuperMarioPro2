@@ -1,0 +1,90 @@
+\doxysection{mario.\+hh}
+\hypertarget{mario_8hh_source}{}\label{mario_8hh_source}\mbox{\hyperlink{mario_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MARIO\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MARIO\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{platform_8hh}{platform.hh}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{window_8hh}{window.hh}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{block_8hh}{block.hh}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{finder_8hh}{finder.hh}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interactables_8hh}{interactables.hh}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mario_ae8a337835cc5f56f51e8800a554d0496}{Mario}}\ \{}
+\DoxyCodeLine{00013\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ pos\_,\ last\_pos\_;}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ speed\_\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ accel\_\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ accel\_time\_\ =\ 0;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ key\_up\_;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ key\_left\_;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ key\_right\_;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ grounded\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ looking\_left\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ coin\_count\_\ =\ 0;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ state\_\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ anim\_frame\_counter\_;}
+\DoxyCodeLine{00030\ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_mario_ae8a337835cc5f56f51e8800a554d0496}{Mario}}(\textcolor{keywordtype}{int}\ key\_up,\ \textcolor{keywordtype}{int}\ key\_left,\ \textcolor{keywordtype}{int}\ key\_right,\ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ \mbox{\hyperlink{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9}{pos}}):\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ key\_up\_(key\_up),\ key\_left\_(key\_left),\ key\_right\_(key\_right),}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ pos\_(\mbox{\hyperlink{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9}{pos}}),\ last\_pos\_(\mbox{\hyperlink{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9}{pos}})}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_aee49024d8542a3f425d53b7ca86aefc8}{paint}}(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ \mbox{\hyperlink{class_mario_ab6e599f7141e09b57b71145a85a53c84}{collision\_box}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ \mbox{\hyperlink{class_mario_a0bc34a1f489d6d10905c83fa8e1e72f9}{pos}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pos\_;}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_a807ce8785091bd609e156292409b376f}{set\_y}}(\textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ pos\_.y\ =\ y;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mario_adb7c1e4fe5678628216c3110a8eb10c0}{is\_grounded}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ grounded\_;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_a970f238b3538fa175b0f73aa29aa2c48}{set\_grounded}}(\textcolor{keywordtype}{bool}\ grounded)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ grounded\_\ =\ grounded;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (grounded\_)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ speed\_.y\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_a4b8785eae84e2d5f0f45bf5290054f92}{toggle\_grounded}}()\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mario_a970f238b3538fa175b0f73aa29aa2c48}{set\_grounded}}(!grounded\_);}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_ac3b75d0650fb2a149d33fd9f1420da99}{jump}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_a2abf9931a70719b7024ffef031399fe7}{add\_coin}}(\textcolor{keywordtype}{int}\ ammount\ =\ 1)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ coin\_count\_\ +=\ ammount;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_mario_a63c28ee34e499d33e2e2b5f51967c7c4}{get\_coin\_count}}()\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coin\_count\_;\ }
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_a55fb1254a74e20796365a9bb625a8e56}{update}}(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_finder}{Finder<Platform>}}\&\ platforms,\ \mbox{\hyperlink{class_finder}{Finder<Block>}}\&\ blocks,\ std::list<Interactable>\&\ interactables);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mario_a6ec1a65f057f09fb140b4c183ca7bad6}{set\_state}}(\textcolor{keywordtype}{int}\ new\_state);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_mario_aa17e4908ccd634c933b1e241df1b5eef}{get\_state}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ state\_;\}}
+\DoxyCodeLine{00096\ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ mario\_sprite\_normal\_;}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ mario\_sprite\_tall\_;}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,47 @@
+\doxysection{interactables.\+hh}
+\hypertarget{interactables_8hh_source}{}\label{interactables_8hh_source}\mbox{\hyperlink{interactables_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INTERACTABLES\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INTERACTABLES\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{geometry_8hh}{geometry.hh}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{finder_8hh}{finder.hh}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{platform_8hh}{platform.hh}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{block_8hh}{block.hh}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8hh}{utils.hh}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{window_8hh}{window.hh}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_interactable_a6c095977b3fdd4e9cf50b25605495539}{Interactable}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type\_;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ pos\_;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction\ =\ 1;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ despawn\_timer\_;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_interactable_a6c095977b3fdd4e9cf50b25605495539}{Interactable}}(\mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ \mbox{\hyperlink{class_interactable_a0ab140a0051bb0a49e24b4cba629bc45}{pos}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_interactable_a58dcf849f8a93d477b9369cc7f567d70}{type}})\ :\ pos\_(\mbox{\hyperlink{class_interactable_a0ab140a0051bb0a49e24b4cba629bc45}{pos}}),\ type\_(\mbox{\hyperlink{class_interactable_a58dcf849f8a93d477b9369cc7f567d70}{type}}),\ despawn\_timer\_((\mbox{\hyperlink{class_interactable_a58dcf849f8a93d477b9369cc7f567d70}{type}}==0)?\ 10\ :\ -\/1)\ \{\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_interactable_ac0dc8c17054dbb7bca8495f90dddacb6}{update}}(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_finder}{Finder<Platform>}}\&\ platforms,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_finder}{Finder<Block>}}\&\ blocks);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interactable_ae8e02958ec3d3fc1eeada59270262403}{paint}}(\mbox{\hyperlink{classpro2_1_1_window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_rect}{pro2::Rect}}\ \mbox{\hyperlink{class_interactable_a3a97b84c8818f0b7cd9aa45131c714b1}{collision\_box}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\_\ ==\ 0)\ \textcolor{keywordflow}{return}\ \{0,0,0,0\};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\_\ ==\ 1\ or\ type\_\ ==\ 3)\ \textcolor{keywordflow}{return}\ \{pos\_.x,\ pos\_.y,\ pos\_.x\ +\ 15,\ pos\_.y\ +\ 15\};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ \{pos\_.x+7,\ pos\_.y,\ pos\_.x\ +\ 8,\ pos\_.y\ +\ 168\};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_interactable_a58dcf849f8a93d477b9369cc7f567d70}{type}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ type\_;\}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpro2_1_1_pt}{pro2::Pt}}\ \mbox{\hyperlink{class_interactable_a0ab140a0051bb0a49e24b4cba629bc45}{pos}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ pos\_;\}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<std::vector<int>>>\ sprites;}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
